@@ -65,7 +65,7 @@ const AboutSecofetBanner = () => {
               <a href="#sample" className="btn-sample-underline">
                 Request a Sample ↗
               </a>
-              <a href="#quote" className="btn-quote-white">
+              <a href="#rfq" className="btn-quote-white">
                 Request a Quote
               </a>
             </div>

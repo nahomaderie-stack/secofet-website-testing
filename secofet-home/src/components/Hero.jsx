@@ -26,7 +26,7 @@ const Hero = () => {
             <a href="#coffees" className="btn-primary">
               Explore Our Coffees
             </a>
-            <a href="#quote" className="btn-secondary">
+            <a href="#quote" to="/rfq" className="btn-secondary">
               <span>Request a Quote</span>
               <svg
                 width="16"
