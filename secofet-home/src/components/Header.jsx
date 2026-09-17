@@ -286,7 +286,7 @@ const Header = () => {
           </li>
         </ul>
 
-        <div className="mobile-actions">
+        <div className="mobile-actions mobile-RFQ-btn">
           <Link
             to="/rfq"
             className="btn-quote btn-mobile-quote"

@@ -247,6 +247,17 @@
   flex-direction: column;
   gap: 16px;
 }
+.mobile-actions.mobile-RFQ-btn .btn-mobile-quote {
+  display: block;
+  width: 100%;
+  max-width: 280px;
+  text-align: center;
+  background-color: #ffffff;
+  color: #0b0c0e;
+  transition:
+    background-color 0.2s ease,
+    transform 0.1s ease;
+}
 
 .mobile-nav a {
   color: #a0a6b0;
@@ -298,6 +309,9 @@
   .btn-quote {
     display: none;
   }
+  .header-container {
+    height: 78px;
+  }
 
   /* Full width mobile search overlay when opened */
   .search-wrapper.open {
@@ -325,5 +339,9 @@
   .search-wrapper.open .search-toggle-btn {
     left: auto;
     right: 6px;
+  }
+
+  .header-container {
+    height: 74px;
   }
 }
