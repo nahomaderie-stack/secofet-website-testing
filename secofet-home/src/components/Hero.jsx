@@ -1,0 +1,53 @@
+import React from 'react';
+import '../styles/Hero.css';
+
+const Hero = () => {
+  return (
+    <section className="hero-section">
+      {/* Background Overlay */}
+      <div className="hero-overlay"></div>
+
+      {/* Hero Content Container */}
+      <div className="hero-container">
+        <div className="hero-content">
+          <h1 className="hero-title">
+            Ethiopian <span className="serif-text">Coffee</span> Carefully
+            <br />
+            Sourced, <span className="serif-text">Reliably</span> Exported.
+          </h1>
+
+          <p className="hero-subtitle">
+            We supply Ethiopian specialty and commercial Arabica coffee to
+            international buyers, with sourcing focused on established origins
+            in Yirgacheffe, Guji and Sidama.
+          </p>
+
+          <div className="hero-cta-group">
+            <a href="#coffees" className="btn-primary">
+              Explore Our Coffees
+            </a>
+            <a href="#quote" className="btn-secondary">
+              <span>Request a Quote</span>
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="arrow-up-right"
+              >
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Hero;

@@ -1,0 +1,359 @@
+/* ==========================================================================
+   Header Main Styles
+   ========================================================================== */
+
+.header {
+  background-color: #181c20; /* Dark background matched with image */
+  color: #ffffff;
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+  font-family:
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial,
+    sans-serif;
+}
+
+.header-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+}
+
+/* --- Brand / Logo --- */
+.header-logo a {
+  color: #ffffff;
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  text-decoration: none;
+  text-transform: lowercase;
+  transition: opacity 0.2s ease;
+}
+
+.header-logo a:hover {
+  opacity: 0.85;
+}
+
+/* --- Navigation Links --- */
+.header-nav ul {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.header-nav a {
+  color: #a0a6b0;
+  text-decoration: none;
+  font-size: 0.92rem;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.header-nav a:hover,
+.header-nav a.active {
+  color: #ffffff;
+}
+
+/* --- Action Section (Right) --- */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* --- Expandable Search Bar --- */
+.search-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-toggle-btn {
+  background: transparent;
+  border: none;
+  color: #a0a6b0;
+  cursor: pointer;
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease;
+  z-index: 2;
+}
+
+.search-toggle-btn:hover {
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.search-input {
+  width: 0;
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  right: 0;
+  background-color: #24292e;
+  border: 1px solid #383e45;
+  border-radius: 20px;
+  padding: 6px 12px 6px 36px;
+  color: #ffffff;
+  font-size: 0.85rem;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.search-wrapper.open .search-input {
+  width: 200px;
+  opacity: 1;
+  visibility: visible;
+}
+
+.search-wrapper.open .search-toggle-btn {
+  position: absolute;
+  left: 6px;
+  color: #a0a6b0;
+}
+
+.search-input::placeholder {
+  color: #6e7681;
+}
+
+/* --- Request a Quote Button --- */
+.btn-quote {
+  background-color: #ffffff;
+  color: #181c20;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 18px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    transform 0.1s ease;
+  white-space: nowrap;
+}
+
+.btn-quote:hover {
+  background-color: #e2e8f0;
+}
+
+.btn-quote:active {
+  transform: scale(0.98);
+}
+
+/* --- Mobile Menu Toggle Button --- */
+.mobile-menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 28px;
+  height: 22px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 10;
+}
+
+.mobile-menu-toggle .bar {
+  width: 100%;
+  height: 2px;
+  background-color: #ffffff;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.mobile-menu-toggle .bar.open:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.mobile-menu-toggle .bar.open:nth-child(2) {
+  opacity: 0;
+}
+
+.mobile-menu-toggle .bar.open:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* --- Mobile Dropdown Navigation --- */
+.mobile-nav {
+  display: none;
+  background-color: #181c20;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 16px 24px 24px;
+}
+
+.mobile-nav.open {
+  display: block;
+}
+
+.mobile-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.mobile-nav a {
+  color: #a0a6b0;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  display: block;
+}
+
+.mobile-nav a:hover {
+  color: #ffffff;
+}
+
+.mobile-actions {
+  margin-top: 20px;
+}
+
+.btn-mobile-quote {
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+}
+
+/* ==========================================================================
+   Quote Modal Window
+   ========================================================================== */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  padding: 16px;
+}
+
+.modal-container {
+  background-color: #1e2329;
+  border: 1px solid #2d333b;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 480px;
+  padding: 28px;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  color: #ffffff;
+}
+
+.modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: transparent;
+  border: none;
+  color: #a0a6b0;
+  font-size: 1.5rem;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.modal-close:hover {
+  color: #ffffff;
+}
+
+.modal-title {
+  margin: 0 0 6px 0;
+  font-size: 1.35rem;
+  font-weight: 700;
+}
+
+.modal-subtitle {
+  margin: 0 0 20px 0;
+  color: #a0a6b0;
+  font-size: 0.88rem;
+}
+
+.quote-form .form-group {
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.quote-form label {
+  font-size: 0.82rem;
+  color: #c9d1d9;
+  font-weight: 500;
+}
+
+.quote-form input,
+.quote-form select,
+.quote-form textarea {
+  background-color: #161b22;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  padding: 10px 12px;
+  color: #ffffff;
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.quote-form input:focus,
+.quote-form select:focus,
+.quote-form textarea:focus {
+  border-color: #58a6ff;
+}
+
+.btn-submit {
+  width: 100%;
+  background-color: #ffffff;
+  color: #181c20;
+  border: none;
+  padding: 11px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: background-color 0.2s ease;
+}
+
+.btn-submit:hover {
+  background-color: #e2e8f0;
+}
+
+/* ==========================================================================
+   Responsive Styles
+   ========================================================================== */
+
+@media (max-width: 860px) {
+  .header-nav {
+    display: none;
+  }
+
+  .mobile-menu-toggle {
+    display: flex;
+  }
+
+  .header-actions {
+    gap: 12px;
+  }
+
+  .btn-quote {
+    display: none; /* Hidden on desktop bar, shown in mobile dropdown */
+  }
+}
