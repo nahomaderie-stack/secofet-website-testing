@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import '../styles/Header.css';
 import Secofetlogo from '../assets/Logos/Secofet-Logo-01.svg';
 
@@ -17,6 +18,7 @@ const Header = () => {
 
   const handleSearchSubmit = (e) => {
     e.preventDefault();
+
     if (searchQuery.trim()) {
       alert(`Searching for: ${searchQuery}`);
     }
@@ -28,7 +30,9 @@ const Header = () => {
         setIsMobileMenuOpen(false);
       }
     };
+
     window.addEventListener('resize', handleResize);
+
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
@@ -38,34 +42,92 @@ const Header = () => {
         <div className="header-container">
           {/* Logo */}
           <div className="header-logo">
-            <a href="#home">
-              <img src={Secofetlogo} alt="" />
-            </a>
+            <Link to="/" onClick={() => setActiveLink('Home')}>
+              <img src={Secofetlogo} alt="Secofet" />
+            </Link>
           </div>
 
           {/* Desktop Navigation Links */}
           <nav className="header-nav">
             <ul>
-              {[
-                'Home',
-                'About Us',
-                'Our Coffees',
-                'Origins',
-                'Inside Secofet',
-                'Contact Us',
-              ].map((item) => (
-                <li key={item}>
-                  <a
-                    href={`#${item.toLowerCase().replace(/\s+/g, '')}`}
-                    className={
-                      activeLink === item ? 'nav-link active' : 'nav-link'
-                    }
-                    onClick={() => setActiveLink(item)}
-                  >
-                    {item}
-                  </a>
-                </li>
-              ))}
+              {/* Home */}
+              <li>
+                <Link
+                  to="/"
+                  className={
+                    activeLink === 'Home' ? 'nav-link active' : 'nav-link'
+                  }
+                  onClick={() => setActiveLink('Home')}
+                >
+                  Home
+                </Link>
+              </li>
+
+              {/* About Us */}
+              <li>
+                <Link
+                  to="/about"
+                  className={
+                    activeLink === 'About Us' ? 'nav-link active' : 'nav-link'
+                  }
+                  onClick={() => setActiveLink('About Us')}
+                >
+                  About Us
+                </Link>
+              </li>
+
+              {/* Other pages - we'll connect these later */}
+              <li>
+                <a
+                  href="#ourcoffees"
+                  className={
+                    activeLink === 'Our Coffees'
+                      ? 'nav-link active'
+                      : 'nav-link'
+                  }
+                  onClick={() => setActiveLink('Our Coffees')}
+                >
+                  Our Coffees
+                </a>
+              </li>
+
+              <li>
+                <a
+                  href="#origins"
+                  className={
+                    activeLink === 'Origins' ? 'nav-link active' : 'nav-link'
+                  }
+                  onClick={() => setActiveLink('Origins')}
+                >
+                  Origins
+                </a>
+              </li>
+
+              <li>
+                <a
+                  href="#insidesecofet"
+                  className={
+                    activeLink === 'Inside Secofet'
+                      ? 'nav-link active'
+                      : 'nav-link'
+                  }
+                  onClick={() => setActiveLink('Inside Secofet')}
+                >
+                  Inside Secofet
+                </a>
+              </li>
+
+              <li>
+                <Link
+                  to="/contact"
+                  className={
+                    activeLink === 'Contact Us' ? 'nav-link active' : 'nav-link'
+                  }
+                  onClick={() => setActiveLink('Contact Us')}
+                >
+                  Contact Us
+                </Link>
+              </li>
             </ul>
           </nav>
 
@@ -83,12 +145,16 @@ const Header = () => {
                   autoFocus={isSearchOpen}
                 />
               </form>
+
               <button
                 type="button"
                 className="search-toggle-btn"
                 onClick={() => {
                   setIsSearchOpen(!isSearchOpen);
-                  if (isSearchOpen) setSearchQuery('');
+
+                  if (isSearchOpen) {
+                    setSearchQuery('');
+                  }
                 }}
                 aria-label="Toggle Search"
               >
@@ -104,6 +170,7 @@ const Header = () => {
                     strokeLinejoin="round"
                   >
                     <line x1="18" y1="6" x2="6" y2="18"></line>
+
                     <line x1="6" y1="6" x2="18" y2="18"></line>
                   </svg>
                 ) : (
@@ -118,6 +185,7 @@ const Header = () => {
                     strokeLinejoin="round"
                   >
                     <circle cx="11" cy="11" r="8"></circle>
+
                     <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
                   </svg>
                 )}
@@ -137,12 +205,17 @@ const Header = () => {
               className="mobile-menu-toggle"
               onClick={() => {
                 setIsMobileMenuOpen(!isMobileMenuOpen);
-                if (isSearchOpen) setIsSearchOpen(false);
+
+                if (isSearchOpen) {
+                  setIsSearchOpen(false);
+                }
               }}
               aria-label="Toggle Navigation Menu"
             >
               <span className={`bar ${isMobileMenuOpen ? 'open' : ''}`}></span>
+
               <span className={`bar ${isMobileMenuOpen ? 'open' : ''}`}></span>
+
               <span className={`bar ${isMobileMenuOpen ? 'open' : ''}`}></span>
             </button>
           </div>
@@ -151,28 +224,85 @@ const Header = () => {
         {/* Mobile Dropdown Navigation */}
         <div className={`mobile-nav ${isMobileMenuOpen ? 'open' : ''}`}>
           <ul>
-            {[
-              'Home',
-              'About Us',
-              'Our Coffees',
-              'Origins',
-              'Inside Secofet',
-              'Contact Us',
-            ].map((item) => (
-              <li key={item}>
-                <a
-                  href={`#${item.toLowerCase().replace(/\s+/g, '')}`}
-                  className={activeLink === item ? 'active' : ''}
-                  onClick={() => {
-                    setActiveLink(item);
-                    setIsMobileMenuOpen(false);
-                  }}
-                >
-                  {item}
-                </a>
-              </li>
-            ))}
+            {/* Home */}
+            <li>
+              <Link
+                to="/"
+                className={activeLink === 'Home' ? 'active' : ''}
+                onClick={() => {
+                  setActiveLink('Home');
+                  setIsMobileMenuOpen(false);
+                }}
+              >
+                Home
+              </Link>
+            </li>
+
+            {/* About Us */}
+            <li>
+              <Link
+                to="/about"
+                className={activeLink === 'About Us' ? 'active' : ''}
+                onClick={() => {
+                  setActiveLink('About Us');
+                  setIsMobileMenuOpen(false);
+                }}
+              >
+                About Us
+              </Link>
+            </li>
+
+            {/* Other pages - we'll connect these later */}
+            <li>
+              <a
+                href="#ourcoffees"
+                className={activeLink === 'Our Coffees' ? 'active' : ''}
+                onClick={() => {
+                  setActiveLink('Our Coffees');
+                  setIsMobileMenuOpen(false);
+                }}
+              >
+                Our Coffees
+              </a>
+            </li>
+
+            <li>
+              <a
+                href="#origins"
+                className={activeLink === 'Origins' ? 'active' : ''}
+                onClick={() => {
+                  setActiveLink('Origins');
+                  setIsMobileMenuOpen(false);
+                }}
+              >
+                Origins
+              </a>
+            </li>
+
+            <li>
+              <a
+                href="#insidesecofet"
+                className={activeLink === 'Inside Secofet' ? 'active' : ''}
+                onClick={() => {
+                  setActiveLink('Inside Secofet');
+                  setIsMobileMenuOpen(false);
+                }}
+              >
+                Inside Secofet
+              </a>
+            </li>
+
+            <Link
+              to="/contact"
+              className={
+                activeLink === 'Contact Us' ? 'nav-link active' : 'nav-link'
+              }
+              onClick={() => setActiveLink('Contact Us')}
+            >
+              Contact Us
+            </Link>
           </ul>
+
           <div className="mobile-actions">
             <button
               className="btn-quote btn-mobile-quote"

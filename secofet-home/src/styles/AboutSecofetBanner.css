@@ -1,0 +1,229 @@
+/* ==========================================================================
+   About Secofet Banner Styles
+   ========================================================================== */
+
+.about-secofet-section {
+  width: 100%;
+  background-color: #ffffff;
+  color: #111315;
+  padding: 60px 24px 90px;
+  box-sizing: border-box;
+  font-family:
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial,
+    sans-serif;
+}
+
+.about-secofet-container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+/* Heading */
+.about-secofet-title {
+  font-size: clamp(2.4rem, 4vw, 3.4rem);
+  font-weight: 800;
+  color: #0b0c0e;
+  letter-spacing: -0.02em;
+  margin: 0 0 32px 0;
+  text-align: left;
+}
+
+.serif-text {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-style: italic;
+  font-weight: 400;
+}
+
+/* --- Carousel Outer Card --- */
+.carousel-card {
+  position: relative;
+  width: 100%;
+  height: 520px;
+  border-radius: 0px;
+  overflow: hidden;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+}
+
+.carousel-bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Dark Gradient at Bottom for Contrast */
+.carousel-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.75) 0%,
+    rgba(0, 0, 0, 0.15) 45%,
+    transparent 100%
+  );
+  z-index: 1;
+}
+
+/* Bottom Controls Bar Layout */
+.carousel-controls-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  padding: 32px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Left Actions */
+.carousel-actions {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.btn-sample-underline {
+  position: relative;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding-bottom: 2px;
+  transition: opacity 0.2s ease;
+  white-space: nowrap;
+}
+
+.btn-sample-underline::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: #ffffff;
+  transition: width 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.btn-sample-underline:hover::after {
+  width: 100%;
+}
+
+.btn-quote-white {
+  background-color: #ffffff;
+  color: #0b0c0e;
+  padding: 10px 24px;
+  border-radius: 30px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition:
+    background-color 0.2s ease,
+    transform 0.1s ease;
+  white-space: nowrap;
+}
+
+.btn-quote-white:hover {
+  background-color: #f3f4f6;
+}
+
+.btn-quote-white:active {
+  transform: scale(0.97);
+}
+
+/* Right Navigation Elements */
+.carousel-navigation {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+/* Dots Indicator */
+.carousel-dots {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.dot.active {
+  background-color: #ffffff;
+  transform: scale(1.3);
+}
+
+/* Arrows */
+.carousel-arrows {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.arrow-btn {
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  font-size: 0.85rem;
+  cursor: pointer;
+  padding: 4px 8px;
+  transition:
+    opacity 0.2s ease,
+    transform 0.1s ease;
+  user-select: none;
+}
+
+.arrow-btn:hover {
+  opacity: 0.75;
+}
+
+.arrow-btn:active {
+  transform: scale(0.9);
+}
+
+/* ==========================================================================
+   Responsive Behavior
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  .carousel-card {
+    height: 380px;
+  }
+
+  .carousel-controls-bar {
+    padding: 24px 20px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .carousel-navigation {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 480px) {
+  .carousel-actions {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+  }
+
+  .btn-quote-white {
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+  }
+}

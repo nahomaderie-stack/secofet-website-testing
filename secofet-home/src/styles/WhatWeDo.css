@@ -1,0 +1,111 @@
+/* ==========================================================================
+   What We Do Section Styles
+   ========================================================================== */
+
+.what-we-do-section {
+  width: 100%;
+  background-color: #ffffff;
+  color: #111315;
+  padding: 100px 24px;
+  box-sizing: border-box;
+  font-family:
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial,
+    sans-serif;
+}
+
+.what-we-do-container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 72px;
+  align-items: center;
+}
+
+/* --- Left Image Column --- */
+.what-we-do-image-col {
+  width: 100%;
+  height: 520px;
+  border-radius: 0px;
+  overflow: hidden;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.06);
+}
+
+.what-we-do-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* --- Right Content Column --- */
+.what-we-do-content-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.what-we-do-tag {
+  color: #0d5c3a; /* Green accent color matching design */
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin-bottom: 20px;
+  display: block;
+}
+
+.what-we-do-title {
+  font-size: clamp(2rem, 3vw, 2.8rem);
+  font-weight: 800;
+  line-height: 1.15;
+  color: #0b0c0e;
+  letter-spacing: -0.025em;
+  margin: 0 0 36px 0;
+}
+
+.what-we-do-text-body {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 520px;
+}
+
+.what-we-do-text-body p {
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: #555d66;
+  font-weight: 400;
+  margin: 0;
+}
+
+/* ==========================================================================
+   Responsive Behavior
+   ========================================================================== */
+
+@media (max-width: 992px) {
+  .what-we-do-container {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .what-we-do-image-col {
+    height: 400px;
+  }
+}
+
+@media (max-width: 576px) {
+  .what-we-do-section {
+    padding: 60px 16px;
+  }
+
+  .what-we-do-image-col {
+    height: 300px;
+    border-radius: 16px;
+  }
+
+  .what-we-do-text-body p {
+    font-size: 0.98rem;
+  }
+}

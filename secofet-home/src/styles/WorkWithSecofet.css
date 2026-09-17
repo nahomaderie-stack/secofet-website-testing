@@ -157,7 +157,7 @@
   }
 
   .btn-link-underline {
-    align-self: flex-start;
+    align-self: center;
     margin-top: 4px;
   }
 }
