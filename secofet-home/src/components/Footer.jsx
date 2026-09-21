@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import '../styles/Footer.css';
 import Secofetlogo from '../assets/Logos/Secofet logo-04.png';
 
@@ -39,12 +40,12 @@ const Footer = () => {
 
           {/* Column 1: Main Pages */}
           <div className="footer-col">
-            <a href="#process">Home</a>
-            <a href="#services">About Us</a>
-            <a href="#showcase">Our Coffees</a>
-            <a href="#pricing">Origins</a>
-            <a href="#pricing">Inside Secofet</a>
-            <a href="#pricing">Contact Us</a>
+            <Link to="/">Home</Link>
+            <Link to="/about">About Us</Link>
+            <Link to="/our-coffees">Our Coffees</Link>
+            <Link to="/origins">Origins</Link>
+            <Link to="/operations">Our Operations</Link>
+            <Link to="/contact">Contact Us</Link>
           </div>
 
           {/* Column 2: Social Links */}

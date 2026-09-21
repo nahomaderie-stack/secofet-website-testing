@@ -68,41 +68,41 @@ const Header = () => {
 
             {/* Anchor Sections */}
             <li>
-              <a
-                href="#ourcoffees"
+              <Link
+                to="/our-coffees"
                 className={
                   activeLink === 'Our Coffees' ? 'nav-link active' : 'nav-link'
                 }
                 onClick={() => setActiveLink('Our Coffees')}
               >
                 Our Coffees
-              </a>
+              </Link>
             </li>
 
             <li>
-              <a
-                href="#origins"
+              <Link
+                to="/origins"
                 className={
                   activeLink === 'Origins' ? 'nav-link active' : 'nav-link'
                 }
                 onClick={() => setActiveLink('Origins')}
               >
                 Origins
-              </a>
+              </Link>
             </li>
 
             <li>
-              <a
-                href="#insidesecofet"
+              <Link
+                to="/operations"
                 className={
-                  activeLink === 'Inside Secofet'
+                  activeLink === 'Our Operations'
                     ? 'nav-link active'
                     : 'nav-link'
                 }
-                onClick={() => setActiveLink('Inside Secofet')}
+                onClick={() => setActiveLink('Our Operations')}
               >
-                Inside Secofet
-              </a>
+                Our Operations
+              </Link>
             </li>
 
             <li>

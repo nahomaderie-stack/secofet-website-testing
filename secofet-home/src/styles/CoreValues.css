@@ -86,7 +86,8 @@
 
 /* --- Base Light Card State --- */
 .value-card {
-  background-color: #e8e8e8; /* Soft grey matching mockup */
+  background-color: #e8e8e8;
+  /* Soft grey matching mockup */
   border-radius: 24px;
   padding: 36px 32px;
   min-height: 360px;
@@ -151,7 +152,8 @@
 
 /* --- Dark Hovered Card State --- */
 .value-card:hover {
-  background-color: #262626; /* Dark charcoal */
+  background-color: #007200;
+  /* Dark charcoal */
   transform: translateY(-4px);
 }
 

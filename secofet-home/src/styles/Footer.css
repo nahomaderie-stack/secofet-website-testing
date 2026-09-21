@@ -3,7 +3,8 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background-color: #0a0b0b; /* Extends dark background across whole viewport */
+  background-color: #0a0b0b;
+  /* Extends dark background across whole viewport */
   font-family:
     -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial,
     sans-serif;
@@ -12,7 +13,8 @@
 /* Full Width Inner Container */
 .footer-card {
   width: 100%;
-  max-width: 1315px; /* Constrains inner content readability while card stretches */
+  max-width: 1315px;
+  /* Constrains inner content readability while card stretches */
   margin: 0 auto;
   background-color: #0a0b0b;
   color: #ffffff;
@@ -28,7 +30,8 @@
 .footer-top {
   display: grid;
   grid-template-columns: auto auto auto 2fr;
-  gap: 100px; /* Adjust this value to control the exact distance between the columns */
+  gap: 100px;
+  /* Adjust this value to control the exact distance between the columns */
   align-items: start;
 }
 
