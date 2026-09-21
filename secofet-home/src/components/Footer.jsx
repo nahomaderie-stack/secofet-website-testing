@@ -78,9 +78,9 @@ const Footer = () => {
 
           {/* Column 3: Legal Links */}
           <div className="footer-col">
-            <a href="#terms">Terms & Conditions</a>
-            <a href="#privacy">Privacy Policy</a>
-            <a href="#cookie">Cookie Policy</a>
+            <Link to="/terms">Terms & Conditions</Link>
+            <Link to="/privacy">Privacy Policy</Link>
+            <Link to="/cookie">Cookie Policy</Link>
           </div>
         </div>
 

@@ -14,6 +14,10 @@ import ContactPage from './pages/ContactPage';
 import NotFoundPage from './pages/NotFoundPage';
 import RFQQuote from './pages/RFQQuote';
 
+import TermsConditionsPage from './pages/TermsConditionsPage';
+import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
+import CookiePolicyPage from './pages/CookiePolicyPage';
+
 function App() {
   return (
     <div className="app-container">
@@ -28,6 +32,9 @@ function App() {
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/rfq" element={<RFQQuote />} />
         <Route path='/*' element={<NotFoundPage />} />
+        <Route path="/terms" element={<TermsConditionsPage />} />
+        <Route path="/privacy" element={<PrivacyPolicyPage />} />
+        <Route path="/cookie" element={<CookiePolicyPage />} />
       </Routes>
 
       <Footer />
