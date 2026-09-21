@@ -151,7 +151,7 @@ const Footer = () => {
           {/* Contact Email & Copyright */}
           <div className="footer-meta">
             <a href="mailto:info@secofet.com" className="footer-email">
-              info@secofet.io
+              info@secofet.com
             </a>
             <a href="tel:+251116683235" className="footer-email">
               Call us +251116683235
