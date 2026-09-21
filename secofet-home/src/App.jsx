@@ -11,6 +11,7 @@ import OurCoffeesPage from './pages/OurCoffeesPage';
 import OriginsPage from './pages/OriginsPage';
 import OurOperationsPage from './pages/OurOperationsPage';
 import ContactPage from './pages/ContactPage';
+import NotFoundPage from './pages/NotFoundPage';
 import RFQQuote from './pages/RFQQuote';
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
         <Route path="/operations" element={<OurOperationsPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/rfq" element={<RFQQuote />} />
+        <Route path='/*' element={<NotFoundPage />} />
       </Routes>
 
       <Footer />
