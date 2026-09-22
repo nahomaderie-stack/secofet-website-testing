@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import '../styles/ProcessingGrading.css';
 
-// Import drying beds image asset
-import dryingBedsImage from '../assets/Images/Coffee-farm-2.png';
+// Import distinct high-quality image assets for each processing stage
+import washingImage from '../assets/Images/Coffee-farm-2.png';
+import dryingImage from '../assets/Images/Truck-loading-2.jpg';
+import gradingImage from '../assets/Images/Coffee-farm-2.png'; // Replace with your grading/cupping photo asset
 
 const processesData = [
     {
@@ -11,7 +13,8 @@ const processesData = [
         title: 'Washing Process',
         tagline: 'Processing & Grading',
         description: 'Freshly harvested coffee cherries are pulped immediately and fermented in clean spring water for 36 to 48 hours to remove mucilage before thorough washing.',
-        image: dryingBedsImage
+        image: washingImage,
+        altText: 'Wet processing and washing channels for Ethiopian Arabica coffee'
     },
     {
         id: 2,
@@ -19,7 +22,8 @@ const processesData = [
         title: 'Drying Process',
         tagline: 'Processing & Grading',
         description: 'Parchment coffee is carefully spread across elevated African raised beds, raked regularly for uniform airflow, and dried to an optimal 10.5% – 11.5% moisture level.',
-        image: dryingBedsImage
+        image: dryingImage,
+        altText: 'Coffee parchment drying on raised African bamboo beds'
     },
     {
         id: 3,
@@ -27,7 +31,8 @@ const processesData = [
         title: 'Grading Process',
         tagline: 'Processing & Grading',
         description: 'Dry-milled beans undergo multi-stage screen size classification, density gravity separation, and optical color sorting to meet strict ECX and SCA export standards.',
-        image: dryingBedsImage
+        image: gradingImage,
+        altText: 'Q-grader physical inspection and optical bean sorting'
     }
 ];
 
@@ -89,13 +94,14 @@ const ProcessingGrading = () => {
 
                     </div>
 
-                    {/* Right Column: Framed Image Panel */}
+                    {/* Right Column: Dynamic Framed Image Panel */}
                     <div className="processing-right-col">
                         <div className="image-frame-border">
                             <img
+                                key={activeProcess.id} // key triggers smooth fade re-render when active selection changes
                                 src={activeProcess.image}
-                                alt={activeProcess.title}
-                                className="framed-process-img"
+                                alt={activeProcess.altText}
+                                className="framed-process-img fade-in-animation"
                             />
                         </div>
                     </div>
