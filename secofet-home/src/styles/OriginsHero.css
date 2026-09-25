@@ -1,0 +1,170 @@
+/* Container setup */
+.origins-hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    min-height: 88vh;
+    display: flex;
+    align-items: center;
+    /* Positions content near the bottom left */
+    justify-content: center;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #ffffff;
+    font-family:
+        -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial,
+        sans-serif;
+    box-sizing: border-box;
+}
+
+/* Background Image Layer */
+.origins-hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../assets/Images/Hero-image-2.png');
+    /* Replace with your actual image path */
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+}
+
+/* Dark gradient overlay to ensure readable white text */
+.origins-hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top,
+            rgba(0, 0, 0, 0.75) 0%,
+            rgba(0, 0, 0, 0.4) 40%,
+            rgba(0, 0, 0, 0.1) 100%);
+    z-index: 1;
+}
+
+/* Hero Content Area */
+.origins-hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 80px 2px 100px;
+    max-width: 1280px;
+}
+
+/* Heading Typography */
+.origins-hero-title {
+    font-size: 3.8rem;
+    font-weight: 700;
+    line-height: 1.12;
+    margin: 0 0 16px 0;
+    letter-spacing: -0.01em;
+    color: #ffffff;
+}
+
+/* Serif Italic Styling for "of Ethiopian Coffee" */
+.origins-hero-italic {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-style: italic;
+    font-weight: 400;
+}
+
+/* Paragraph Description */
+.origins-hero-description {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
+    margin: 0 0 36px 0;
+    max-width: 620px;
+}
+
+/* Action Buttons Container */
+.origins-hero-actions {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+/* Main Pill Button */
+.btn-primary {
+    background-color: #ffffff;
+    color: #111827;
+    padding: 14px 28px;
+    border-radius: 30px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition:
+        background-color 0.2s ease,
+        transform 0.1s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-primary:hover {
+    background-color: #f3f4f6;
+}
+
+.btn-primary:active {
+    transform: scale(0.98);
+}
+
+/* Secondary Text Link with Arrow */
+.btn-link {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding-bottom: 2px;
+    position: relative;
+    transition: opacity 0.2s ease;
+}
+
+.btn-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #ffffff;
+    transition: width 0.3s ease;
+}
+
+.btn-link:hover {
+    opacity: 0.85;
+}
+
+.btn-link:hover .arrow-icon {
+    transform: translate(2px, -2px);
+}
+
+
+
+.arrow-icon {
+    transition: transform 0.2s ease;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .origins-hero-content {
+        padding: 0 24px 40px 24px;
+    }
+
+    .origins-hero-title {
+        font-size: 2.5rem;
+    }
+
+    .origins-hero-actions {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+}

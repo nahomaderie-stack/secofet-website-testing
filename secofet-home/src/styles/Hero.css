@@ -9,7 +9,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-image: url('../assets/Images/Hero-image-2.png'); /* Replace with your plantation image path */
+  background-image: url('../assets/Images/Hero-image-2.png');
+  /* Replace with your plantation image path */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -24,11 +25,9 @@
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0) 0%,
-    rgba(0, 0, 0, 0.3) 100%
-  );
+  background: linear-gradient(to bottom,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0.3) 100%);
   z-index: 1;
 }
 
@@ -182,14 +181,13 @@
     width: 100%;
     box-sizing: border-box;
   }
+
   .hero-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0.2) 0%,
-      rgba(0, 0, 0, 0.65) 100%
-    );
+    background: linear-gradient(to bottom,
+        rgba(0, 0, 0, 0.2) 0%,
+        rgba(0, 0, 0, 0.65) 100%);
     z-index: 1;
   }
 }
