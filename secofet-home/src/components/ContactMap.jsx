@@ -1,4 +1,3 @@
-import React from 'react';
 import '../styles/ContactMap.css';
 
 const ContactMap = () => {

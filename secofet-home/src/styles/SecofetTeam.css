@@ -27,12 +27,6 @@
     margin-bottom: 48px;
 }
 
-.serif-text {
-    font-family: 'Georgia', 'Times New Roman', serif;
-    font-style: italic;
-    font-weight: 400;
-}
-
 .header-left {
     display: flex;
     flex-direction: column;

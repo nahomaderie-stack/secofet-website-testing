@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import '../styles/ProcessingGrading.css';
 
 // Import distinct high-quality image assets for each processing stage

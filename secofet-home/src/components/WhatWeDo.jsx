@@ -1,4 +1,3 @@
-import React from 'react';
 import '../styles/WhatWeDo.css';
 
 import coffeeCherriesImg from '../assets/Images/Hero-image-2.png'; // Update path if needed

@@ -37,12 +37,6 @@
   margin: 0 0 24px 0;
 }
 
-.serif-text {
-  font-family: 'Georgia', 'Times New Roman', serif;
-  font-style: italic;
-  font-weight: 400;
-}
-
 .why-subheading {
   font-size: 1.45rem;
   font-weight: 800;
@@ -113,6 +107,18 @@
 }
 
 .accordion-body {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition:
+    max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.3s ease,
+    padding-bottom 0.3s ease;
+}
+
+.accordion-body.open {
+  max-height: 200px;
+  opacity: 1;
   padding-bottom: 24px;
 }
 

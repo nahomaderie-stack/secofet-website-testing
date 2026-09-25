@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import { useRef } from 'react';
 import '../styles/SecofetTeam.css';
 
 // SVG Placeholder Helper (Light grey background with dark icon)

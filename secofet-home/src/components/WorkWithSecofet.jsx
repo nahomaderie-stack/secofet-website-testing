@@ -1,4 +1,4 @@
-import React from 'react';
+import { Link } from 'react-router-dom';
 import '../styles/WorkWithSecofet.css';
 
 const WorkWithSecofet = () => {
@@ -19,7 +19,7 @@ const WorkWithSecofet = () => {
 
         {/* Action Button Group */}
         <div className="work-cta-group">
-          <a href="#sample" className="btn-pill-dark">
+          <Link to="/rfq" className="btn-pill-dark">
             <span>Request a Sample</span>
             <span className="pill-arrow-icon">
               <svg
@@ -36,9 +36,9 @@ const WorkWithSecofet = () => {
                 <polyline points="7 7 17 7 17 17"></polyline>
               </svg>
             </span>
-          </a>
+          </Link>
 
-          <a href="#quote" className="btn-pill-dark">
+          <Link to="/rfq" className="btn-pill-dark">
             <span>Request a Quote</span>
             <span className="pill-arrow-icon">
               <svg
@@ -55,12 +55,12 @@ const WorkWithSecofet = () => {
                 <polyline points="7 7 17 7 17 17"></polyline>
               </svg>
             </span>
-          </a>
+          </Link>
 
-          <a href="#coffees" className="btn-link-underline">
+          <Link to="/our-coffees" className="btn-link-underline">
             <span>Explore Our Coffees</span>
             <span className="arrow">↗</span>
-          </a>
+          </Link>
         </div>
       </div>
     </section>

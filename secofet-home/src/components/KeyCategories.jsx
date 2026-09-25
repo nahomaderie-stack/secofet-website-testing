@@ -1,7 +1,11 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import '../styles/KeyCategories.css';
 
 import heroImg from '../assets/Images/Hero-image-2.png';
+import yirgacheffeImg from '../assets/Images/Yirgacheffe-farm.png';
+import coffeeFarmImg from '../assets/Images/Coffee-farm-2.png';
+import coffeeDryingImg from '../assets/Images/Coffee-drying-3.png';
 
 const categories = [
   {
@@ -9,24 +13,24 @@ const categories = [
     title: 'Ethiopian Arabica',
     description:
       'Sourced from Ethiopia’s renowned coffee-growing regions, with current sourcing focused on Yirgacheffe, Gedeo and Sidama.',
-    image: heroImg,
-    link: '#coffees',
+    image: coffeeFarmImg,
+    link: '/our-coffees',
   },
   {
     id: 'yirgacheffe',
     title: 'Yirgacheffe Coffee',
     description:
       'Known worldwide for its distinct floral aroma, bright acidity, and sweet citrus flavor profile.',
-    image: heroImg,
-    link: '#yirgacheffe',
+    image: yirgacheffeImg,
+    link: '/our-coffees',
   },
   {
     id: 'guji',
     title: 'Guji Specialty',
     description:
       'Rich complex profiles featuring heavy berry notes, intense sweetness, and elegant body.',
-    image: heroImg,
-    link: '#guji',
+    image: coffeeDryingImg,
+    link: '/our-coffees',
   },
   {
     id: 'sidama',
@@ -34,7 +38,7 @@ const categories = [
     description:
       'Balanced acidity with vibrant lemon and cane sugar sweetness, prized by global roasters.',
     image: heroImg,
-    link: '#sidama',
+    link: '/our-coffees',
   },
 ];
 
@@ -65,6 +69,7 @@ const KeyCategories = () => {
                 key={cat.id}
                 className={`category-card ${isExpanded ? 'expanded' : 'collapsed'}`}
                 onMouseEnter={() => setActiveIndex(index)}
+                onClick={() => setActiveIndex(index)}
               >
                 {/* Background Image & Overlay */}
                 <img src={cat.image} alt={cat.title} className="card-bg-img" />
@@ -72,14 +77,21 @@ const KeyCategories = () => {
 
                 {/* Card Content */}
                 <div className="card-content">
-                  <div className="expanded-info">
+                  {/* Category Title & Badge (Always visible in both collapsed and expanded states) */}
+                  <div className="card-header-info">
+                    <span className="card-number">0{index + 1}</span>
                     <h3 className="card-title">{cat.title}</h3>
-                    <p className="card-desc">{cat.description}</p>
-                    <a href={cat.link} className="btn-card-cta">
-                      Explore Our Coffees
-                    </a>
                   </div>
 
+                  {/* Expanded Body Details */}
+                  <div className="expanded-info">
+                    <p className="card-desc">{cat.description}</p>
+                    <Link to={cat.link} className="btn-card-cta">
+                      Explore Coffees ↗
+                    </Link>
+                  </div>
+
+                  {/* Collapsed Arrow Indicator */}
                   <span className="collapsed-arrow-btn" aria-hidden="true">
                     <svg
                       width="14"

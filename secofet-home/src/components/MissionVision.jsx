@@ -1,4 +1,3 @@
-import React from 'react';
 import '../styles/MissionVision.css';
 
 import coffeeCherriesImg from '../assets/Images/Hero-image-2.png';

@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/Footer.css';
 import Secofetlogo from '../assets/Logos/Secofet logo-04.png';
 
 const Footer = () => {
   const [email, setEmail] = useState('');
+  const [subscribeMessage, setSubscribeMessage] = useState('');
 
   const scrollToTop = () => {
     window.scrollTo({
@@ -16,8 +17,8 @@ const Footer = () => {
   const handleSubscribe = (e) => {
     e.preventDefault();
     if (email.trim()) {
-      alert(`Subscribed with: ${email}`);
-      setEmail('');
+      window.location.href = `mailto:info@secofet.com?subject=${encodeURIComponent('Newsletter signup')}&body=${encodeURIComponent(`Please add ${email.trim()} to the Secofet newsletter.`)}`;
+      setSubscribeMessage('Your email app is opening with a signup request. Send the draft to complete it.');
     }
   };
 
@@ -29,9 +30,9 @@ const Footer = () => {
           {/* Brand Info */}
           <div className="footer-brand">
             <div className="footer-logo">
-              <a href="#home">
-                <img src={Secofetlogo} alt="" />
-              </a>
+              <Link to="/">
+                <img src={Secofetlogo} alt="Secofet" />
+              </Link>
             </div>
             {/* <p className="footer-tagline">
               A commercial and speciality Coffee outsourcing
@@ -54,21 +55,21 @@ const Footer = () => {
               X
             </a>
             <a
-              href="https://Linkedin.com"
+              href="https://linkedin.com"
               target="_blank"
               rel="noopener noreferrer"
             >
-              Linkedin
+              LinkedIn
             </a>
             <a
-              href="https://pinterest.com"
+              href="https://facebook.com"
               target="_blank"
               rel="noopener noreferrer"
             >
               Facebook
             </a>
             <a
-              href="https://linkedin.com"
+              href="https://instagram.com"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -146,6 +147,7 @@ const Footer = () => {
                 </svg>
               </button>
             </form>
+            {subscribeMessage && <p role="status">{subscribeMessage}</p>}
           </div>
 
           {/* Contact Email & Copyright */}

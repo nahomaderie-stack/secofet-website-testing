@@ -55,7 +55,7 @@
 .footer-tagline {
   color: #8c929c;
   font-size: 1rem;
-  margin-top: 10;
+  margin-top: 10px;
 }
 
 .footer-col {
@@ -127,7 +127,8 @@
 }
 
 .btn-back-to-top:hover {
-  background-color: #2b3037;
+  background-color: #01c649;
+  color: #ffffff;
 }
 
 .arrow-icon {
@@ -147,7 +148,7 @@
   font-size: 1.4rem;
   font-weight: 500;
   line-height: 1.25;
-  margin: 10 20 25px 0;
+  margin: 10px 20px 25px 0;
   color: #ffffff;
 }
 
@@ -194,13 +195,11 @@
 
 .newsletter-btn:hover {
   transform: scale(1.05);
-  background-color: #1f2328;
+  background-color: #01c649;
+  color: #ffffff;
 }
 
-.newsletter-btn:hover {
-  transform: scale(1.05);
-  background-color: #1f2328;
-}
+
 
 /* Email Underline Transition & Copyright */
 .footer-meta {
@@ -277,8 +276,17 @@
 }
 
 @media (max-width: 576px) {
+  .footer-card {
+    padding: 36px 16px;
+  }
+
   .footer-top {
     grid-template-columns: 1fr;
+  }
+
+  .footer-logo img {
+    max-width: 100%;
+    margin-right: 0;
   }
 
   .btn-back-to-top {

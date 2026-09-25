@@ -61,12 +61,6 @@
     text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
-.serif-text {
-    font-family: 'Georgia', 'Times New Roman', serif;
-    font-style: italic;
-    font-weight: 400;
-}
-
 .hero-subtitle {
     font-size: clamp(0.95rem, 1.5vw, 1.1rem);
     line-height: 1.5;
@@ -96,7 +90,8 @@
 }
 
 .btn-hero-white:hover {
-    background-color: #e5e7eb;
+    background-color: #01c649;
+    color: #ffffff;
 }
 
 .btn-hero-white:active {
@@ -112,12 +107,13 @@
     font-weight: 700;
     border: 1.5px solid rgba(255, 255, 255, 0.4);
     text-decoration: none;
-    transition: border-color 0.2s ease, background-color 0.2s ease;
+    transition: border-color 0.3s ease, background-color 0.3s ease, color 0.3s ease;
 }
 
 .btn-hero-outline:hover {
-    border-color: #ffffff;
-    background-color: rgba(255, 255, 255, 0.1);
+    border-color: #01c649;
+    background-color: #01c649;
+    color: #ffffff;
 }
 
 /* ==========================================================================

@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { useState, useEffect, useRef, useCallback } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import '../styles/Header.css';
 import Secofetlogo from '../assets/Logos/Secofet-Logo-01.svg';
 
@@ -7,12 +7,30 @@ const Header = () => {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [activeLink, setActiveLink] = useState('Home');
+  const [searchMessage, setSearchMessage] = useState('');
+  const searchWrapperRef = useRef(null);
+  const searchInputRef = useRef(null);
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const closeSearch = useCallback(() => {
+    setIsSearchOpen(false);
+    setSearchQuery('');
+    setSearchMessage('');
+  }, []);
 
   const handleSearchSubmit = (e) => {
     e.preventDefault();
-    if (searchQuery.trim()) {
-      alert(`Searching for: ${searchQuery}`);
+    const query = searchQuery.trim().toLocaleLowerCase();
+    if (!query) return;
+    const match = navLinks.find(({ label, to }) =>
+      `${label} ${to}`.toLocaleLowerCase().includes(query),
+    );
+    if (match) {
+      navigate(match.to);
+      closeSearch();
+    } else {
+      setSearchMessage('No matching page found. Try About, Coffee, Origins, Operations, or Contact.');
     }
   };
 
@@ -27,12 +45,48 @@ const Header = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  useEffect(() => {
+    if (!isSearchOpen) return undefined;
+
+    searchInputRef.current?.focus();
+
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape') closeSearch();
+    };
+
+    const handleOutsideClick = (event) => {
+      if (!searchWrapperRef.current?.contains(event.target)) closeSearch();
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    document.addEventListener('pointerdown', handleOutsideClick);
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+      document.removeEventListener('pointerdown', handleOutsideClick);
+    };
+  }, [isSearchOpen, closeSearch]);
+
+  const navLinks = [
+    { to: '/', label: 'Home' },
+    { to: '/about', label: 'About Us' },
+    { to: '/our-coffees', label: 'Our Coffees' },
+    { to: '/origins', label: 'Origins' },
+    { to: '/operations', label: 'Our Operations' },
+    { to: '/contact', label: 'Contact Us' },
+  ];
+
+  const isActive = (path) => {
+    if (path === '/') return location.pathname === '/';
+    return location.pathname.startsWith(path);
+  };
+
   return (
     <header className="header">
       <div className="header-container">
         {/* Logo */}
         <div className="header-logo">
-          <Link to="/" onClick={() => setActiveLink('Home')}>
+          <Link to="/">
             <img src={Secofetlogo} alt="Secofet" />
           </Link>
         </div>
@@ -40,110 +94,66 @@ const Header = () => {
         {/* Desktop Navigation Links */}
         <nav className="header-nav">
           <ul>
-            {/* Home */}
-            <li>
-              <Link
-                to="/"
-                className={
-                  activeLink === 'Home' ? 'nav-link active' : 'nav-link'
-                }
-                onClick={() => setActiveLink('Home')}
-              >
-                Home
-              </Link>
-            </li>
-
-            {/* About Us */}
-            <li>
-              <Link
-                to="/about"
-                className={
-                  activeLink === 'About Us' ? 'nav-link active' : 'nav-link'
-                }
-                onClick={() => setActiveLink('About Us')}
-              >
-                About Us
-              </Link>
-            </li>
-
-            {/* Anchor Sections */}
-            <li>
-              <Link
-                to="/our-coffees"
-                className={
-                  activeLink === 'Our Coffees' ? 'nav-link active' : 'nav-link'
-                }
-                onClick={() => setActiveLink('Our Coffees')}
-              >
-                Our Coffees
-              </Link>
-            </li>
-
-            <li>
-              <Link
-                to="/origins"
-                className={
-                  activeLink === 'Origins' ? 'nav-link active' : 'nav-link'
-                }
-                onClick={() => setActiveLink('Origins')}
-              >
-                Origins
-              </Link>
-            </li>
-
-            <li>
-              <Link
-                to="/operations"
-                className={
-                  activeLink === 'Our Operations'
-                    ? 'nav-link active'
-                    : 'nav-link'
-                }
-                onClick={() => setActiveLink('Our Operations')}
-              >
-                Our Operations
-              </Link>
-            </li>
-
-            <li>
-              <Link
-                to="/contact"
-                className={
-                  activeLink === 'Contact Us' ? 'nav-link active' : 'nav-link'
-                }
-                onClick={() => setActiveLink('Contact Us')}
-              >
-                Contact Us
-              </Link>
-            </li>
+            {navLinks.map((link) => (
+              <li key={link.to}>
+                <Link
+                  to={link.to}
+                  className={isActive(link.to) ? 'nav-link active' : 'nav-link'}
+                  onClick={() => {
+                    setIsMobileMenuOpen(false);
+                    closeSearch();
+                  }}
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
           </ul>
         </nav>
 
         {/* Header Right Action Area */}
         <div className="header-actions">
           {/* Search Form */}
-          <div className={`search-wrapper ${isSearchOpen ? 'open' : ''}`}>
-            <form onSubmit={handleSearchSubmit} className="search-form">
+          <div
+            ref={searchWrapperRef}
+            className={`search-wrapper ${isSearchOpen ? 'open' : ''}`}
+          >
+            <form onSubmit={handleSearchSubmit} className="search-form" role="search">
               <input
+                ref={searchInputRef}
+                id="header-search-input"
                 type="text"
                 placeholder="Search..."
                 value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
+                onChange={(e) => {
+                  setSearchQuery(e.target.value);
+                  setSearchMessage('');
+                }}
                 className="search-input"
-                autoFocus={isSearchOpen}
+                aria-label="Search pages"
+                aria-describedby={searchMessage ? 'search-message' : undefined}
               />
+              {searchMessage && (
+                <span id="search-message" className="search-message" role="status">
+                  {searchMessage}
+                </span>
+              )}
             </form>
 
             <button
               type="button"
               className="search-toggle-btn"
               onClick={() => {
-                setIsSearchOpen(!isSearchOpen);
                 if (isSearchOpen) {
-                  setSearchQuery('');
+                  closeSearch();
+                } else {
+                  setSearchMessage('');
+                  setIsSearchOpen(true);
                 }
               }}
-              aria-label="Toggle Search"
+              aria-label={isSearchOpen ? 'Close search' : 'Open search'}
+              aria-expanded={isSearchOpen}
+              aria-controls="header-search-input"
             >
               {isSearchOpen ? (
                 <svg
@@ -181,7 +191,6 @@ const Header = () => {
           <Link
             to="/rfq"
             className="btn-quote"
-            onClick={() => setActiveLink('RFQ')}
           >
             Request a Quote
           </Link>
@@ -192,7 +201,7 @@ const Header = () => {
             onClick={() => {
               setIsMobileMenuOpen(!isMobileMenuOpen);
               if (isSearchOpen) {
-                setIsSearchOpen(false);
+                closeSearch();
               }
             }}
             aria-label="Toggle Navigation Menu"
@@ -205,96 +214,29 @@ const Header = () => {
       </div>
 
       {/* Mobile Dropdown Navigation */}
-
       <div className={`mobile-nav ${isMobileMenuOpen ? 'open' : ''}`}>
         <ul>
-          <li>
-            <Link
-              to="/"
-              className={activeLink === 'Home' ? 'active' : ''}
-              onClick={() => {
-                setActiveLink('Home');
-                setIsMobileMenuOpen(false);
-              }}
-            >
-              Home
-            </Link>
-          </li>
-
-          <li>
-            <Link
-              to="/about"
-              className={activeLink === 'About Us' ? 'active' : ''}
-              onClick={() => {
-                setActiveLink('About Us');
-                setIsMobileMenuOpen(false);
-              }}
-            >
-              About Us
-            </Link>
-          </li>
-
-          <li>
-            <Link
-              to="/our-coffees"
-              className={activeLink === 'Our Coffees' ? 'active' : ''}
-              onClick={() => {
-                setActiveLink('Our Coffees');
-                setIsMobileMenuOpen(false);
-              }}
-            >
-              Our Coffees
-            </Link>
-          </li>
-
-          <li>
-            <Link
-              to="/origins"
-              className={activeLink === 'Origins' ? 'active' : ''}
-              onClick={() => {
-                setActiveLink('Origins');
-                setIsMobileMenuOpen(false);
-              }}
-            >
-              Origins
-            </Link>
-          </li>
-
-          <li>
-            <Link
-              to="/operations"
-              className={activeLink === 'Our Operations' ? 'active' : ''}
-              onClick={() => {
-                setActiveLink('Our Operations');
-                setIsMobileMenuOpen(false);
-              }}
-            >
-              Our Operations
-            </Link>
-          </li>
-
-          <li>
-            <Link
-              to="/contact"
-              className={activeLink === 'Contact Us' ? 'active' : ''}
-              onClick={() => {
-                setActiveLink('Contact Us');
-                setIsMobileMenuOpen(false);
-              }}
-            >
-              Contact Us
-            </Link>
-          </li>
+          {navLinks.map((link) => (
+            <li key={link.to}>
+              <Link
+                to={link.to}
+                className={isActive(link.to) ? 'active' : ''}
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                  closeSearch();
+                }}
+              >
+                {link.label}
+              </Link>
+            </li>
+          ))}
         </ul>
 
         <div className="mobile-actions mobile-RFQ-btn">
           <Link
             to="/rfq"
             className="btn-quote btn-mobile-quote"
-            onClick={() => {
-              setActiveLink('RFQ');
-              setIsMobileMenuOpen(false);
-            }}
+            onClick={() => setIsMobileMenuOpen(false)}
           >
             Request a Quote
           </Link>

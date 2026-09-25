@@ -1,4 +1,4 @@
-/* ==========================================================================
+﻿/* ==========================================================================
    About Us Section Styles
    ========================================================================== */
 
@@ -42,12 +42,6 @@
   letter-spacing: -0.02em;
   color: #0b0c0e;
   margin: 0 0 40px 0;
-}
-
-.serif-text {
-  font-family: 'Georgia', 'Times New Roman', serif;
-  font-style: italic;
-  font-weight: 400;
 }
 
 /* Description Text Block */
@@ -114,12 +108,14 @@
   border: none;
   cursor: pointer;
   transition:
-    opacity 0.2s ease,
+    background-color 0.3s ease,
+    color 0.3s ease,
     transform 0.1s ease;
 }
 
 .btn-discover:hover {
-  opacity: 0.88;
+  background-color: #01c649;
+  color: #ffffff;
 }
 
 .btn-discover:active {
@@ -216,7 +212,38 @@
 
 .video-play-btn:hover {
   transform: translate(-50%, -50%) scale(1.08);
-  background-color: #f7f7f7;
+  background-color: #01c649;
+  color: #ffffff;
+}
+
+.video-message {
+  position: absolute;
+  top: calc(50% + 50px);
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(15, 17, 21, 0.85);
+  backdrop-filter: blur(8px);
+  color: #ffffff;
+  padding: 10px 18px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-align: center;
+  z-index: 6;
+  white-space: nowrap;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  animation: fadeInMsg 0.25s ease-out;
+}
+
+@keyframes fadeInMsg {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -8px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
 }
 
 /* Bottom Left Floating Inset Card */
@@ -292,12 +319,7 @@
   text-align: left;
 }
 
-.inset-title .serif-text {
-  font-family: 'Georgia', 'Times New Roman', serif;
-  font-style: italic;
-  font-weight: 400;
-}
-
+.inset-title
 .inset-arrow-btn {
   background-color: #000000;
   color: #ffffff;
@@ -315,7 +337,8 @@
 }
 
 .inset-arrow-btn:hover {
-  background-color: #1a1a1a;
+  background-color: #01c649;
+  color: #ffffff;
   transform: scale(1.08) translate(1px, -1px);
 }
 
@@ -341,11 +364,12 @@
   }
 
   .video-inset-card {
-    position: relative;
-    bottom: auto;
-    left: auto;
-    margin: 16px;
-    max-width: calc(100% - 32px);
+    left: 16px;
+    bottom: 16px;
+    width: calc(100% - 32px);
+    max-width: 340px;
+    padding: 18px 20px;
+    box-sizing: border-box;
   }
 }
 
@@ -386,5 +410,27 @@
   .video-play-btn svg {
     width: 20px;
     height: 20px;
+  }
+
+  .video-message {
+    width: max-content;
+    max-width: calc(100% - 32px);
+    white-space: normal;
+    box-sizing: border-box;
+  }
+
+  .video-inset-card {
+    left: 12px;
+    bottom: 12px;
+    width: calc(100% - 24px);
+    padding: 16px;
+  }
+
+  .inset-footer {
+    gap: 12px;
+  }
+
+  .inset-title {
+    font-size: 1rem;
   }
 }

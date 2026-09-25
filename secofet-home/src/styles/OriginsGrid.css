@@ -1,9 +1,9 @@
 /* Section Base Styling */
 .origins-grid-section {
     width: 100%;
-    max-width: 1100px;
+    max-width: 1280px;
     margin: 0 auto;
-    padding: 80px 24px;
+    padding: 90px 24px;
     box-sizing: border-box;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     background-color: #ffffff;
@@ -13,16 +13,17 @@
 
 /* Header Area */
 .origins-grid-header {
-    max-width: 650px;
-    margin: 0 auto 56px auto;
+    max-width: 680px;
+    margin: 0 auto 60px auto;
 }
 
 .origins-grid-title {
-    font-size: 2.75rem;
+    font-size: 3rem;
     font-weight: 800;
     line-height: 1.15;
-    margin: 0 0 16px 0;
+    margin: 0 0 18px 0;
     letter-spacing: -0.02em;
+    color: #0b0c0e;
 }
 
 /* Serif Italic Styling for "Yirgacheffe" */
@@ -33,9 +34,9 @@
 }
 
 .origins-grid-subtitle {
-    font-size: 0.95rem;
-    color: #333333;
-    line-height: 1.5;
+    font-size: 1.05rem;
+    color: #4b5563;
+    line-height: 1.6;
     margin: 0;
 }
 
@@ -43,27 +44,46 @@
 .origins-grid-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
+    gap: 28px;
 }
 
 /* Card Container */
 .origins-grid-card {
-    background-color: #f2f2f0;
-    border-radius: 16px;
-    padding: 28px 24px;
+    background-color: #f7f7f5;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: 20px;
+    padding: 32px 28px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     text-align: left;
     box-sizing: border-box;
-    min-height: 380px;
+    min-height: 360px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    will-change: background-color, color, transform;
+    transition:
+        background-color 0.35s cubic-bezier(0.25, 1, 0.5, 1),
+        color 0.35s cubic-bezier(0.25, 1, 0.5, 1),
+        transform 0.35s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-.card-title {
-    font-size: 1.25rem;
-    font-weight: 700;
+.origins-grid-card:hover {
+    background-color: #007200;
+    transform: translateY(-4px);
+}
+
+.origins-grid-section .card-title {
+    font-size: 1.35rem;
+    font-weight: 800;
     margin: 0 0 20px 0;
     color: #111111;
+    transition: color 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.origins-grid-card:hover .card-title {
+    color: #ffffff;
 }
 
 /* Center Icon Area */
@@ -73,17 +93,25 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 20px;
+    margin-bottom: 24px;
 }
 
 .info-icon {
-    width: 110px;
-    height: 110px;
+    width: 104px;
+    height: 104px;
     border-radius: 50%;
-    background-color: #a8a8a8;
+    background-color: #9ca3af;
     display: flex;
     align-items: center;
     justify-content: center;
+    transition:
+        background-color 0.35s ease,
+        color 0.35s ease;
+}
+
+.origins-grid-card:hover .info-icon {
+    background-color: rgba(255, 255, 255, 0.15);
+    color: #ffffff;
 }
 
 .info-icon span {
@@ -96,10 +124,15 @@
 
 /* Card Description Text */
 .card-text {
-    font-size: 0.75rem;
-    color: #555555;
-    line-height: 1.45;
+    font-size: 0.85rem;
+    color: #4b5563;
+    line-height: 1.55;
     margin: 0;
+    transition: color 0.35s ease;
+}
+
+.origins-grid-card:hover .card-text {
+    color: #d1d5db;
 }
 
 /* Responsive Grid Breakpoints */
@@ -110,6 +143,10 @@
 }
 
 @media (max-width: 600px) {
+    .origins-grid-header {
+        margin-bottom: 36px;
+    }
+
     .origins-grid-container {
         grid-template-columns: 1fr;
     }

@@ -113,6 +113,8 @@
 }
 
 .search-input {
+  box-sizing: border-box;
+  min-width: 0;
   width: 0;
   opacity: 0;
   padding: 6px 0;
@@ -139,11 +141,14 @@
 }
 
 .search-toggle-btn {
+  flex: 0 0 32px;
+  width: 32px;
+  height: 32px;
   background: transparent;
   border: none;
   color: #a0a6b0;
   cursor: pointer;
-  padding: 6px;
+  padding: 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -161,11 +166,35 @@
 
 .search-toggle-btn:hover {
   color: #ffffff;
-  background-color: rgba(255, 255, 255, 0.08);
+  background-color: #01c649;
+}
+
+.search-toggle-btn:focus-visible {
+  color: #ffffff;
+  background-color: #01c649;
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
 }
 
 .search-input::placeholder {
   color: #6e7681;
+}
+
+.search-message {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  z-index: 3;
+  width: max-content;
+  max-width: min(320px, calc(100vw - 32px));
+  padding: 10px 12px;
+  border: 1px solid #383e45;
+  border-radius: 8px;
+  background-color: #24292e;
+  color: #ffffff;
+  font-size: 0.8rem;
+  line-height: 1.4;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
 }
 
 /* --- Request a Quote CTA --- */
@@ -187,7 +216,8 @@
 }
 
 .btn-quote:hover {
-  background-color: #e2e8f0;
+  background-color: #01c649;
+  color: #ffffff;
 }
 
 .btn-quote:active {
@@ -319,11 +349,12 @@
   .search-wrapper.open {
     position: absolute;
     left: 16px;
-    right: 16px;
+    right: 64px;
     top: 50%;
     transform: translateY(-50%);
-    width: calc(100% - 32px);
+    width: auto;
     z-index: 100;
+    box-sizing: border-box;
   }
 
   .search-wrapper.open .search-form {

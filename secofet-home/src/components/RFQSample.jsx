@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import '../styles/RFQSample.css';
 
-const RFQSample = () => {
+const RFQSample = ({ title = 'Quote.' }) => {
   const [formData, setFormData] = useState({
     companyName: '',
     contactPerson: '',
@@ -19,6 +20,7 @@ const RFQSample = () => {
     incoterm: '',
     shipmentDate: '',
   });
+  const [submitMessage, setSubmitMessage] = useState('');
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -27,7 +29,11 @@ const RFQSample = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('RFQ Form Submitted:', formData);
+    const body = Object.entries(formData)
+      .map(([field, value]) => `${field.replace(/([A-Z])/g, ' $1')}: ${value || 'Not specified'}`)
+      .join('\n');
+    window.location.href = `mailto:info@secofet.com?subject=${encodeURIComponent('Website request for quote')}&body=${encodeURIComponent(body)}`;
+    setSubmitMessage('Your email app is opening with your quote request. Send the draft to complete your request.');
   };
 
   return (
@@ -36,7 +42,7 @@ const RFQSample = () => {
         {/* Header Block */}
         <div className="rfq-header">
           <h2 className="rfq-title">
-            Request a <span className="serif-text">Quote.</span>
+            Request a <span className="serif-text">{title}</span>
           </h2>
           <p className="rfq-subtitle">
             Tell us what you're looking for, and our team will prepare a
@@ -346,10 +352,11 @@ const RFQSample = () => {
                 Submit Request
               </button>
 
-              <a href="#contact" className="btn-contact-link">
+              <Link to="/contact" className="btn-contact-link">
                 Contact Us ↗
-              </a>
+              </Link>
             </div>
+            {submitMessage && <p role="status">{submitMessage}</p>}
           </form>
         </div>
       </div>

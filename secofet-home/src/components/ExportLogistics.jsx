@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/ExportLogistics.css';
 import exportImage from '../assets/Images/Truck-loading-2.jpg';

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import '../styles/ContactTeam.css';
 
 const ContactTeam = () => {
@@ -12,6 +12,7 @@ const ContactTeam = () => {
     role: '',
     message: '',
   });
+  const [submitMessage, setSubmitMessage] = useState('');
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -20,7 +21,10 @@ const ContactTeam = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Form Submitted:', formData);
+    const fullName = `${formData.firstName} ${formData.lastName}`.trim();
+    const body = [`Name: ${fullName}`, `Email: ${formData.email}`, `Country: ${formData.country}`, `Phone: ${formData.phone}`, `Company: ${formData.company}`, `Role: ${formData.role}`, '', formData.message].join('\n');
+    window.location.href = `mailto:info@secofet.com?subject=${encodeURIComponent(`Website inquiry from ${fullName}`)}&body=${encodeURIComponent(body)}`;
+    setSubmitMessage('Your email app is opening with your message. Send the draft to complete your inquiry.');
   };
 
   return (
@@ -147,6 +151,7 @@ const ContactTeam = () => {
               <button type="submit" className="btn-submit-message">
                 Send Message ↗
               </button>
+              {submitMessage && <p role="status">{submitMessage}</p>}
             </form>
           </div>
 

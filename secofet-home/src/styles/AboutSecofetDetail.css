@@ -63,12 +63,6 @@
   margin: 0 0 36px 0;
 }
 
-.serif-text {
-  font-family: 'Georgia', 'Times New Roman', serif;
-  font-style: italic;
-  font-weight: 400;
-}
-
 .detail-lead-text {
   font-size: 1.25rem;
   line-height: 1.55;
@@ -165,6 +159,10 @@
 
   .detail-lead-text {
     font-size: 1.05rem;
+  }
+
+  .secofet-detail-header {
+    margin-bottom: 40px;
   }
 
   .secofet-stats-grid {

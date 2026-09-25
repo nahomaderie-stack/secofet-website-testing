@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import '../styles/WhySecofet.css';
 
 import heroImg from '../assets/Images/Hero-image-2.png';
@@ -88,21 +88,19 @@ const WhySecofet = () => {
             {accordionData.map((item, index) => {
               const isOpen = openIndex === index;
               return (
-                <div key={item.id} className="accordion-item">
-                  <button
-                    className={`accordion-header ${isOpen ? 'active' : ''}`}
-                    onClick={() => toggleAccordion(index)}
-                  >
-                    <span className="accordion-title">{item.title}</span>
-                    <span className="accordion-icon">{isOpen ? '−' : '+'}</span>
-                  </button>
+                  <div key={item.id} className="accordion-item">
+                    <button
+                      className={`accordion-header ${isOpen ? 'active' : ''}`}
+                      onClick={() => toggleAccordion(index)}
+                    >
+                      <span className="accordion-title">{item.title}</span>
+                      <span className="accordion-icon">{isOpen ? '−' : '+'}</span>
+                    </button>
 
-                  {isOpen && (
-                    <div className="accordion-body">
+                    <div className={`accordion-body ${isOpen ? 'open' : ''}`}>
                       <p>{item.content}</p>
                     </div>
-                  )}
-                </div>
+                  </div>
               );
             })}
           </div>

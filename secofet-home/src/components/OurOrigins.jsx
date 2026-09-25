@@ -1,7 +1,11 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import '../styles/OurOrigins.css';
 
 import heroImg from '../assets/Images/Hero-image-2.png';
+import yirgacheffeImg from '../assets/Images/Yirgacheffe-farm.png';
+import coffeeFarmImg from '../assets/Images/Coffee-farm-2.png';
+import coffeeDryingImg from '../assets/Images/Coffee-drying-3.png';
 
 const originsData = [
   {
@@ -9,21 +13,21 @@ const originsData = [
     name: 'Sidama',
     description:
       'Prized for its vibrant citrus acidity, sweet cane sugar finish, and floral aromas, Sidama represents one of Ethiopia’s cornerstone specialty regions.',
-    image: heroImg,
+    image: coffeeFarmImg,
   },
   {
     id: '02',
     name: 'Yirgacheffe',
     description:
       "Known for its important role in Ethiopian coffee, Yirgacheffe represents one of the origins within Secofet's current Gedeo sourcing network.",
-    image: heroImg,
+    image: yirgacheffeImg,
   },
   {
     id: '03',
     name: 'Guji',
     description:
       'Renowned for its complex berry-forward flavor profiles, rich body, and distinctive dark chocolate notes.',
-    image: heroImg,
+    image: coffeeDryingImg,
   },
 ];
 
@@ -60,7 +64,7 @@ const OurOrigins = () => {
           </div>
 
           <div className="origins-actions">
-            <a href="#visit" className="btn-visit-origins">
+            <Link to="/origins" className="btn-visit-origins">
               <span>Visit Origins</span>
               <span className="pill-icon">
                 <svg
@@ -77,11 +81,11 @@ const OurOrigins = () => {
                   <polyline points="7 7 17 7 17 17"></polyline>
                 </svg>
               </span>
-            </a>
+            </Link>
 
-            <a href="#sample" className="btn-request-sample">
+            <Link to="/request-sample" className="btn-request-sample">
               Request a Sample ↗
-            </a>
+            </Link>
           </div>
         </div>
 

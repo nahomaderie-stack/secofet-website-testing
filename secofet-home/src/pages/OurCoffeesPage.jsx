@@ -2,8 +2,8 @@ import OurCoffeesDetail from "../components/OurCoffeesDetail";
 import OurCoffeesExplore from "../components/OurCoffeesExplore";
 import OurCoffeesGrid from "../components/OurCoffeesGrid";
 import ProcessingGrading from "../components/ProcessingGrading";
-import WorkWithSecofet from "../components/WorkWithSecofet"
-import WebGoesHere from "../components/Webgoeshere";
+import WorkWithSecofet from "../components/WorkWithSecofet";
+
 function OurCoffeesPage() {
     return (
         <>

@@ -204,6 +204,10 @@
     gap: 16px;
   }
 
+  .core-values-header {
+    margin-bottom: 36px;
+  }
+
   .value-card {
     min-height: auto;
     padding: 28px 24px;

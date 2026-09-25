@@ -34,12 +34,6 @@
   margin: 0 0 20px 0;
 }
 
-.serif-text {
-  font-family: 'Georgia', 'Times New Roman', serif;
-  font-style: italic;
-  font-weight: 400;
-}
-
 .rfq-subtitle {
   font-size: 0.92rem;
   line-height: 1.6;
@@ -151,7 +145,8 @@
 }
 
 .btn-submit-rfq:hover {
-  background-color: #16a34a;
+  background-color: #01c649;
+  color: #ffffff;
 }
 
 .btn-submit-rfq:active {
@@ -159,16 +154,28 @@
 }
 
 .btn-contact-link {
+  position: relative;
+  display: inline-block;
   font-size: 0.95rem;
   font-weight: 800;
   color: #0b0c0e;
-  text-decoration: underline;
-  text-underline-offset: 4px;
-  transition: opacity 0.2s ease;
+  text-decoration: none;
+  padding-bottom: 3px;
 }
 
-.btn-contact-link:hover {
-  opacity: 0.75;
+.btn-contact-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 1.5px;
+  background-color: currentColor;
+  transition: width 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.btn-contact-link:hover::after {
+  width: 100%;
 }
 html {
   scroll-behavior: smooth;

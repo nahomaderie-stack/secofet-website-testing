@@ -5,7 +5,7 @@
 .categories-section {
   width: 100%;
   background-color: #ffffff;
-  padding: 80px 24px;
+  padding: 90px 24px;
   box-sizing: border-box;
   font-family:
     -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial,
@@ -20,60 +20,62 @@
 
 /* Header Text */
 .categories-header {
-  margin-bottom: 40px;
+  margin-bottom: 50px;
   text-align: left;
 }
 
 .categories-tag {
-  color: #0d5c3a;
-  font-size: 0.82rem;
+  color: #fcfcfc;
+  font-size: 0.95rem;
   font-weight: 700;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
   display: block;
 }
 
 .categories-title {
-  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-size: clamp(2.2rem, 3.8vw, 3.2rem);
   font-weight: 800;
-  line-height: 1.15;
-  color: #0b0c0e;
-  letter-spacing: -0.02em;
+  line-height: 1.12;
+  color: #000000;
+  letter-spacing: -0.01em;
   margin: 0;
-}
-
-.serif-text {
-  font-family: 'Georgia', 'Times New Roman', serif;
-  font-style: italic;
-  font-weight: 400;
 }
 
 /* --- Cards Flex Layout --- */
 .categories-grid {
   display: flex;
-  gap: 16px;
+  gap: 20px;
   width: 100%;
-  height: 480px;
+  height: 520px;
 }
 
 .category-card {
   position: relative;
-  border-radius: 15px;
+  flex: 1 1 0;
+  min-width: 0;
+  border-radius: 24px;
   overflow: hidden;
   cursor: pointer;
-  /* Smooth animation transition on flex ratio switch */
-  transition: flex 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+  transition:
+    flex-grow 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.35s ease;
+}
+
+.category-card:hover {
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.22);
 }
 
 /* Active Hovered Card Expands */
 .category-card.expanded {
-  flex: 3;
+  flex-grow: 3.4;
 }
 
 /* Non-hovered Cards Compress */
 .category-card.collapsed {
-  flex: 1;
+  flex-grow: 1;
 }
 
 /* Background Image & Overlay */
@@ -82,11 +84,11 @@
   height: 100%;
   object-fit: cover;
   display: block;
-  transition: transform 0.5s ease;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .category-card.expanded .card-bg-img {
-  transform: scale(1.05);
+  transform: scale(1.06);
 }
 
 .card-overlay {
@@ -94,11 +96,21 @@
   inset: 0;
   background: linear-gradient(
     to top,
-    rgba(0, 0, 0, 0.8) 0%,
-    rgba(0, 0, 0, 0.2) 50%,
-    transparent 100%
+    rgba(10, 12, 14, 0.92) 0%,
+    rgba(10, 12, 14, 0.45) 50%,
+    rgba(10, 12, 14, 0.15) 100%
   );
   z-index: 1;
+  transition: background 0.35s ease;
+}
+
+.category-card.collapsed:hover .card-overlay {
+  background: linear-gradient(
+    to top,
+    rgba(10, 12, 14, 0.95) 0%,
+    rgba(10, 12, 14, 0.55) 50%,
+    rgba(10, 12, 14, 0.2) 100%
+  );
 }
 
 /* Inner Card Elements */
@@ -106,80 +118,141 @@
   position: absolute;
   inset: 0;
   z-index: 2;
-  padding: 28px;
+  padding: 36px 32px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  box-sizing: border-box;
+}
+
+/* Always Visible Header Area */
+.card-header-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  z-index: 3;
+  color: #fff;
+}
+
+.card-number {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.categories-section .card-title {
+  font-size: 1.65rem;
+  font-weight: 800;
+  margin: 0;
+  color: #ffffff;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  transition: color 0.25s ease;
+}
+
+.category-card.expanded .card-title {
+  transition-delay: 0s;
+  letter-spacing: -0.01em;
+}
+
+.category-card.collapsed .card-title {
+  font-size: 1.45rem;
+  letter-spacing: -0.01em;
+  transition-delay: 0s;
 }
 
 /* Expanded Info Fade/Slide Transition */
+
 .expanded-info {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  max-width: 420px;
+  max-width: 450px;
+
+  max-height: 0;
   opacity: 0;
-  transform: translateY(15px);
+  transform: translateY(0px);
+
+  overflow: hidden;
   pointer-events: none;
+  margin-top: 0;
+
   transition:
-    opacity 0.35s ease 0.1s,
-    transform 0.35s ease 0.1s;
+    max-height 0.25s cubic-bezier(1, 1, 1, 1),
+    opacity 0.25s ease,
+    transform 0.25s cubic-bezier(1, 1, 1, 1),
+    margin-top 0.25s ease;
 }
 
 .category-card.expanded .expanded-info {
+  max-height: 260px;
   opacity: 1;
   transform: translateY(0);
   pointer-events: auto;
-}
-
-.card-title {
-  font-size: 1.5rem;
-  font-weight: 800;
-  margin: 0 0 8px 0;
-  color: #ffffff;
-  white-space: nowrap;
+  margin-top: 14px;
 }
 
 .card-desc {
-  font-size: 0.85rem;
-  line-height: 1.45;
-  color: #d1d5db;
-  margin: 0 0 20px 0;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: #e5e7eb;
+  margin: 0 0 22px 0;
   font-weight: 400;
 }
 
 .btn-card-cta {
   background-color: #ffffff;
   color: #0b0c0e;
-  padding: 10px 22px;
+  padding: 12px 24px;
   border-radius: 30px;
-  font-size: 0.85rem;
+  font-size: 0.88rem;
   font-weight: 700;
   text-decoration: none;
-  transition: background-color 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+  transition:
+    background-color 0.25s ease,
+    transform 0.2s ease,
+    box-shadow 0.25s ease;
 }
 
 .btn-card-cta:hover {
-  background-color: #e5e7eb;
+  background-color: #01c649;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(74, 222, 128, 0.3);
 }
 
 /* Collapsed Arrow Badge Button */
 .collapsed-arrow-btn {
   position: absolute;
-  bottom: 28px;
-  left: 28px;
-  background-color: #ffffff;
-  color: #0b0c0e;
-  width: 40px;
-  height: 40px;
+  top: 28px;
+  right: 28px;
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(8px);
+  color: #ffffff;
+  width: 42px;
+  height: 42px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   opacity: 1;
   transition:
-    opacity 0.25s ease,
-    transform 0.2s ease;
+    opacity 0.35s ease,
+    background-color 0.35s ease,
+    color 0.35s ease,
+    transform 0.35s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.category-card.collapsed:hover .collapsed-arrow-btn {
+  background-color: #ffffff;
+  color: #0b0c0e;
+  transform: scale(1.1);
 }
 
 .category-card.expanded .collapsed-arrow-btn {
@@ -201,16 +274,33 @@
   .category-card.collapsed {
     flex: none;
     width: 100%;
-    height: 320px;
+    height: 360px;
+  }
+
+  .category-card.collapsed .card-title {
+    font-size: 1.5rem;
   }
 
   .expanded-info {
     opacity: 1;
+    max-height: none;
     transform: none;
     pointer-events: auto;
+    margin-top: 14px;
   }
 
   .collapsed-arrow-btn {
     display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .category-card.expanded,
+  .category-card.collapsed {
+    height: 380px;
+  }
+
+  .card-content {
+    padding: 28px 24px;
   }
 }

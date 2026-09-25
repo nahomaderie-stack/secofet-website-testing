@@ -1,14 +1,10 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import '../styles/AboutUs.css';
 import videoImage from '../assets/Images/Coffee-Farm.png';
 
 const AboutUs = () => {
-  const [isPlaying, setIsPlaying] = useState(false);
-
-  const handlePlayVideo = () => {
-    setIsPlaying(true);
-    // Add custom video modal or play logic here
-  };
+  const [showVideoMessage, setShowVideoMessage] = useState(false);
 
   return (
     <section className="about-section">
@@ -46,7 +42,7 @@ const AboutUs = () => {
             reliable coffee supply and long-term business relationships.
           </p>
           <div className="about-cta-buttons">
-            <button className="btn-discover" onClick={handlePlayVideo}>
+            <Link to="/about" className="btn-discover">
               <span>Discover Secofet</span>
               <span className="pill-arrow">
                 <svg
@@ -63,11 +59,11 @@ const AboutUs = () => {
                   <polyline points="7 7 17 7 17 17"></polyline>
                 </svg>
               </span>
-            </button>
-            <a href="#coffees" className="btn-explore">
+            </Link>
+            <Link to="/our-coffees" className="btn-explore">
               <span>Explore Our Coffees</span>
               <span className="arrow">↗</span>
-            </a>
+            </Link>
           </div>
         </div>
 
@@ -84,8 +80,9 @@ const AboutUs = () => {
             {/* Center Play Button Overlay */}
             <button
               className="video-play-btn"
-              onClick={handlePlayVideo}
+              onClick={() => setShowVideoMessage((visible) => !visible)}
               aria-label="Play video"
+              aria-expanded={showVideoMessage}
             >
               <svg
                 width="24"
@@ -96,22 +93,23 @@ const AboutUs = () => {
                 <polygon points="5 3 19 12 5 21 5 3"></polygon>
               </svg>
             </button>
+            {showVideoMessage && <p className="video-message" role="status">Video coming soon. Explore our operations and coffee origins below.</p>}
 
             {/* Inset Info Card (Bottom-Left) */}
             {/* Inset Info Card (Bottom-Left) */}
             <div className="video-inset-card">
               <ul className="inset-links">
                 <li>
-                  <a href="#coffees">Explore Our Coffees ↗</a>
+                  <Link to="/our-coffees">Explore Our Coffees ↗</Link>
                 </li>
                 <li>
-                  <a href="#yirgacheffe">Explore Yirgacheffe's Coffee ↗</a>
+                  <Link to="/origins">Explore Yirgacheffe's Coffee ↗</Link>
                 </li>
                 <li>
-                  <a href="#quote">Request a Quote ↗</a>
+                  <Link to="/rfq">Request a Quote ↗</Link>
                 </li>
                 <li>
-                  <a href="#sample">Request a Sample ↗</a>
+                  <Link to="/request-sample">Request a Sample ↗</Link>
                 </li>
               </ul>
 
@@ -123,8 +121,8 @@ const AboutUs = () => {
                 </h3>
 
                 {/* Clickable Action Button */}
-                <a
-                  href="#quote"
+                <Link
+                  to="/rfq"
                   className="inset-arrow-btn"
                   aria-label="Discover More"
                 >
@@ -141,7 +139,7 @@ const AboutUs = () => {
                     <line x1="7" y1="17" x2="17" y2="7"></line>
                     <polyline points="7 7 17 7 17 17"></polyline>
                   </svg>
-                </a>
+                </Link>
               </div>
             </div>
           </div>

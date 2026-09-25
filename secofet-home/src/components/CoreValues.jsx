@@ -1,4 +1,3 @@
-import React from 'react';
 import '../styles/CoreValues.css';
 
 const valuesData = [

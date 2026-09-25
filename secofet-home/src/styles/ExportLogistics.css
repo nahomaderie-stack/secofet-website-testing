@@ -44,12 +44,6 @@
     margin: 0 0 40px 0;
 }
 
-.serif-text {
-    font-family: 'Georgia', 'Times New Roman', serif;
-    font-style: italic;
-    font-weight: 400;
-}
-
 .export-sub-title {
     font-size: 1.35rem;
     font-weight: 800;
@@ -94,25 +88,37 @@
 }
 
 .btn-pill-white:hover {
-    background-color: #e5e7eb;
+    background-color: #01c649;
+    color: #ffffff;
 }
 
 .btn-pill-white:active {
     transform: scale(0.97);
 }
 
-.btn-link-underline {
+.export-logistics-section .btn-link-underline {
+    position: relative;
+    display: inline-block;
     color: #ffffff;
     font-size: 0.9rem;
     font-weight: 700;
     text-decoration: none;
-    border-bottom: 1.5px solid #ffffff;
-    padding-bottom: 2px;
-    transition: opacity 0.2s ease;
+    padding-bottom: 3px;
 }
 
-.btn-link-underline:hover {
-    opacity: 0.8;
+.export-logistics-section .btn-link-underline::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 1.5px;
+    background-color: #ffffff;
+    transition: width 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.export-logistics-section .btn-link-underline:hover::after {
+    width: 100%;
 }
 
 /* --- Right Media Carousel Panel --- */
@@ -175,12 +181,18 @@
 
     .export-media-panel {
         height: 400px;
+        min-height: 0;
     }
 }
 
 @media (max-width: 576px) {
     .export-text-panel {
         padding: 48px 16px;
+    }
+
+    .export-media-panel {
+        height: 300px;
+        min-height: 0;
     }
 
     .export-actions-row {

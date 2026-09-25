@@ -1,4 +1,4 @@
-import React from 'react';
+import { Link } from 'react-router-dom';
 import '../styles/Hero.css';
 
 const Hero = () => {
@@ -23,10 +23,10 @@ const Hero = () => {
           </p>
 
           <div className="hero-cta-group">
-            <a href="#coffees" className="btn-primary">
+            <Link to="/our-coffees" className="btn-primary">
               Explore Our Coffees
-            </a>
-            <a href="#quote" to="/rfq" className="btn-secondary">
+            </Link>
+            <Link to="/rfq" className="btn-secondary">
               <span>Request a Quote</span>
               <svg
                 width="16"
@@ -42,7 +42,7 @@ const Hero = () => {
                 <line x1="7" y1="17" x2="17" y2="7"></line>
                 <polyline points="7 7 17 7 17 17"></polyline>
               </svg>
-            </a>
+            </Link>
           </div>
         </div>
       </div>

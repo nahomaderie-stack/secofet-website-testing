@@ -57,12 +57,6 @@
     margin: 0 0 20px 0;
 }
 
-.serif-text {
-    font-family: 'Georgia', 'Times New Roman', serif;
-    font-style: italic;
-    font-weight: 400;
-}
-
 .notfound-desc {
     font-size: 1.15rem;
     line-height: 1.6;
@@ -87,11 +81,12 @@
     font-size: 1rem;
     font-weight: 700;
     text-decoration: none;
-    transition: background-color 0.2s ease, transform 0.1s ease;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.1s ease;
 }
 
 .btn-primary-green:hover {
-    background-color: #027a2e;
+    background-color: #01c649;
+    color: #ffffff;
 }
 
 .btn-primary-green:active {
@@ -107,12 +102,13 @@
     font-weight: 700;
     border: 1.5px solid rgba(42, 42, 42, 0.3);
     text-decoration: none;
-    transition: border-color 0.2s ease, background-color 0.2s ease;
+    transition: border-color 0.3s ease, background-color 0.3s ease, color 0.3s ease;
 }
 
 .btn-secondary-outline:hover {
-    border-color: #000000;
-    background-color: rgba(255, 255, 255, 0.05);
+    border-color: #01c649;
+    background-color: #01c649;
+    color: #ffffff;
 }
 
 /* ==========================================================================

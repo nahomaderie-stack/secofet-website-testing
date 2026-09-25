@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import '../styles/ContactFAQ.css';
 
 const faqData = [
@@ -75,14 +75,12 @@ const ContactFAQ = () => {
                   aria-expanded={isOpen}
                 >
                   <span className="faq-question-text">{item.question}</span>
-                  <span className="faq-toggle-icon">{isOpen ? '-' : '+'}</span>
+                  <span className="faq-toggle-icon">{isOpen ? '−' : '+'}</span>
                 </button>
 
-                {isOpen && (
-                  <div className="faq-answer-wrapper">
-                    <p className="faq-answer-text">{item.answer}</p>
-                  </div>
-                )}
+                <div className="faq-answer-wrapper">
+                  <p className="faq-answer-text">{item.answer}</p>
+                </div>
               </div>
             );
           })}

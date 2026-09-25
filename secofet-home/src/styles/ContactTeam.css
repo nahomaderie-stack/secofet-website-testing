@@ -34,12 +34,6 @@
   margin: 0 0 20px 0;
 }
 
-.serif-text {
-  font-family: 'Georgia', 'Times New Roman', serif;
-  font-style: italic;
-  font-weight: 400;
-}
-
 .contact-subtitle {
   font-size: 1.05rem;
   color: #4b5563;
@@ -152,12 +146,14 @@
   cursor: pointer;
   margin-top: 10px;
   transition:
-    opacity 0.2s ease,
+    background-color 0.3s ease,
+    color 0.3s ease,
     transform 0.1s ease;
 }
 
 .btn-submit-message:hover {
-  opacity: 0.88;
+  background-color: #01c649;
+  color: #ffffff;
 }
 
 .btn-submit-message:active {

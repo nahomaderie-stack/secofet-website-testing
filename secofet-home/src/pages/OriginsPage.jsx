@@ -1,4 +1,3 @@
-import WebGoesHere from "../components/Webgoeshere";
 import OriginsHero from "../components/OriginsHero";
 import OriginsCard from "../components/OriginsCard";
 import OriginsGrid from "../components/OriginsGrid";
@@ -11,7 +10,6 @@ function OriginsPage() {
             <OriginsCard />
             <OriginsGrid />
             <WorkWithSecofet />
-            <WebGoesHere />
         </>
     )
 }

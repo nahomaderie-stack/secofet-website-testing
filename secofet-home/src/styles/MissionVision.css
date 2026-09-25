@@ -40,12 +40,6 @@
 }
 
 /* Serif Font Accents */
-.serif-text {
-  font-family: 'Georgia', 'Times New Roman', serif;
-  font-style: italic;
-  font-weight: 400;
-}
-
 /* --- Block 1: Mission Styles --- */
 .mission-block {
   display: flex;
@@ -163,6 +157,10 @@
    ========================================================================== */
 
 @media (max-width: 860px) {
+  .mission-vision-container {
+    gap: 64px;
+  }
+
   .mission-cards-grid {
     grid-template-columns: 1fr;
     gap: 20px;
@@ -185,6 +183,10 @@
 
   .mission-card {
     height: 240px;
+  }
+
+  .mission-vision-container {
+    gap: 48px;
   }
 
   .vision-description {

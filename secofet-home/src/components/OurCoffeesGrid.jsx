@@ -1,4 +1,3 @@
-import React from 'react';
 import '../styles/OurCoffeesGrid.css';
 
 // SVG Placeholder or your imported image assets

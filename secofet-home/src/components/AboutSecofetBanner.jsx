@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import '../styles/AboutSecofetBanner.css';
 
 import heroImg from '../assets/Images/Hero-image-2.png';
@@ -62,12 +63,12 @@ const AboutSecofetBanner = () => {
           <div className="carousel-controls-bar">
             {/* Left Actions */}
             <div className="carousel-actions">
-              <a href="#sample" className="btn-sample-underline">
+              <Link to="/rfq" className="btn-sample-underline">
                 Request a Sample ↗
-              </a>
-              <a href="#rfq" className="btn-quote-white">
+              </Link>
+              <Link to="/rfq" className="btn-quote-white">
                 Request a Quote
-              </a>
+              </Link>
             </div>
 
             {/* Right Indicators & Arrows */}
