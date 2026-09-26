@@ -12,7 +12,7 @@ import OriginsPage from './pages/OriginsPage';
 import OurOperationsPage from './pages/OurOperationsPage';
 import ContactPage from './pages/ContactPage';
 import NotFoundPage from './pages/NotFoundPage';
-import RFQQuote from './pages/RFQQuote';
+import RequestQuotePage from './pages/RequestQuotePage';
 import RequestSamplePage from './pages/RequestSamplePage';
 
 import TermsConditionsPage from './pages/TermsConditionsPage';
@@ -42,7 +42,7 @@ function App() {
         <Route path="/origins" element={<OriginsPage />} />
         <Route path="/operations" element={<OurOperationsPage />} />
         <Route path="/contact" element={<ContactPage />} />
-        <Route path="/rfq" element={<RFQQuote />} />
+        <Route path="/rfq" element={<RequestQuotePage />} />
         <Route path="/request-sample" element={<RequestSamplePage />} />
         <Route path="/terms" element={<TermsConditionsPage />} />
         <Route path="/privacy" element={<PrivacyPolicyPage />} />

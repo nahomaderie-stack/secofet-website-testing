@@ -58,7 +58,7 @@ const ExportLogistics = () => {
                                 Request Documentation
                             </Link>
 
-                            <Link to="/rfq" className="btn-link-underline">
+                            <Link to="/request-sample" className="btn-link-underline">
                                 Request a Sample ↗
                             </Link>
                         </div>

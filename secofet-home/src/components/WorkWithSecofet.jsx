@@ -19,7 +19,7 @@ const WorkWithSecofet = () => {
 
         {/* Action Button Group */}
         <div className="work-cta-group">
-          <Link to="/rfq" className="btn-pill-dark">
+          <Link to="/request-sample" className="btn-pill-dark">
             <span>Request a Sample</span>
             <span className="pill-arrow-icon">
               <svg

@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import '../styles/OriginsCard.css';
 
 const originsData = [
@@ -55,10 +54,9 @@ const originsData = [
     }
 ];
 
-const OriginsCard = () => {
-    const [selectedId, setSelectedId] = useState('02');
-
-    const activeOrigin = originsData.find((item) => item.id === selectedId) || originsData[1];
+const OriginsCard = ({ selectedOrigin, onSelectOrigin }) => {
+    const activeOrigin = originsData.find((item) => item.name === selectedOrigin) || originsData[1];
+    const selectedId = activeOrigin.id;
 
     return (
         <div className="origins-wrapper">
@@ -77,10 +75,12 @@ const OriginsCard = () => {
                         {originsData.map((item) => {
                             const isSelected = item.id === selectedId;
                             return (
-                                <div
+                                <button
                                     key={item.id}
                                     className={`origins-item ${isSelected ? 'active' : ''}`}
-                                    onClick={() => setSelectedId(item.id)}
+                                    type="button"
+                                    aria-pressed={isSelected}
+                                    onClick={() => onSelectOrigin(item.name)}
                                 >
                                     <span className="origins-item-name">
                                         {item.id}. {item.name}
@@ -88,7 +88,7 @@ const OriginsCard = () => {
                                     <span className="origins-item-icon">
                                         {isSelected ? '✕' : '↗'}
                                     </span>
-                                </div>
+                                </button>
                             );
                         })}
                     </div>

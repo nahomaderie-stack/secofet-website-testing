@@ -22,7 +22,7 @@ const OurCoffeesDetail = () => {
                     </p>
 
                     <div className="detail-actions-row">
-                        <Link to="/rfq" className="btn-pill-black">
+                        <Link to="/request-sample" className="btn-pill-black">
                             Request a Sample
                         </Link>
 

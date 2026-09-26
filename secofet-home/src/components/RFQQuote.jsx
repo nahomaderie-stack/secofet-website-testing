@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/RFQSample.css';
 
-const RFQSample = ({ title = 'Sample.' }) => {
+const RFQQuote = ({ title = 'Quote.' }) => {
   const [formData, setFormData] = useState({
     companyName: '',
     contactPerson: '',
@@ -30,14 +30,19 @@ const RFQSample = ({ title = 'Sample.' }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const body = Object.entries(formData)
-      .map(([field, value]) => `${field.replace(/([A-Z])/g, ' $1')}: ${value || 'Not specified'}`)
+      .map(
+        ([field, value]) =>
+          `${field.replace(/([A-Z])/g, ' $1')}: ${value || 'Not specified'}`,
+      )
       .join('\n');
-    window.location.href = `mailto:info@secofet.com?subject=${encodeURIComponent('Website request for coffee samples')}&body=${encodeURIComponent(body)}`;
-    setSubmitMessage('Your email app is opening with your sample request. Send the draft to complete your request.');
+    window.location.href = `mailto:info@secofet.com?subject=${encodeURIComponent('Website request for quote')}&body=${encodeURIComponent(body)}`;
+    setSubmitMessage(
+      'Your email app is opening with your quote request. Send the draft to complete your request.',
+    );
   };
 
   return (
-    <section className="rfq-section" id="rfq" >
+    <section className="rfq-section" id="rfq">
       <div className="rfq-container">
         {/* Header Block */}
         <div className="rfq-header">
@@ -364,4 +369,4 @@ const RFQSample = ({ title = 'Sample.' }) => {
   );
 };
 
-export default RFQSample;
+export default RFQQuote;

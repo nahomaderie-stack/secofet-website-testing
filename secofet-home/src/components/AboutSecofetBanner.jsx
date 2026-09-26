@@ -63,7 +63,7 @@ const AboutSecofetBanner = () => {
           <div className="carousel-controls-bar">
             {/* Left Actions */}
             <div className="carousel-actions">
-              <Link to="/rfq" className="btn-sample-underline">
+              <Link to="/request-sample" className="btn-sample-underline">
                 Request a Sample ↗
               </Link>
               <Link to="/rfq" className="btn-quote-white">

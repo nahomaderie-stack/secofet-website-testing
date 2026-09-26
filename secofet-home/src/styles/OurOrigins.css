@@ -148,10 +148,10 @@
   width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  border-radius: 28px;
+  border-radius: 0px;
   overflow: hidden;
   background-color: #121417;
-  min-height: 520px;
+  min-height: 620px;
   box-shadow: 0 20px 48px rgba(0, 0, 0, 0.12);
 }
 

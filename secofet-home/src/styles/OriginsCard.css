@@ -12,12 +12,13 @@
 .origins-wrapper .origins-card {
   width: 100%;
   max-width: 1280px;
+  min-height: 75vh;
   margin: 0 auto;
   background-color: #1c1f1e;
-  border-radius: 28px;
+  border-radius: 5px;
   padding: 56px 48px;
   display: flex;
-  gap: 48px;
+  gap: 40px;
   color: #ffffff;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
   box-sizing: border-box;
@@ -31,7 +32,7 @@
 }
 
 .origins-wrapper .origins-tag {
-  color: #01c649;
+  color: #01c332;
   font-size: 0.8rem;
   font-weight: 700;
   letter-spacing: 0.05em;
@@ -49,7 +50,7 @@
 
 .origins-description {
   font-size: 1rem;
-  line-height: 1.65;
+  line-height: 1.35;
   color: #d1d5db;
   margin-bottom: 40px;
 }
@@ -67,15 +68,18 @@
   margin-top: auto;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 5px;
 }
 
 .origins-item {
+  width: 100%;
+  font-family: inherit;
+  text-align: left;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 16px 24px;
-  border-radius: 14px;
+  border-radius: 5px;
   cursor: pointer;
   color: #d1d5db;
   font-size: 1.1rem;
@@ -120,7 +124,7 @@
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.12);
   backdrop-filter: blur(10px);
-  border-radius: 24px;
+  border-radius: 10px;
   padding: 36px 32px;
   display: flex;
   flex-direction: column;
