@@ -57,9 +57,22 @@ const WorkWithSecofet = () => {
             </span>
           </Link>
 
-          <Link to="/our-coffees" className="btn-link-underline">
+          <Link to="/our-coffees" className="btn-link-underline btn-secondary">
             <span>Explore Our Coffees</span>
-            <span className="arrow">↗</span>
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="3"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="arrow-up-right"
+            >
+              <line x1="7" y1="17" x2="17" y2="7"></line>
+              <polyline points="7 7 17 7 17 17"></polyline>
+            </svg>
           </Link>
         </div>
       </div>

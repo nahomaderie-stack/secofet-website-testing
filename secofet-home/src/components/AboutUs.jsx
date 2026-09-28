@@ -60,9 +60,22 @@ const AboutUs = () => {
                 </svg>
               </span>
             </Link>
-            <Link to="/our-coffees" className="btn-explore">
+            <Link to="/our-coffees" className="btn-explore btn-secondary">
               <span>Explore Our Coffees</span>
-              <span className="arrow">↗</span>
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="3"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="arrow-up-right"
+              >
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
             </Link>
           </div>
         </div>
@@ -93,7 +106,12 @@ const AboutUs = () => {
                 <polygon points="5 3 19 12 5 21 5 3"></polygon>
               </svg>
             </button>
-            {showVideoMessage && <p className="video-message" role="status">Video coming soon. Explore our operations and coffee origins below.</p>}
+            {showVideoMessage && (
+              <p className="video-message" role="status">
+                Video coming soon. Explore our operations and coffee origins
+                below.
+              </p>
+            )}
 
             {/* Inset Info Card (Bottom-Left) */}
             {/* Inset Info Card (Bottom-Left) */}
@@ -119,27 +137,6 @@ const AboutUs = () => {
                   <span className="serif-text">Secofet</span> with Global
                   Customers.
                 </h3>
-
-                {/* Clickable Action Button */}
-                <Link
-                  to="/rfq"
-                  className="inset-arrow-btn"
-                  aria-label="Discover More"
-                >
-                  <svg
-                    width="14"
-                    height="14"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <line x1="7" y1="17" x2="17" y2="7"></line>
-                    <polyline points="7 7 17 7 17 17"></polyline>
-                  </svg>
-                </Link>
               </div>
             </div>
           </div>

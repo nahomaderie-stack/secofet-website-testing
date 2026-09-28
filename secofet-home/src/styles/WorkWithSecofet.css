@@ -8,9 +8,7 @@
   color: #111315;
   padding: 100px 24px;
   box-sizing: border-box;
-  font-family:
-    -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial,
-    sans-serif;
+  font-family: var(--font-primary);
 }
 
 .work-container {
@@ -42,7 +40,7 @@
 
 /* Main Heading Text */
 .work-title {
-  font-size: clamp(2rem, 3.8vw, 3rem);
+  font-size: clamp(28px, 4.6vw, 44px);
   font-weight: 500;
   line-height: 1.25;
   color: #0b0c0e;
@@ -63,10 +61,10 @@
 .btn-pill-dark {
   background-color: #000000;
   color: #ffffff;
-  padding: 8px 10px 8px 20px;
+  padding: 14px 28px;
   border-radius: 30px;
-  font-size: 0.88rem;
-  font-weight: 700;
+  font-size: var(--text-sm);
+  font-weight: 600;
   display: inline-flex;
   align-items: center;
   justify-content: space-between;
@@ -81,12 +79,12 @@
 }
 
 .btn-pill-dark:hover {
-  background-color: #01c649;
+  background-color: var(--color-primary);
   color: #ffffff;
 }
 
 .btn-pill-dark:active {
-  transform: scale(0.98);
+  transform: scale(0.95);
 }
 
 .pill-arrow-icon {
@@ -100,13 +98,20 @@
   justify-content: center;
   flex-shrink: 0;
 }
+.arrow-up-right {
+  transition: transform 0.2s ease;
+}
+
+.work-section .btn-secondary:hover .arrow-up-right {
+  transform: translate(2px, -2px);
+}
 
 /* Underline Transition Link */
 .btn-link-underline {
   position: relative;
   color: #0b0c0e;
   text-decoration: none;
-  font-size: 0.9rem;
+  font-size: var(--text-sm);
   font-weight: 600;
   display: inline-flex;
   align-items: center;
@@ -124,11 +129,12 @@
   width: 0%;
   height: 2px;
   background-color: #0b0c0e;
-  transition: width 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition: width 0.3s ease;
 }
 
-.btn-link-underline:hover::after {
+.work-section .btn-link-underline:hover::after {
   width: 100%;
+  background-color: #0b0c0e;
 }
 
 /* ==========================================================================

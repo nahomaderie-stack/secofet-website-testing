@@ -112,9 +112,9 @@
     left: 0;
     bottom: 0;
     width: 0;
-    height: 1.5px;
+    height: 2px;
     background-color: #ffffff;
-    transition: width 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition: width 0.3s ease;
 }
 
 .export-logistics-section .btn-link-underline:hover::after {

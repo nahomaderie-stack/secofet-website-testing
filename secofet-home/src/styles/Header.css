@@ -3,16 +3,14 @@
    ========================================================================== */
 
 .header {
-  background-color: #0a0b0b;
-  color: #ffffff;
+  background-color: var(--color-background-dark-2);
+  color: var(--color-text-light);
   width: 100%;
   position: sticky;
   top: 0;
   z-index: 1000;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0);
-  font-family:
-    -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial,
-    sans-serif;
+  font-family: var(--font-primary);
 }
 
 .header-container {
@@ -22,7 +20,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 24px;
+  padding: 0px 0px;
   position: relative;
 }
 
@@ -60,10 +58,10 @@
 
 .nav-link {
   position: relative;
-  color: #a0a6b0;
+  color: var(--color-text-light-2);
   text-decoration: none;
-  font-size: 1rem;
-  font-weight: 600;
+  font-size: var(--text-sm);
+  font-weight: var(--font-semibold);
   padding: 6px 0;
   transition: color 0.3s ease;
 }
@@ -103,28 +101,31 @@
 /* --- Request a Quote CTA --- */
 .btn-quote {
   background-color: #ffffff;
-  color: #181c20;
+  color: var(--color-background-dark);
   border: none;
-  border-radius: 20px;
-  padding: 8px 18px;
-  font-size: 0.85rem;
+  border-radius: 50px;
+  padding: 10px 18px;
+  font-size: var(--text-xs);
   font-weight: 600;
   text-decoration: none;
   display: inline-block;
   cursor: pointer;
   transition:
-    background-color 0.2s ease,
+    background-color 0.3s ease,
+    color 0.3s ease,
     transform 0.1s ease;
   white-space: nowrap;
 }
 
 .btn-quote:hover {
-  background-color: #01c649;
-  color: #ffffff;
+  background-color: var(--color-primary);
+  color: var(--color-text-light);
 }
 
 .btn-quote:active {
-  transform: scale(0.98);
+  transform: scale(0.95);
+  background-color: var(--color-primary);
+  color: var(--color-text-light);
 }
 
 /* --- Mobile Menu Toggle Icon --- */

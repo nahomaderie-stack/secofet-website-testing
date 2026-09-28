@@ -162,7 +162,7 @@
    FONT FAMILIES
 ======================================== */
   /* Font Families */
-  --font-primary: 'Poppins', sans-serif;
+  --font-primary: 'Poppins', Arial, Helvetica, sans-serif;
   --font-secondary: 'Sole Serif Big Display', serif;
 
   /* Poppins Weights */
@@ -196,11 +196,12 @@
   /* Headings */
   --text-h4: 28px;
   --text-h3: 34px;
-  --text-h2: 42px;
-  --text-h1: 52px;
+  --text-h2: 48px;
+  --text-h1: 56px;
 
   /* Hero */
-  --text-hero-primary: 64px;
+  --text-hero-primary: 62px;
+  --text-hero-primary-2: 64px;
   --text-hero-secondary: 74px;
 
   /* ========================================
@@ -270,10 +271,11 @@
 ======================================== */
 
   /* Shadows */
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
-  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
-  --shadow-xl: 0 16px 40px rgba(0, 0, 0, 0.16);
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.15);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.15);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.15);
+  --shadow-xl: 0 16px 40px rgba(0, 0, 0, 0.15);
 
   /* ========================================
    COLOR TOKENS
@@ -293,11 +295,15 @@
 
   /* Background */
   --color-background-dark: #000000;
+  --color-background-dark-2: #121518;
   --color-background-light: #ffffff;
 
   /* Text */
   --color-text-dark: #000000;
+  --color-text-dark-2: #121518;
   --color-text-light: #ffffff;
+  --color-text-light-2: #dfdfdf;
+  --color-text-light-3: #f0f0f0;
 
   /* Accent */
   --color-accent: #069f39;

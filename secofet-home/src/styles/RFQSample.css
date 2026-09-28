@@ -155,12 +155,15 @@
 
 .btn-contact-link {
   position: relative;
-  display: inline-block;
-  font-size: 0.95rem;
-  font-weight: 800;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: var(--text-sm);
+  font-weight: 500;
   color: #0b0c0e;
   text-decoration: none;
-  padding-bottom: 3px;
+  padding-bottom: 2px;
+  transition: opacity 0.2s ease;
 }
 
 .btn-contact-link::after {
@@ -169,13 +172,25 @@
   left: 0;
   bottom: 0;
   width: 0;
-  height: 1.5px;
+  height: 2px;
   background-color: currentColor;
-  transition: width 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition: width 0.3s ease;
 }
 
 .btn-contact-link:hover::after {
   width: 100%;
+}
+
+.btn-contact-link:hover {
+  opacity: 0.95;
+}
+
+.btn-contact-link .arrow-up-right {
+  transition: transform 0.2s ease;
+}
+
+.btn-contact-link:hover .arrow-up-right {
+  transform: translate(2px, -2px);
 }
 html {
   scroll-behavior: smooth;

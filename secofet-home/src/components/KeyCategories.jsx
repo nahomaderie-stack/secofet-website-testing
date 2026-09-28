@@ -87,7 +87,7 @@ const KeyCategories = () => {
                   <div className="expanded-info">
                     <p className="card-desc">{cat.description}</p>
                     <Link to={cat.link} className="btn-card-cta">
-                      Explore Coffees ↗
+                      Explore Coffees
                     </Link>
                   </div>
 

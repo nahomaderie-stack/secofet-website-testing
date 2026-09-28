@@ -83,8 +83,25 @@ const OurOrigins = () => {
               </span>
             </Link>
 
-            <Link to="/request-sample" className="btn-request-sample">
-              Request a Sample ↗
+            <Link
+              to="/request-sample"
+              className="btn-request-sample btn-secondary"
+            >
+              <span>Request a Sample</span>
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="3"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="arrow-up-right"
+              >
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
             </Link>
           </div>
         </div>

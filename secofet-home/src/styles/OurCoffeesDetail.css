@@ -3,130 +3,143 @@
    ========================================================================== */
 
 .coffees-detail-section {
-    width: 100%;
-    background-color: #ffffff;
-    /* Clean white background */
-    color: #111315;
-    padding: 200px 24px;
-    box-sizing: border-box;
-    font-family:
-        -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial,
-        sans-serif;
+  width: 100%;
+  background-color: #ffffff;
+  color: #111315;
+  padding: 200px 24px;
+  box-sizing: border-box;
+  font-family: var(--font-primary);
 }
 
 .coffees-detail-container {
-    width: 100%;
-    max-width: 1280px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 64px;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 64px;
 }
 
 /* --- Left Column --- */
 .coffees-detail-text-col {
-    flex: 1;
-    max-width: 540px;
-    text-align: left;
+  flex: 1;
+  max-width: 540px;
+  text-align: left;
 }
 
 .detail-main-title {
-    font-size: clamp(2rem, 4vw, 3.5rem);
-    font-weight: 800;
-    line-height: 1.05;
-    color: #0b0c0e;
-    letter-spacing: -0.03em;
-    margin: 0 0 24px 0;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1.05;
+  color: #0b0c0e;
+  letter-spacing: -0.03em;
+  margin: 0 0 24px 0;
 }
 
 .bold-emphasis {
-    font-weight: 800;
+  font-weight: 800;
 }
 
 .detail-body-desc {
-    font-size: 0.95rem;
-    line-height: 1.65;
-    color: #4b5563;
-    font-weight: 400;
-    margin: 0 0 40px 0;
-    max-width: 480px;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: #4b5563;
+  font-weight: 400;
+  margin: 0 0 40px 0;
+  max-width: 480px;
 }
 
 /* Action Buttons */
 .detail-actions-row {
-    display: flex;
-    align-items: center;
-    gap: 24px;
-    flex-wrap: wrap;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
 }
 
 .btn-pill-black {
-    background-color: #000000;
-    color: #ffffff;
-    padding: 14px 32px;
-    border-radius: 30px;
-    font-size: 0.88rem;
-    font-weight: 700;
-    text-decoration: none;
-    transition: background-color 0.2s ease, transform 0.1s ease;
+  background-color: #000000;
+  color: #ffffff;
+  padding: 14px 32px;
+  border-radius: 30px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition:
+    background-color 0.2s ease,
+    transform 0.1s ease;
 }
 
 .btn-pill-black:hover {
-    background-color: #01c649;
-    color: #ffffff;
+  background-color: var(--color-primary);
 }
 
 .btn-pill-black:active {
-    transform: scale(0.97);
+  transform: scale(0.97);
 }
 
-.btn-underline-link {
-    position: relative;
-    display: inline-block;
-    color: #000000;
-    font-size: 0.9rem;
-    font-weight: 700;
-    text-decoration: none;
-    text-decoration: none;
-    padding-bottom: 3px;
+.coffees-detail-section .btn-underline-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--color-text-dark-2);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  text-decoration: none;
+  padding-bottom: 2px;
+  transition: opacity 0.2s ease;
 }
 
-.btn-underline-link::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 0;
-    height: 1.5px;
-    background-color: currentColor;
-    transition: width 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+.coffees-detail-section .btn-underline-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background-color: currentColor;
+  transition: width 0.3s ease;
 }
 
-.btn-underline-link:hover::after {
-    width: 100%;
+.coffees-detail-section .btn-underline-link:hover::after {
+  width: 100%;
+  background-color: currentColor;
+}
+
+.coffees-detail-section .btn-underline-link:hover {
+  opacity: 0.95;
+}
+
+.arrow-up-right {
+  transition: transform 0.2s ease;
+}
+
+.btn-secondary:hover .arrow-up-right {
+  transform: translate(2px, -2px);
 }
 
 /* --- Right Column: Dark Square Box --- */
 .coffees-detail-media-col {
-    flex: 0 0 480px;
+  flex: 0 0 480px;
 }
 
 .media-square-box {
-    width: 100%;
-    aspect-ratio: 1 / 1;
-    /* Perfect square */
-    background-color: #22252a;
-    /* Dark gray/black box fill */
-    border-radius: 4px;
-    overflow: hidden;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  /* Perfect square */
+  background-color: #22252a;
+  /* Dark gray/black box fill */
+  border-radius: 4px;
+  overflow: hidden;
 }
 
 .media-box-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 /* ==========================================================================
@@ -134,40 +147,40 @@
    ========================================================================== */
 
 @media (max-width: 992px) {
-    .coffees-detail-section {
-        padding: 100px 24px;
-    }
+  .coffees-detail-section {
+    padding: 100px 24px;
+  }
 
-    .coffees-detail-container {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 40px;
-    }
+  .coffees-detail-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 40px;
+  }
 
-    .coffees-detail-media-col {
-        width: 100%;
-        flex: 1 1 auto;
-    }
+  .coffees-detail-media-col {
+    width: 100%;
+    flex: 1 1 auto;
+  }
 
-    .media-square-box {
-        max-width: 540px;
-    }
+  .media-square-box {
+    max-width: 540px;
+  }
 }
 
 @media (max-width: 576px) {
-    .coffees-detail-section {
-        padding: 60px 16px;
-    }
+  .coffees-detail-section {
+    padding: 60px 16px;
+  }
 
-    .detail-actions-row {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 16px;
-    }
+  .detail-actions-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
 
-    .btn-pill-black {
-        width: 100%;
-        text-align: center;
-        box-sizing: border-box;
-    }
+  .btn-pill-black {
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+  }
 }
