@@ -156,16 +156,34 @@
    Responsive Behavior
    ========================================================================== */
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .our-coffees-hero {
-    min-height: 75vh;
-    padding: 100px 20px 48px;
+    min-height: 80vh;
+    min-height: 80svh;
+    padding: 0;
   }
 
+  .hero-content-container {
+    padding: 112px 24px 56px;
+  }
+
+  .hero-main-title {
+    font-size: clamp(2.5rem, 5.5vw, 3.5rem);
+    line-height: 1.12;
+  }
+
+  .our-coffees-hero .hero-subtitle {
+    max-width: 660px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
   .hero-actions {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: stretch;
     gap: 12px;
+    width: 100%;
   }
 
   .btn-hero-white,
@@ -173,5 +191,30 @@
     width: 100%;
     text-align: center;
     box-sizing: border-box;
+  }
+
+  .our-coffees-hero .btn-secondary {
+    align-self: center;
+  }
+}
+
+@media (max-width: 576px) {
+  .our-coffees-hero {
+    min-height: 76vh;
+    min-height: 76svh;
+  }
+
+  .hero-content-container {
+    padding: 88px 16px 44px;
+  }
+
+  .hero-main-title {
+    font-size: clamp(2rem, 8.5vw, 2.7rem);
+    line-height: 1.12;
+  }
+
+  .our-coffees-hero .hero-subtitle {
+    font-size: 1rem;
+    margin-bottom: 28px;
   }
 }

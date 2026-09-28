@@ -96,6 +96,17 @@
   }
 }
 
+@media (max-width: 800px) and (min-width: 641px) {
+  .category-cards-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+  }
+
+  .category-card-box {
+    height: 360px;
+  }
+}
+
 @media (max-width: 640px) {
   .our-coffees-grid-section {
     padding: 60px 16px;

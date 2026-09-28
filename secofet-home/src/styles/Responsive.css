@@ -1,0 +1,122 @@
+/* Shared layout refinements for tablet and phone widths. Keep section spacing
+   consistent across routed pages while page-specific rules handle the layouts. */
+
+@media (min-width: 641px) and (max-width: 1024px) {
+  .header-container {
+    padding-inline: 24px;
+  }
+
+  .about-section,
+  .about-secofet-section,
+  .secofet-detail-section,
+  .what-we-do-section,
+  .mission-vision-section,
+  .core-values-section,
+  .team-section,
+  .work-section,
+  .why-section,
+  .categories-section,
+  .inside-secofet-section,
+  .farms-grid-section,
+  .qc-section,
+  .our-coffees-grid-section,
+  .coffees-detail-section,
+  .origins-section,
+  .origins-grid-section,
+  .origins-wrapper,
+  .contact-section,
+  .faq-section,
+  .rfq-section,
+  .legal-page-section,
+  .notfound-section {
+    padding-block: 80px;
+    padding-inline: 24px;
+  }
+
+  .processing-header-area,
+  .processing-dark-area {
+    padding-inline: 24px;
+  }
+}
+
+@media (max-width: 640px) {
+  .about-section,
+  .about-secofet-section,
+  .secofet-detail-section,
+  .what-we-do-section,
+  .mission-vision-section,
+  .core-values-section,
+  .team-section,
+  .work-section,
+  .why-section,
+  .categories-section,
+  .inside-secofet-section,
+  .farms-grid-section,
+  .qc-section,
+  .our-coffees-grid-section,
+  .coffees-detail-section,
+  .origins-section,
+  .origins-grid-section,
+  .origins-wrapper,
+  .contact-section,
+  .faq-section,
+  .rfq-section,
+  .legal-page-section {
+    padding-block: 64px;
+    padding-inline: 16px;
+  }
+
+  .notfound-section {
+    padding: 72px 16px;
+  }
+
+  .processing-header-area {
+    padding: 64px 16px 40px;
+  }
+
+  .processing-dark-area {
+    padding: 64px 16px;
+  }
+
+  .contact-title,
+  .rfq-title {
+    font-size: clamp(2rem, 9vw, 2.8rem);
+    line-height: 1.12;
+  }
+
+  .faq-title {
+    font-size: clamp(2rem, 8.5vw, 2.6rem);
+    line-height: 1.12;
+  }
+
+  .legal-title {
+    font-size: clamp(2.2rem, 9vw, 3rem);
+    line-height: 1.12;
+  }
+
+  .origins-grid-title,
+  .origins-wrapper .origins-title {
+    font-size: clamp(1.9rem, 8vw, 2.3rem);
+    line-height: 1.15;
+  }
+
+  .contact-header,
+  .faq-header,
+  .rfq-header,
+  .origins-grid-header,
+  .inside-header,
+  .categories-header,
+  .core-values-header,
+  .origins-header {
+    margin-bottom: 40px;
+  }
+
+  .contact-map-section {
+    padding: 0 16px 64px;
+  }
+
+  .map-frame-wrapper {
+    height: min(350px, 85vw);
+    min-height: 260px;
+  }
+}

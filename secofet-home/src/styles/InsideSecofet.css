@@ -123,7 +123,7 @@
     }
 
     .inside-single-card {
-        height: 400px;
+        height: clamp(320px, 62vw, 400px);
         border-radius: 14px;
     }
 
@@ -133,5 +133,23 @@
 
     .card-overlay-title {
         font-size: 1.8rem;
+    }
+
+    .inside-tabs {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        overflow-y: hidden;
+        white-space: nowrap;
+        padding-bottom: 8px;
+        scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .inside-tabs::-webkit-scrollbar {
+        display: none;
+    }
+
+    .inside-tabs > * {
+        flex: 0 0 auto;
     }
 }

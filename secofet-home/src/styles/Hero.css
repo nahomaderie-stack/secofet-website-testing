@@ -152,9 +152,27 @@
    Responsive Scaling
    ========================================================================== */
 
-@media (max-width: 992px) {
+@media (max-width: 1024px) {
+  .hero-section {
+    min-height: 82vh;
+    min-height: 82svh;
+  }
+
+  .hero-container {
+    padding: 96px 24px 64px;
+  }
+
+  .hero-content {
+    margin-top: clamp(72px, 12vh, 128px);
+    max-width: 760px;
+  }
+
   .hero-section .hero-title {
-    font-size: 3rem;
+    font-size: clamp(2.75rem, 5.5vw, 3.5rem);
+  }
+
+  .hero-section .serif-text {
+    font-size: inherit;
   }
 
   .hero-section .hero-subtitle {
@@ -163,13 +181,18 @@
 }
 
 @media (max-width: 640px) {
+  .hero-section {
+    min-height: 78vh;
+    min-height: 78svh;
+  }
+
   .hero-container {
-    padding: 60px 20px 80px;
+    padding: 64px 16px 56px;
   }
 
   .hero-section .hero-title {
-    font-size: 2rem;
-    line-height: 1.2;
+    font-size: clamp(1.8rem, 8.5vw, 2.5rem);
+    line-height: 1.15;
   }
 
   .hero-section .hero-subtitle {
@@ -183,13 +206,18 @@
 
   .hero-cta-group {
     flex-direction: column;
-    align-items: center;
-    gap: 22px;
+    align-items: stretch;
+    gap: 18px;
+    width: 100%;
   }
 
   .hero-section .btn-primary {
     width: 100%;
     box-sizing: border-box;
+  }
+
+  .hero-section .btn-secondary {
+    align-self: center;
   }
 
   .hero-overlay {
