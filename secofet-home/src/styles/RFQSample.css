@@ -8,9 +8,7 @@
   color: #111315;
   padding: 100px 24px;
   box-sizing: border-box;
-  font-family:
-    -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial,
-    sans-serif;
+  font-family: var(--font-primary);
 }
 
 .rfq-container {
@@ -108,19 +106,60 @@
   box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.12);
 }
 
+.field-group select:hover {
+  border-color: #9ca3af;
+}
+
+.field-group select:required:invalid {
+  color: #9ca3af;
+}
+
+.field-group select option {
+  background-color: #ffffff;
+  color: #111315;
+  font-family: var(--font-primary);
+}
+
+.field-group select option:checked {
+  background-color: #f0fdf4;
+  color: #166534;
+}
+
 /* Select Dropdown Styling */
 .select-wrapper {
   position: relative;
   width: 100%;
 }
 
+.select-wrapper::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 18px;
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid #6b7280;
+  border-bottom: 2px solid #6b7280;
+  transform: translateY(-70%) rotate(45deg);
+  pointer-events: none;
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.select-wrapper:hover::after {
+  border-color: #374151;
+}
+
+.select-wrapper:focus-within::after {
+  border-color: #16a34a;
+  transform: translateY(-30%) rotate(225deg);
+}
+
 .select-wrapper select {
   appearance: none;
   cursor: pointer;
-  background-image: url("data:image/svg+xml,%3CSvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%3C374151' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 16px center;
-  padding-right: 40px;
+  padding-right: 48px;
 }
 
 /* Bottom Action Row */
@@ -151,6 +190,16 @@
 
 .btn-submit-rfq:active {
   transform: scale(0.98);
+}
+
+.btn-submit-rfq:disabled {
+  cursor: default;
+}
+
+.btn-submit-rfq.submitted,
+.btn-submit-rfq.submitted:hover {
+  background-color: #15803d;
+  color: #ffffff;
 }
 
 .btn-contact-link {
@@ -186,11 +235,13 @@
 }
 
 .btn-contact-link .arrow-up-right {
-  transition: transform 0.2s ease;
+  transition: transform 0.2s ease, stroke-width 0.2s ease;
 }
 
-.btn-contact-link:hover .arrow-up-right {
+.btn-contact-link:hover .arrow-up-right,
+.btn-contact-link:focus-visible .arrow-up-right {
   transform: translate(2px, -2px);
+  stroke-width: 2px;
 }
 html {
   scroll-behavior: smooth;

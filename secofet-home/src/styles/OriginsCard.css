@@ -4,9 +4,7 @@
   background-color: #fafafa;
   padding: 90px 24px;
   box-sizing: border-box;
-  font-family:
-    -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial,
-    sans-serif;
+  font-family: var(--font-primary);
 }
 
 .origins-wrapper .origins-card {
@@ -32,7 +30,7 @@
 }
 
 .origins-wrapper .origins-tag {
-  color: #01c332;
+  color: var(--color-primary);
   font-size: 0.8rem;
   font-weight: 700;
   letter-spacing: 0.05em;
@@ -154,7 +152,7 @@
 
 .spec-label {
   display: block;
-  color: #4ade80;
+  color: var(--color-primary);
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.04em;

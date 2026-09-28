@@ -11,9 +11,7 @@
     /* Charcoal/black primary text */
     padding: 100px 24px;
     box-sizing: border-box;
-    font-family:
-        -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial,
-        sans-serif;
+    font-family: var(--font-primary);
 }
 
 .legal-page-container {
@@ -30,11 +28,11 @@
     border-bottom: 1px solid #e5e7eb;
 }
 
-.badge-wrapper {
+.legal-page-section .badge-wrapper {
     margin-bottom: 20px;
 }
 
-.pill-badge-outline {
+.legal-page-section .pill-badge-outline {
     display: inline-block;
     padding: 6px 20px;
     border: 1.5px solid #000000;

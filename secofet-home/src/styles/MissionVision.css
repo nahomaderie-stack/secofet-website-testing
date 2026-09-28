@@ -4,7 +4,7 @@
 
 .mission-vision-section {
   width: 100%;
-  background-color: #051407; /* Dark deep green background matching design */
+  background-color: #051407;
   color: #ffffff;
   padding: 100px 24px;
   box-sizing: border-box;
@@ -21,11 +21,11 @@
 }
 
 /* Common Outlined Pill Badge */
-.badge-wrapper {
+.mission-vision-section .badge-wrapper {
   margin-bottom: 24px;
 }
 
-.pill-badge-outline {
+.mission-vision-section .pill-badge-outline {
   display: inline-block;
   padding: 6px 20px;
   border: 1.5px solid #ffffff;

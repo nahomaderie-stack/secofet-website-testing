@@ -159,10 +159,12 @@
 .btn-explore:hover::after {
   width: 100%;
 }
-.arrow-up-right {
+.about-section .arrow-up-right {
   transition: transform 0.2s ease;
 }
-.about-section .btn-secondary:hover .arrow-up-right {
+
+.about-section .btn-secondary:hover .arrow-up-right,
+.about-section .btn-secondary:focus-visible .arrow-up-right {
   transform: translate(2px, -2px);
 }
 

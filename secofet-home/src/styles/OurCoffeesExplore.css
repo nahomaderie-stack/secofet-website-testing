@@ -144,11 +144,12 @@
   width: 100%;
 }
 
-.arrow-up-right {
+.our-coffees-hero .arrow-up-right {
   transition: transform 0.2s ease;
 }
 
-.our-coffees-hero .btn-secondary:hover .arrow-up-right {
+.our-coffees-hero .btn-secondary:hover .arrow-up-right,
+.our-coffees-hero .btn-secondary:focus-visible .arrow-up-right {
   transform: translate(2px, -2px);
 }
 /* ==========================================================================

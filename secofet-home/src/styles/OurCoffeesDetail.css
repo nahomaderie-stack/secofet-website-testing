@@ -112,11 +112,12 @@
   opacity: 0.95;
 }
 
-.arrow-up-right {
+.coffees-detail-section .arrow-up-right {
   transition: transform 0.2s ease;
 }
 
-.btn-secondary:hover .arrow-up-right {
+.coffees-detail-section .btn-secondary:hover .arrow-up-right,
+.coffees-detail-section .btn-secondary:focus-visible .arrow-up-right {
   transform: translate(2px, -2px);
 }
 

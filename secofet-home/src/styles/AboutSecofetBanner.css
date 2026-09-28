@@ -105,11 +105,12 @@
 .btn-sample-underline:hover::after {
   width: 100%;
 }
-.arrow-up-right {
+.about-secofet-section .arrow-up-right {
   transition: transform 0.2s ease;
 }
 
-.btn-secondary:hover .arrow-up-right {
+.about-secofet-section .btn-secondary:hover .arrow-up-right,
+.about-secofet-section .btn-secondary:focus-visible .arrow-up-right {
   transform: translate(2px, -2px);
 }
 

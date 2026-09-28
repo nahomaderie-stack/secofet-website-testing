@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../styles/InsideSecofet.css';
 import coffeeImage from '../assets/Images/Coffee-farm-2.png';
 
@@ -14,19 +14,53 @@ const InsideSecofet = () => {
 
     const handleTabClick = (tab) => {
         setActiveTab(tab.id);
-
-        // Smooth scroll to target section element
         const targetElement = document.getElementById(tab.targetId);
         if (targetElement) {
-            const headerOffset = 80; // Offset for sticky top navbar height
+            const headerHeight = document.querySelector('.header')?.offsetHeight ?? 64;
             const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
 
             window.scrollTo({
-                top: elementPosition - headerOffset,
+                top: elementPosition - headerHeight - 12,
                 behavior: 'smooth'
             });
         }
     };
+
+    useEffect(() => {
+        let frameId = null;
+
+        const updateActiveTab = () => {
+            const anchorY = window.innerHeight * 0.35;
+            const activeCategory = [...categories].reverse().find(({ targetId }) => {
+                const section = document.getElementById(targetId);
+                if (!section) return false;
+
+                const bounds = section.getBoundingClientRect();
+                return bounds.top <= anchorY && bounds.bottom > anchorY;
+            });
+
+            if (activeCategory) setActiveTab(activeCategory.id);
+        };
+
+        const scheduleActiveTabUpdate = () => {
+            if (frameId !== null) return;
+
+            frameId = window.requestAnimationFrame(() => {
+                frameId = null;
+                updateActiveTab();
+            });
+        };
+
+        updateActiveTab();
+        window.addEventListener('scroll', scheduleActiveTabUpdate, { passive: true });
+        window.addEventListener('resize', scheduleActiveTabUpdate);
+
+        return () => {
+            window.removeEventListener('scroll', scheduleActiveTabUpdate);
+            window.removeEventListener('resize', scheduleActiveTabUpdate);
+            if (frameId !== null) window.cancelAnimationFrame(frameId);
+        };
+    }, []);
 
     return (
         <section className="inside-secofet-section" id="insidesecofet">

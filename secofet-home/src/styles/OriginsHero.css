@@ -2,7 +2,7 @@
 .origins-hero {
   position: relative;
   width: 100%;
-  height: 90vh;
+  height: 88vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -11,9 +11,7 @@
   background-position: center;
   background-repeat: no-repeat;
   color: #ffffff;
-  font-family:
-    -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial,
-    sans-serif;
+  font-family: var(--font-primary);
   box-sizing: border-box;
 }
 
@@ -53,18 +51,18 @@
   width: 100%;
   max-width: 1280px;
   margin: 0 auto;
-  padding: 150px 2px 0px;
+  padding: 200px 2px 0px;
   box-sizing: border-box;
 }
 
 /* Heading Typography */
 .origins-hero-title {
-  font-size: 4.2rem;
-  max-width: 820px;
+  font-size: var(--text-hero-primary-2);
+  max-width: 850px;
   font-weight: 700;
-  line-height: 1.1;
+  line-height: var(--leading-heading);
   margin: 0 0 16px 0;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.2px;
   color: #ffffff;
 }
 
@@ -92,7 +90,7 @@
 }
 
 /* Main Pill Button */
-.btn-primary {
+.origins-hero .btn-primary {
   background-color: #ffffff;
   color: #111827;
   padding: 14px 28px;
@@ -108,13 +106,13 @@
   justify-content: center;
 }
 
-.btn-primary:hover {
+.origins-hero .btn-primary:hover {
   background-color: #01c649;
   color: #ffffff;
 }
 
-.btn-primary:active {
-  transform: scale(0.98);
+.origins-hero .btn-primary:active {
+  transform: scale(0.95);
 }
 
 /* Secondary Text Link with Arrow */
@@ -150,11 +148,12 @@
   width: 100%;
 }
 
-.btn-link:hover .arrow-icon {
+.origins-hero .btn-link:hover .arrow-up-right,
+.origins-hero .btn-link:focus-visible .arrow-up-right {
   transform: translate(2px, -2px);
 }
 
-.arrow-icon {
+.origins-hero .arrow-up-right {
   transition: transform 0.2s ease;
 }
 

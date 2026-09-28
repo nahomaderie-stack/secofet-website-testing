@@ -21,6 +21,7 @@ const RFQQuote = ({ title = 'Quote.' }) => {
     shipmentDate: '',
   });
   const [submitMessage, setSubmitMessage] = useState('');
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -29,6 +30,7 @@ const RFQQuote = ({ title = 'Quote.' }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setIsSubmitted(true);
     const body = Object.entries(formData)
       .map(
         ([field, value]) =>
@@ -353,8 +355,12 @@ const RFQQuote = ({ title = 'Quote.' }) => {
 
             {/* Bottom Actions Row */}
             <div className="rfq-actions">
-              <button type="submit" className="btn-submit-rfq">
-                Submit Request
+              <button
+                type="submit"
+                className={`btn-submit-rfq ${isSubmitted ? 'submitted' : ''}`}
+                disabled={isSubmitted}
+              >
+                {isSubmitted ? 'Submitted' : 'Submit Request'}
               </button>
 
               <Link to="/contact" className="btn-contact-link">

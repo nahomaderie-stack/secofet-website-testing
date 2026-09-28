@@ -143,10 +143,12 @@
 .btn-request-sample:hover::after {
   width: 100%;
 }
-.arrow-up-right {
+.origins-section .arrow-up-right {
   transition: transform 0.2s ease;
 }
-.origins-section .btn-secondary:hover .arrow-up-right {
+
+.origins-section .btn-secondary:hover .arrow-up-right,
+.origins-section .btn-secondary:focus-visible .arrow-up-right {
   transform: translate(2px, -2px);
 }
 /* --- Split Card Layout --- */

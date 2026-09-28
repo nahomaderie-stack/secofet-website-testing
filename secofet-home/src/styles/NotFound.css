@@ -13,9 +13,7 @@
     align-items: center;
     justify-content: center;
     box-sizing: border-box;
-    font-family:
-        -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial,
-        sans-serif;
+    font-family: var(--font-primary);
 }
 
 .notfound-container {
@@ -29,11 +27,11 @@
 }
 
 /* Outlined Pill Badge */
-.badge-wrapper {
+.notfound-section .badge-wrapper {
     margin-bottom: 24px;
 }
 
-.pill-badge-outline {
+.notfound-section .pill-badge-outline {
     display: inline-block;
     padding: 6px 20px;
     border: 1.5px solid rgba(41, 41, 41, 0.4);
