@@ -159,24 +159,40 @@
 
 /* Responsive adjustments */
 @media (max-width: 1024px) {
+  .origins-hero-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 200px 2px 0px;
+    box-sizing: border-box;
+  }
+
+  .origins-section {
+    padding: 80px 40px;
+  }
   .origins-hero {
     height: auto;
-    min-height: 80vh;
-    min-height: 80svh;
+    min-height: 92vh;
   }
 
   .origins-hero-content {
-    padding: clamp(96px, 14vh, 150px) 24px 24px;
+    padding: 180px 40px 0px;
   }
 
   .origins-hero-title {
-    font-size: clamp(2.75rem, 5.5vw, 3.5rem);
+    font-size: clamp(38px, 4.8vw, 48px);
+    max-width: 850px;
+    font-weight: 700;
     line-height: 1.12;
+    margin: 0 0px 10px;
   }
 
   .origins-hero-description {
-    max-width: 600px;
-    font-size: 1rem;
+    max-width: 520px;
+    font-size: 0.85rem;
+    margin: 5px 0 25px;
   }
 }
 

@@ -235,7 +235,9 @@
 }
 
 .btn-contact-link .arrow-up-right {
-  transition: transform 0.2s ease, stroke-width 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    stroke-width 0.2s ease;
 }
 
 .btn-contact-link:hover .arrow-up-right,
@@ -251,7 +253,15 @@ html {
    Responsive Behavior
    ========================================================================== */
 
-@media (max-width: 860px) {
+@media (max-width: 1024px) {
+  .rfq-section {
+    width: 100%;
+    background-color: #ffffff;
+    color: #111315;
+    padding: 100px 40px;
+    box-sizing: border-box;
+    font-family: var(--font-primary);
+  }
   .rfq-card {
     padding: 36px 24px;
   }

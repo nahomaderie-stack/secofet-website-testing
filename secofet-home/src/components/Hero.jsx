@@ -23,7 +23,7 @@ const Hero = () => {
           </p>
 
           <div className="hero-cta-group">
-            <Link to="/our-coffees" className="btn-primary">
+            <Link to="/our-coffees" className="btn-primary ">
               Explore Our Coffees
             </Link>
             <Link to="/rfq" className="btn-secondary">

@@ -82,7 +82,13 @@
    Responsive Behavior
    ========================================================================== */
 
-@media (max-width: 992px) {
+@media (max-width: 1024px) {
+  .what-we-do-section {
+    
+    padding: 85px 40px;
+    box-sizing: border-box;
+    
+  }
   .what-we-do-container {
     grid-template-columns: 1fr;
     gap: 48px;
@@ -93,7 +99,7 @@
   }
 }
 
-@media (max-width: 576px) {
+@media (max-width: 640px) {
   .what-we-do-section {
     padding: 60px 16px;
   }

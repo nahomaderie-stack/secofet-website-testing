@@ -154,21 +154,20 @@
 
 @media (max-width: 1024px) {
   .hero-section {
-    min-height: 82vh;
-    min-height: 82svh;
+    min-height: 90vh;
   }
 
   .hero-container {
-    padding: 96px 24px 64px;
+    padding: 100px 40px 25px;
   }
 
   .hero-content {
-    margin-top: clamp(72px, 12vh, 128px);
+    margin-top: clamp(70px, 12vh, 125px);
     max-width: 760px;
   }
 
   .hero-section .hero-title {
-    font-size: clamp(2.75rem, 5.5vw, 3.5rem);
+    font-size: clamp(36px, 4.8vw, 48px);
   }
 
   .hero-section .serif-text {
@@ -176,27 +175,32 @@
   }
 
   .hero-section .hero-subtitle {
-    font-size: 1rem;
+    font-size: 14px;
+    max-width: 550px;
+  }
+  .hero-section .btn-primary {
+    padding: 12px 24px;
+    font-size: var(--text-sm);
   }
 }
 
 @media (max-width: 640px) {
   .hero-section {
-    min-height: 78vh;
-    min-height: 78svh;
+    min-height: 90svh;
   }
 
   .hero-container {
-    padding: 64px 16px 56px;
+    padding: 260px 20px 0px;
+    min-height: 80vh;
   }
 
   .hero-section .hero-title {
-    font-size: clamp(1.8rem, 8.5vw, 2.5rem);
+    font-size: clamp(1.5rem, 6.5vw, 2.1rem);
     line-height: 1.15;
   }
 
   .hero-section .hero-subtitle {
-    font-size: 0.95rem;
+    font-size: 0.75rem;
     line-height: 1.5;
   }
 
@@ -214,10 +218,12 @@
   .hero-section .btn-primary {
     width: 100%;
     box-sizing: border-box;
+    font-size: var(--text-xs);
   }
 
   .hero-section .btn-secondary {
     align-self: center;
+    font-size: var(--text-xs);
   }
 
   .hero-overlay {

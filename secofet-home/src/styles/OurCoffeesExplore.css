@@ -158,27 +158,27 @@
 
 @media (max-width: 1024px) {
   .our-coffees-hero {
-    min-height: 80vh;
-    min-height: 80svh;
+    min-height: 92vh;
+
     padding: 0;
   }
 
   .hero-content-container {
-    padding: 112px 24px 56px;
+    padding: 5px 40px 75px;
   }
 
   .hero-main-title {
-    font-size: clamp(2.5rem, 5.5vw, 3.5rem);
-    line-height: 1.12;
+    font-size: clamp(34px, 4.8vw, 45px);
+    line-height: 1.1;
   }
 
   .our-coffees-hero .hero-subtitle {
-    max-width: 660px;
-    font-size: 1rem;
+    max-width: 560px;
+    font-size: 14px;
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 640px) {
   .hero-actions {
     flex-direction: column;
     align-items: stretch;
@@ -196,9 +196,7 @@
   .our-coffees-hero .btn-secondary {
     align-self: center;
   }
-}
 
-@media (max-width: 576px) {
   .our-coffees-hero {
     min-height: 76vh;
     min-height: 76svh;

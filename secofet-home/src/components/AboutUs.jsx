@@ -14,8 +14,10 @@ const AboutUs = () => {
 
         {/* Main Heading */}
         <h2 className="about-heading">
-          Connecting <span className="serif-text">Ethiopian Coffee</span> <br />
-          with Global Customers
+          Connecting <span className="serif-text">Ethiopian Coffee</span> with
+          {'  '}
+          <br />
+          Global Customers
         </h2>
 
         {/* Paragraph Description */}

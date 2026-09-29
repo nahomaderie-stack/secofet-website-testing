@@ -18,7 +18,7 @@ import RequestSamplePage from './pages/RequestSamplePage';
 import TermsConditionsPage from './pages/TermsConditionsPage';
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
 import CookiePolicyPage from './pages/CookiePolicyPage';
-import './styles/Responsive.css';
+// import './styles/Responsive.css';
 
 function ScrollToTop() {
   const { pathname } = useLocation();

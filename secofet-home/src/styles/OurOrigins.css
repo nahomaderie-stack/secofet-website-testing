@@ -293,7 +293,7 @@
    Responsive Breakpoints
    ========================================================================== */
 
-@media (max-width: 992px) {
+@media (max-width: 1024px) {
   .origins-section .origins-card {
     grid-template-columns: 1fr;
   }
@@ -309,7 +309,7 @@
 
 @media (max-width: 640px) {
   .origins-section {
-    padding: 50px 16px;
+    padding: 5px 20px;
   }
 
   .origins-actions {
@@ -317,6 +317,28 @@
     align-items: stretch;
     gap: 16px;
     width: 100%;
+  }
+  .origins-section .origins-title {
+    font-size: clamp(1.5rem, 6.5vw, 2.1rem);
+    font-weight: 800;
+    line-height: 1.2;
+    color: #000000;
+    letter-spacing: -0.02em;
+    margin: 0 0 32px 0;
+  }
+  .lead-paragraph {
+    font-size: 1.05rem;
+    font-weight: 800;
+    line-height: 1.5;
+    color: #000000;
+    margin: 0;
+  }
+  .sub-paragraph {
+    font-size: 0.85rem;
+    font-weight: 300;
+    line-height: 1.35;
+    color: #4b5563;
+    margin: 0;
   }
 
   .origins-header {
@@ -330,15 +352,16 @@
   .btn-visit-origins {
     width: 100%;
     padding: 10px 16px;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
   }
 
   .btn-request-sample {
     align-self: center;
-    margin-top: 4px;
+    margin-top: 2px;
+    font-size: 0.85rem;
   }
 
   .origin-dynamic-desc {
-    font-size: 1.15rem;
+    font-size: 1rem;
   }
 }

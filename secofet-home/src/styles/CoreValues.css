@@ -176,7 +176,18 @@
    Responsive Behavior
    ========================================================================== */
 
-@media (max-width: 992px) {
+@media (max-width: 1024px) {
+  .core-values-section {
+    padding: 100px 40px;
+  }
+  .core-values-lead {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #4b5563;
+    font-weight: 400;
+    margin: 0;
+    max-width: 520px;
+  }
   .values-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -192,7 +203,7 @@
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 640px) {
   .core-values-section {
     padding: 60px 16px;
   }

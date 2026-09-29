@@ -28,7 +28,7 @@
 
 /* Serif Italic Styling for "Yirgacheffe" */
 .origins-grid-italic {
-  font-family: 'Playfair Display', 'Georgia', 'Times New Roman', serif;
+  font-family: 'Georgia', 'Times New Roman', serif;
   font-style: italic;
   font-weight: 400;
 }
@@ -136,13 +136,16 @@
 }
 
 /* Responsive Grid Breakpoints */
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
+  .origins-grid-section {
+    padding: 90px 40px;
+  }
   .origins-grid-container {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 640px) {
   .origins-grid-header {
     margin-bottom: 36px;
   }

@@ -1,4 +1,4 @@
-import '../styles/OriginsMap.css';
+import '../styles/MapSection.css';
 
 const mapLocations = {
   Sidama: { label: 'Sidama, Ethiopia', search: 'Sidama, Ethiopia' },

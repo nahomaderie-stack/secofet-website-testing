@@ -262,7 +262,10 @@
    Responsive Behavior
    ========================================================================== */
 
-@media (max-width: 1024px) and (min-width: 641px) {
+@media (max-width: 1024px) {
+  .categories-section {
+    padding: 65px 40px;
+  }
   .categories-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -278,7 +281,7 @@
   }
 
   .card-content {
-    padding: 28px 24px;
+    padding: 25px 24px;
   }
 
   .category-card.expanded .card-title,
@@ -298,15 +301,26 @@
   .collapsed-arrow-btn {
     display: none;
   }
+  .card-desc {
+    font-size: 0.75rem;
+    line-height: 1.35;
+    color: #e5e7eb;
+    margin: 0 0 18px 0;
+    font-weight: 400;
+    max-width: 300px;
+  }
 }
 
 @media (max-width: 640px) {
+  .categories-section {
+    padding: 25px 20px;
+  }
   .categories-header {
     margin-bottom: 32px;
   }
 
   .categories-title {
-    font-size: clamp(1.9rem, 8vw, 2.5rem);
+    font-size: clamp(1.5rem, 6.8vw, 2.1rem);
     line-height: 1.12;
   }
 
@@ -343,8 +357,8 @@
   }
 
   .card-desc {
-    font-size: 0.9rem;
-    line-height: 1.5;
+    font-size: 0.75rem;
+    line-height: 1.4;
     margin-bottom: 16px;
   }
 

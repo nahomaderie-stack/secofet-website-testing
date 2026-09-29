@@ -24,7 +24,7 @@
 /* --- Left Column --- */
 .coffees-detail-text-col {
   flex: 1;
-  max-width: 540px;
+  max-width: 640px;
   text-align: left;
 }
 
@@ -147,20 +147,44 @@
    Responsive Behavior
    ========================================================================== */
 
-@media (max-width: 992px) {
+@media (max-width: 1024px) {
   .coffees-detail-section {
-    padding: 100px 24px;
+    width: 100%;
+    background-color: #ffffff;
+    color: #111315;
+    padding: 100px 40px;
+    box-sizing: border-box;
+    font-family: var(--font-primary);
   }
 
   .coffees-detail-container {
     flex-direction: column;
     align-items: flex-start;
-    gap: 40px;
+    gap: 50px;
+    max-width: 1024px;
+  }
+  .detail-body-desc {
+    font-size: 0.85rem;
+    line-height: 1.65;
+    color: #4b5563;
+    font-weight: 400;
+    margin: 0 0 40px 0;
+    max-width: 550px;
+  }
+  .coffees-detail-media {
+    display: flex;
+    align-items: stretch;
   }
 
   .coffees-detail-media-col {
+    flex: 1;
+    height: 500px;
+  }
+  .media-box-img {
     width: 100%;
-    flex: 1 1 auto;
+    height: 100%;
+    object-fit: cover;
+    display: block;
   }
 
   .media-square-box {
@@ -168,7 +192,7 @@
   }
 }
 
-@media (max-width: 576px) {
+@media (max-width: 640px) {
   .coffees-detail-section {
     padding: 60px 16px;
   }

@@ -1,4 +1,4 @@
-import '../styles/ContactMap.css';
+import '../styles/MapSection.css';
 
 const ContactMap = () => {
   return (
