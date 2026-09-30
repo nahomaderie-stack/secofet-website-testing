@@ -140,12 +140,41 @@
 }
 @media (max-width: 640px) {
   .inside-secofet-section {
-    padding: 60px 16px;
+    padding: 55px 20px;
   }
-
+  .inside-title {
+    font-size: clamp(1.4rem, 3.5vw, 3rem);
+    font-weight: 800;
+    line-height: 1.15;
+    color: #0b0c0e;
+    letter-spacing: -0.25px;
+    margin: 0 0 20px 0;
+  }
+  .inside-subtitle {
+    font-size: 0.75rem;
+    line-height: 1.5;
+    color: #6b7280;
+    font-weight: 400;
+    max-width: 620px;
+    margin: 0;
+  }
+  .inside-header {
+    text-align: left;
+    margin-bottom: 25px;
+  }
+  .tab-btn {
+    background: transparent;
+    border: none;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #6b7280;
+    cursor: pointer;
+    padding: 4px 0;
+    transition: color 0.2s ease;
+  }
   .inside-single-card {
     height: clamp(320px, 62vw, 400px);
-    border-radius: 14px;
+    border-radius: 0px;
   }
 
   .inside-card-overlay {
@@ -153,7 +182,8 @@
   }
 
   .card-overlay-title {
-    font-size: 1.8rem;
+    font-size: clamp(1.4rem, 4.8vw, 1.8rem);
+    line-height: 1.15;
   }
 
   .inside-tabs {

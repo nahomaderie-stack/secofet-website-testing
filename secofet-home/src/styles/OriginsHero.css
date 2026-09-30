@@ -58,7 +58,7 @@
 /* Heading Typography */
 .origins-hero-title {
   font-size: var(--text-hero-primary-2);
-  max-width: 850px;
+  max-width: 1200px;
   font-weight: 700;
   line-height: var(--leading-heading);
   margin: 0 0 16px 0;
@@ -95,7 +95,7 @@
   color: #111827;
   padding: 14px 28px;
   border-radius: 30px;
-  font-size: 0.95rem;
+  font-size: var(--text-sm);
   font-weight: 600;
   text-decoration: none;
   transition:
@@ -160,12 +160,13 @@
 /* Responsive adjustments */
 @media (max-width: 1024px) {
   .origins-hero-content {
+    min-height: 92vh;
     position: relative;
     z-index: 2;
     width: 100%;
     max-width: 1280px;
     margin: 0 auto;
-    padding: 200px 2px 0px;
+    padding: 450px 40px 0px;
     box-sizing: border-box;
   }
 
@@ -177,8 +178,38 @@
     min-height: 92vh;
   }
 
+  .origins-hero-title {
+    font-size: clamp(38px, 4.8vw, 48px);
+    max-width: 850px;
+    font-weight: 700;
+    line-height: 1.12;
+    margin: 0 0px 10px;
+  }
+
+  .origins-hero-description {
+    max-width: 480px;
+    font-size: 0.85rem;
+    margin: 5px 0 25px;
+  }
+}
+@media (min-width: 641px) and (max-width: 900px) {
   .origins-hero-content {
-    padding: 180px 40px 0px;
+    min-height: 92vh;
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 265px 40px 0px;
+    box-sizing: border-box;
+  }
+
+  .origins-section {
+    padding: 80px 40px;
+  }
+  .origins-hero {
+    height: auto;
+    max-height: 55vh;
   }
 
   .origins-hero-title {
@@ -190,26 +221,35 @@
   }
 
   .origins-hero-description {
-    max-width: 520px;
+    max-width: 480px;
     font-size: 0.85rem;
     margin: 5px 0 25px;
   }
 }
-
-@media (max-width: 768px) {
+@media (max-width: 640px) {
+  .origins-section {
+    padding: 40px 20px;
+  }
   .origins-hero {
     height: auto;
-    min-height: 76vh;
-    min-height: 76svh;
+    max-height: 50vh;
     padding: 48px 0;
   }
 
   .origins-hero-content {
-    padding: 0 24px;
+    padding: 260px 22px 0px;
   }
 
   .origins-hero-title {
-    font-size: clamp(2.25rem, 6vw, 2.75rem);
+    font-size: clamp(1.5rem, 6.5vw, 2.1rem);
+    line-height: 1.15;
+    margin: 20px 0;
+  }
+  .origins-hero-description {
+    max-width: 320px;
+    font-size: 0.75rem;
+    line-height: 1.5;
+    margin: 0px 0 25px;
   }
 
   .origins-hero-actions {
@@ -221,31 +261,54 @@
   .origins-hero .btn-primary {
     width: 100%;
     box-sizing: border-box;
+    font-size: var(--text-xs);
   }
 
   .origins-hero .btn-link {
     align-self: center;
+    font-size: var(--text-xs);
   }
 }
-
-@media (max-width: 576px) {
+@media (max-width: 320px) {
+  .origins-section {
+    padding: 40px 20px;
+  }
   .origins-hero {
-    min-height: 72vh;
-    min-height: 72svh;
-    padding: 40px 0;
+    height: auto;
+    max-height: 40vh;
+    padding: 48px 0;
   }
 
   .origins-hero-content {
-    padding-inline: 16px;
+    padding: 250px 22px 10px;
   }
 
   .origins-hero-title {
-    font-size: clamp(2rem, 8.5vw, 2.6rem);
+    font-size: clamp(1.5rem, 6.5vw, 2.1rem);
     line-height: 1.15;
+    margin: 20px 0;
+  }
+  .origins-hero-description {
+    max-width: 320px;
+    font-size: 0.75rem;
+    line-height: 1.5;
+    margin: 0px 0 25px;
   }
 
-  .origins-hero-description {
-    font-size: 1rem;
-    margin-bottom: 28px;
+  .origins-hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+  }
+
+  .origins-hero .btn-primary {
+    width: 100%;
+    box-sizing: border-box;
+    font-size: var(--text-xs);
+  }
+
+  .origins-hero .btn-link {
+    align-self: center;
+    font-size: var(--text-xs);
   }
 }

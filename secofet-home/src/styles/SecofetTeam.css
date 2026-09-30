@@ -33,10 +33,10 @@
 
 .badge-outline {
   display: inline-block;
-  padding: 6px 18px;
+  padding: 8px 24px;
   border: 1.5px solid #000000;
   border-radius: 30px;
-  font-size: 0.75rem;
+  font-size: 0.9rem;
   font-weight: 700;
   color: #000000;
   letter-spacing: 0.05em;
@@ -61,11 +61,11 @@
 }
 
 .slider-btn {
-  width: 44px;
-  height: 44px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   border: none;
-  background-color: #007200;
+  background-color: var(--color-primary);
   color: #ffffff;
   font-size: 1.5rem;
   display: flex;
@@ -119,6 +119,7 @@
 
 .team-card:hover {
   transform: translateY(-6px);
+  border-radius: 20px;
   box-shadow: 0 16px 32px rgba(0, 102, 255, 0.18);
 }
 
@@ -142,6 +143,7 @@
 
 .team-card:hover .member-img {
   transform: scale(1.05);
+  border-radius: 20px;
 }
 
 .photo-overlay-info {
@@ -181,8 +183,7 @@
 .card-blue-hover-state {
   position: absolute;
   inset: 0;
-  background-color: #007200;
-  /* Exact vibrant blue */
+  background-color: var(--color-primary);
   color: #ffffff;
   padding: 32px 24px;
   display: flex;
@@ -190,6 +191,7 @@
   justify-content: space-between;
   text-align: left;
   box-sizing: border-box;
+  border-radius: 20px;
 
   /* Smooth opacity & subtle lift reveal */
   opacity: 0;
@@ -294,17 +296,38 @@
 }
 @media (max-width: 640px) {
   .team-section {
-    padding: 60px 16px;
+    padding: 40px 20px 0px;
   }
 
   .team-header {
     flex-direction: column;
     align-items: flex-start;
-    gap: 24px;
+    gap: 20px;
   }
 
   .team-card {
     flex: 0 0 240px;
     height: 340px;
+  }
+  .badge-outline {
+    display: inline-block;
+    padding: 6px 20px;
+    border: 1.5px solid #000000;
+    border-radius: 30px;
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: #000000;
+    letter-spacing: 0.05em;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+  }
+  .team-title {
+    font-size: clamp(1.5rem, 6.5vw, 2.1rem);
+    font-weight: 800;
+    line-height: 1.15;
+    color: #0b0c0e;
+    letter-spacing: -0.02em;
+    margin: 0;
+    text-align: left;
   }
 }

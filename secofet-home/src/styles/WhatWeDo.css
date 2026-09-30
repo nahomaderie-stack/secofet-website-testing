@@ -46,7 +46,7 @@
 }
 
 .what-we-do-tag {
-  color: #0d5c3a; /* Green accent color matching design */
+  color: var(--color-primary);
   font-size: 0.85rem;
   font-weight: 700;
   letter-spacing: -0.01em;
@@ -84,10 +84,8 @@
 
 @media (max-width: 1024px) {
   .what-we-do-section {
-    
     padding: 85px 40px;
     box-sizing: border-box;
-    
   }
   .what-we-do-container {
     grid-template-columns: 1fr;
@@ -101,15 +99,46 @@
 
 @media (max-width: 640px) {
   .what-we-do-section {
-    padding: 60px 16px;
+    padding: 40px 20px;
   }
 
   .what-we-do-image-col {
     height: 300px;
-    border-radius: 16px;
+    border-radius: 0px;
   }
 
   .what-we-do-text-body p {
-    font-size: 0.98rem;
+    font-size: 0.75rem;
+    line-height: 1.5;
+  }
+  .what-we-do-container {
+    gap: 45px;
+    align-items: center;
+  }
+  .what-we-do-tag {
+    font-size: 0.7rem;
+    margin-bottom: 10px;
+    display: block;
+  }
+  .what-we-do-title {
+    font-size: clamp(1.5rem, 6.5vw, 2.1rem);
+    font-weight: 800;
+    line-height: 1.15;
+    margin: 0 0 20px 0;
+  }
+
+  .what-we-do-text-body {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    max-width: 520px;
+  }
+
+  .what-we-do-text-body p {
+    font-size: 0.75rem;
+    line-height: 1.5;
+    color: #555d66;
+    font-weight: 400;
+    margin: 0;
   }
 }

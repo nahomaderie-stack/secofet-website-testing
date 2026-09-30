@@ -83,7 +83,7 @@
   color: #0b0c0e;
   padding: 14px 32px;
   border-radius: 30px;
-  font-size: 0.9rem;
+  font-size: var(--text-sm);
   font-weight: 700;
   text-decoration: none;
   transition:
@@ -179,6 +179,14 @@
 }
 
 @media (max-width: 640px) {
+  .our-coffees-hero {
+    min-height: 92vh;
+    padding: 0;
+  }
+
+  .hero-content-container {
+    padding: 5px 20px 75px;
+  }
   .hero-actions {
     flex-direction: column;
     align-items: stretch;
@@ -191,28 +199,101 @@
     width: 100%;
     text-align: center;
     box-sizing: border-box;
+    font-size: var(--text-xs);
   }
 
   .our-coffees-hero .btn-secondary {
     align-self: center;
-  }
-
-  .our-coffees-hero {
-    min-height: 76vh;
-    min-height: 76svh;
-  }
-
-  .hero-content-container {
-    padding: 88px 16px 44px;
+    font-size: var(--text-xs);
   }
 
   .hero-main-title {
-    font-size: clamp(2rem, 8.5vw, 2.7rem);
-    line-height: 1.12;
+    font-size: clamp(1.5rem, 6.5vw, 2.1rem);
+    line-height: 1.15;
   }
 
   .our-coffees-hero .hero-subtitle {
-    font-size: 1rem;
-    margin-bottom: 28px;
+    font-size: 0.75rem;
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+}
+@media (min-width: 641px) and (max-width: 900px) {
+  .our-coffees-hero {
+    min-height: 92vh;
+    padding: 0;
+  }
+
+  .hero-content-container {
+    padding: 5px 40px 95px;
+  }
+  .hero-actions {
+    flex-direction: row;
+    gap: 12px;
+    width: 100%;
+  }
+
+  .btn-hero-white,
+  .btn-hero-outline {
+    text-align: center;
+    box-sizing: border-box;
+    font-size: var(--text-xs);
+  }
+
+  .our-coffees-hero .btn-secondary {
+    align-self: center;
+    font-size: var(--text-xs);
+  }
+
+  .hero-main-title {
+    font-size: clamp(1.4rem, 6.5vw, 2.1rem);
+    line-height: 1.15;
+  }
+
+  .our-coffees-hero .hero-subtitle {
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    max-width: 550px;
+  }
+}
+@media (max-width: 320px) {
+  .our-coffees-hero {
+    min-height: 92vh;
+    padding: 0;
+  }
+
+  .hero-content-container {
+    padding: 5px 20px 75px;
+  }
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    width: 100%;
+  }
+
+  .btn-hero-white,
+  .btn-hero-outline {
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+    font-size: var(--text-xs);
+  }
+
+  .our-coffees-hero .btn-secondary {
+    align-self: center;
+    font-size: var(--text-xs);
+  }
+
+  .hero-main-title {
+    font-size: clamp(1.35rem, 6.5vw, 2.1rem);
+    line-height: 1.15;
+  }
+
+  .our-coffees-hero .hero-subtitle {
+    font-size: 0.75rem;
+    line-height: 1.5;
+    margin-bottom: 20px;
   }
 }

@@ -1,4 +1,7 @@
-/* Container & Layout */
+/* ========================================
+   Container & Layout
+======================================== */
+
 .origins-wrapper {
   width: 100%;
   background-color: #fafafa;
@@ -12,44 +15,62 @@
   max-width: 1280px;
   min-height: 75vh;
   margin: 0 auto;
+
   background-color: #1c1f1e;
-  border-radius: 5px;
-  padding: 56px 48px;
+  border-radius: 0px;
+
+  padding: 60px 50px;
+
   display: flex;
   gap: 40px;
+
   color: #ffffff;
+
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+
   box-sizing: border-box;
 }
 
-/* Left Column Styling */
+/* ========================================
+   Left Column Styling
+======================================== */
+
 .origins-left {
   flex: 1.2;
+
   display: flex;
   flex-direction: column;
 }
 
 .origins-wrapper .origins-tag {
   color: var(--color-primary);
+
   font-size: 0.8rem;
   font-weight: 700;
+
   letter-spacing: 0.05em;
   text-transform: uppercase;
+
   margin-bottom: 12px;
 }
 
 .origins-wrapper .origins-title {
   font-size: 3rem;
   font-weight: 800;
+
   margin: 0 0 24px 0;
+
   letter-spacing: -0.02em;
+
   color: #ffffff;
 }
 
 .origins-description {
   font-size: 1rem;
   line-height: 1.35;
+
   color: #d1d5db;
+
   margin-bottom: 40px;
 }
 
@@ -61,49 +82,77 @@
   margin-bottom: 0;
 }
 
-/* Origins List Menu */
+/* ========================================
+   Origins List Menu
+======================================== */
+
 .origins-list {
   margin-top: auto;
+
   display: flex;
   flex-direction: column;
+
   gap: 5px;
 }
 
 .origins-item {
   width: 100%;
+
   font-family: inherit;
   text-align: left;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
+
   padding: 16px 24px;
+
   border-radius: 5px;
+
   cursor: pointer;
+
   color: #d1d5db;
+
   font-size: 1.1rem;
   font-weight: 700;
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+
+  transition:
+    background-color 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+    color 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+
   background-color: rgba(255, 255, 255, 0.03);
+
   border: 1px solid rgba(255, 255, 255, 0.06);
+
+  box-sizing: border-box;
 }
 
 .origins-item:hover:not(.active) {
   background-color: rgba(255, 255, 255, 0.09);
+
   color: #ffffff;
+
   transform: translateX(4px);
+
   border-color: rgba(255, 255, 255, 0.15);
 }
 
 .origins-item.active {
   background-color: #ffffff;
+
   color: #0b0c0e;
+
   border-color: #ffffff;
+
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
 }
 
 .origins-item-icon {
   font-size: 1.1rem;
   font-weight: 500;
+
   transition: transform 0.2s ease;
 }
 
@@ -111,23 +160,35 @@
   transform: scale(1.15);
 }
 
-/* Right Column Specification Box */
+/* ========================================
+   Right Column Specification Box
+======================================== */
+
 .origins-right {
   flex: 0.8;
+
   display: flex;
 }
 
 .spec-card {
   width: 100%;
+
   background: rgba(255, 255, 255, 0.03);
+
   border: 1px solid rgba(255, 255, 255, 0.12);
+
   backdrop-filter: blur(10px);
+
   border-radius: 10px;
+
   padding: 36px 32px;
+
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
   box-sizing: border-box;
+
   transition:
     border-color 0.3s ease,
     box-shadow 0.3s ease,
@@ -136,51 +197,131 @@
 
 .spec-card:hover {
   border-color: rgba(74, 222, 128, 0.4);
+
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+
   background-color: rgba(255, 255, 255, 0.05);
 }
 
 .spec-group {
   padding-bottom: 14px;
+
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .spec-group:last-child {
   padding-bottom: 0;
+
   border-bottom: none;
 }
 
 .spec-label {
   display: block;
+
   color: var(--color-primary);
+
   font-size: 0.75rem;
   font-weight: 700;
+
   letter-spacing: 0.04em;
   text-transform: uppercase;
+
   margin-bottom: 4px;
 }
 
 .spec-value {
   margin: 0;
+
   font-size: 1.05rem;
   font-weight: 600;
+
   color: #ffffff;
+
   line-height: 1.35;
 }
 
-/* Responsive Breakpoints */
-@media (max-width: 820px) {
-  .origins-wrapper .origins-card {
-    flex-direction: column;
-    padding: 24px;
+/* ========================================
+   Responsive — Tablet
+   1024px and below
+======================================== */
+
+@media (max-width: 1024px) {
+  .origins-wrapper {
+    padding: 90px 40px 45px;
   }
 
-  .origins-item.active {
-    margin-left: 0;
-    width: 100%;
+  .origins-wrapper .origins-card {
+    flex-direction: column;
+    padding: 44px 34px;
   }
 
   .origins-wrapper .origins-title {
     font-size: 2.2rem;
+  }
+}
+
+/* ========================================
+   Responsive — Mobile
+   640px and below
+======================================== */
+
+@media (max-width: 640px) {
+  .origins-wrapper {
+    padding: 60px 20px 45px;
+  }
+
+  .origins-wrapper .origins-card {
+    flex-direction: column;
+
+    padding: 28px;
+  }
+  .origins-wrapper .origins-tag {
+    color: var(--color-primary);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    max-width: 150px;
+    line-height: 1.5;
+  }
+
+  .origins-wrapper .origins-title {
+    font-size: clamp(1.5rem, 6.5vw, 2.1rem);
+    margin-bottom: 20px;
+  }
+
+  .origins-description {
+    font-size: 0.75rem;
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+  .origins-description p {
+    font-size: 0.75rem;
+    line-height: 1.5;
+    margin: 0 0 16px 0;
+  }
+
+  .origins-item {
+    padding: 12px 18px;
+
+    font-size: 0.9rem;
+  }
+
+  .spec-card {
+    padding: 28px 24px;
+  }
+
+  .spec-value {
+    font-size: 1rem;
+  }
+  .spec-label {
+    display: block;
+    color: var(--color-primary);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-bottom: 4px;
   }
 }

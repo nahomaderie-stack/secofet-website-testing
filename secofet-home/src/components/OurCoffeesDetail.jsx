@@ -12,7 +12,7 @@ const OurCoffeesDetail = () => {
         {/* Left Column: Headline, Body, and Action CTAs */}
         <div className="coffees-detail-text-col">
           <h2 className="detail-main-title">
-            Exceptional <span className="serif-text">Grade 1 & 2</span>
+            Exceptional <span className="serif-text">Grade 1 & 2 </span>
             Arabica <span className="bold-emphasis">lots.</span>
           </h2>
 

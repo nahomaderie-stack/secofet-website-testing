@@ -71,7 +71,7 @@ const AboutSecofetDetail = () => {
           observer.disconnect(); // Trigger animation once on scroll into view
         }
       },
-      { threshold: 0.3 }, // Triggers when 30% of the section is visible
+      { threshold: 0.6 }, // Triggers when 30% of the section is visible
     );
 
     if (sectionRef.current) {

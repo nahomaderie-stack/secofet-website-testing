@@ -151,7 +151,7 @@
   bottom: 0;
   left: 0;
   width: 0%;
-  height: 2px;
+  height: 2.2px;
   background-color: #0b0c0e;
   transition: width 0.3s ease;
 }
@@ -293,7 +293,7 @@
   bottom: 0;
   left: 0;
   width: 0%;
-  height: 2px;
+  height: 1.5px;
   background-color: #000000;
   transition: width 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }

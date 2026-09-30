@@ -257,11 +257,45 @@
 
 @media (max-width: 640px) {
   .contact-section {
-    padding: 60px 16px;
+    padding: 60px 20px;
+  }
+  .contact-header {
+    text-align: left;
+    margin-bottom: 40px;
+  }
+  .contact-title {
+    font-size: clamp(2.2rem, 6.5vw, 2.1rem);
+    font-weight: 800;
+    line-height: 1.15;
+    color: #0b0c0e;
+    letter-spacing: -0.025em;
+    margin: 0 0 20px 0;
+  }
+  .contact-subtitle {
+    font-size: 0.85rem;
+    color: #4b5563;
+    font-weight: 400;
+    margin: 0;
+  }
+  .column-desc {
+    font-size: 0.8rem;
+    line-height: 1.5;
+    color: #6b7280;
+    margin: 0 0 28px 0;
+    text-align: left;
+    max-width: 480px;
   }
 
   .form-row.dual-input {
     grid-template-columns: 1fr;
+  }
+  .contact-info-col {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+  }
+  .info-block {
+    margin-bottom: 15px;
   }
 
   .btn-submit-message {

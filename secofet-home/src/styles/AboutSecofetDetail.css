@@ -31,7 +31,7 @@
 }
 
 .detail-tag {
-  color: #0d5c3a; /* Green accent color */
+  color: var(--color-primary);
   font-size: 0.88rem;
   font-weight: 700;
   display: inline-flex;
@@ -155,11 +155,42 @@
 
 @media (max-width: 640px) {
   .secofet-detail-section {
-    padding: 60px 16px;
+    padding: 40px 20px;
   }
-
+  .detail-tag {
+    font-size: 0.75rem;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    letter-spacing: -0.01em;
+  }
+  .secofet-detail-header {
+    display: grid;
+    grid-template-rows: 25px 1fr;
+    gap: 5px;
+    margin-bottom: 10px;
+  }
+  .detail-title {
+    font-size: clamp(1.5rem, 6.5vw, 2.1rem);
+    line-height: 1.15;
+    font-weight: 800;
+    color: #0b0c0e;
+    letter-spacing: -0.025em;
+    margin: 0 0 20px 0;
+  }
   .detail-lead-text {
-    font-size: 1.05rem;
+    font-size: 0.8rem;
+    line-height: 1.5;
+    margin: 0 0 20px 0;
+  }
+  .detail-sub-text {
+    font-size: 0.75rem;
+    line-height: 1.5;
+    color: #606770;
+    font-weight: 300;
+    margin: 0;
+    max-width: 840px;
   }
 
   .secofet-detail-header {
@@ -172,6 +203,14 @@
   }
 
   .stat-value {
-    font-size: 3.2rem;
+    font-size: 3rem;
+  }
+  .stat-label {
+    font-size: 0.75rem;
+    line-height: 1.45;
+    color: #6b7280;
+    font-weight: 400;
+    margin: 0;
+    max-width: 220px;
   }
 }

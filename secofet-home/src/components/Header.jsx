@@ -1,9 +1,10 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import '../styles/Header.css';
 import Secofetlogo from '../assets/Logos/Secofet-Logo-01.svg';
 
 const Header = () => {
+  const navbarRef = useRef(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
 
@@ -17,7 +18,23 @@ const Header = () => {
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        isMobileMenuOpen &&
+        navbarRef.current &&
+        !navbarRef.current.contains(event.target)
+      ) {
+        setIsMobileMenuOpen(false);
+      }
+    };
 
+    document.addEventListener('click', handleClickOutside);
+
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+    };
+  }, [isMobileMenuOpen]);
   const navLinks = [
     { to: '/', label: 'Home' },
     { to: '/about', label: 'About Us' },
@@ -33,7 +50,7 @@ const Header = () => {
   };
 
   return (
-    <header className="header">
+    <header ref={navbarRef} className="header">
       <div className="header-container">
         {/* Logo */}
         <div className="header-logo">
@@ -62,10 +79,7 @@ const Header = () => {
         {/* Header Right Action Area */}
         <div className="header-actions">
           {/* Request a Quote Route Link */}
-          <Link
-            to="/rfq"
-            className="btn-quote"
-          >
+          <Link to="/rfq" className="btn-quote">
             Request a Quote
           </Link>
 
@@ -110,8 +124,6 @@ const Header = () => {
           </Link>
         </div>
       </div>
-
-
     </header>
   );
 };
