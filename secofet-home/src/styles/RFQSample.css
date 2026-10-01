@@ -235,15 +235,13 @@
 }
 
 .btn-contact-link .arrow-up-right {
-  transition:
-    transform 0.2s ease,
-    stroke-width 0.2s ease;
+  transition: transform 0.2s ease;
 }
 
 .btn-contact-link:hover .arrow-up-right,
 .btn-contact-link:focus-visible .arrow-up-right {
   transform: translate(2px, -2px);
-  stroke-width: 2px;
+  /* stroke-width: 3px; */
 }
 html {
   scroll-behavior: smooth;
