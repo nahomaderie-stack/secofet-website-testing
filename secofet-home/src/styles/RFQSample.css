@@ -246,7 +246,25 @@
 html {
   scroll-behavior: smooth;
 }
+.btn-submit-rfq.submitted {
+  background: #b5b5b5;
+  color: #ffffff;
+  cursor: not-allowed;
+  opacity: 0.8;
+}
 
+.btn-submit-rfq.submitted:hover {
+  transform: none;
+  box-shadow: none;
+}
+input:disabled,
+select:disabled,
+textarea:disabled {
+  background-color: #f1f1f1;
+  color: #888;
+  cursor: not-allowed;
+  opacity: 0.8;
+}
 /* ==========================================================================
    Responsive Behavior
    ========================================================================== */

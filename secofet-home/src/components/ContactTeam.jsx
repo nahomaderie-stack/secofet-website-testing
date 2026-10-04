@@ -1,7 +1,10 @@
 import { useState } from 'react';
 import '../styles/ContactTeam.css';
+import { supabase } from '../supabaseClient';
 
 const ContactTeam = () => {
+  const [isSending, setIsSending] = useState(false);
+
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -12,6 +15,7 @@ const ContactTeam = () => {
     role: '',
     message: '',
   });
+
   const [submitMessage, setSubmitMessage] = useState('');
 
   const handleChange = (e) => {
@@ -19,12 +23,68 @@ const ContactTeam = () => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const fullName = `${formData.firstName} ${formData.lastName}`.trim();
-    const body = [`Name: ${fullName}`, `Email: ${formData.email}`, `Country: ${formData.country}`, `Phone: ${formData.phone}`, `Company: ${formData.company}`, `Role: ${formData.role}`, '', formData.message].join('\n');
-    window.location.href = `mailto:info@secofet.com?subject=${encodeURIComponent(`Website inquiry from ${fullName}`)}&body=${encodeURIComponent(body)}`;
-    setSubmitMessage('Your email app is opening with your message. Send the draft to complete your inquiry.');
+
+    setIsSending(true);
+    setSubmitMessage('');
+
+    try {
+      const contactData = {
+        first_name: formData.firstName,
+        last_name: formData.lastName,
+        email: formData.email,
+        country: formData.country,
+        phone: formData.phone,
+        company: formData.company,
+        role: formData.role,
+        message: formData.message,
+      };
+
+      // Save the message to Supabase
+      const { error } = await supabase
+        .from('contact_messages')
+        .insert([contactData]);
+
+      if (error) {
+        throw error;
+      }
+
+      // Send the email through the Edge Function
+      const { error: emailError } = await supabase.functions.invoke(
+        'super-worker',
+        {
+          body: formData,
+        },
+      );
+
+      if (emailError) {
+        throw emailError;
+      }
+
+      setSubmitMessage(
+        'Thank you for contacting us. Your message has been sent successfully.',
+      );
+
+      setFormData({
+        firstName: '',
+        lastName: '',
+        email: '',
+        country: '',
+        phone: '',
+        company: '',
+        role: '',
+        message: '',
+      });
+    } catch (error) {
+      console.error('Contact form error:', error);
+
+      setSubmitMessage(
+        'Something went wrong while sending your message. Please try again.',
+      );
+    } finally {
+      setIsSending(false);
+    }
   };
 
   return (
@@ -37,6 +97,7 @@ const ContactTeam = () => {
             <br />
             friendly <span className="serif-text">team.</span>
           </h2>
+
           <p className="contact-subtitle">
             We’re here to help. Contact us for any inquiries or assistance.
           </p>
@@ -47,6 +108,7 @@ const ContactTeam = () => {
           {/* Left Column: Form */}
           <div className="contact-form-col">
             <h3 className="column-title">Send a Message</h3>
+
             <p className="column-desc">
               Whether you are looking to source specialty lots or commercial
               volumes, send us a message and our team will get back to you
@@ -64,6 +126,7 @@ const ContactTeam = () => {
                   onChange={handleChange}
                   required
                 />
+
                 <input
                   type="text"
                   name="lastName"
@@ -105,6 +168,7 @@ const ContactTeam = () => {
                     <option value="Saudi Arabia">Saudi Arabia</option>
                   </select>
                 </div>
+
                 <input
                   type="tel"
                   name="phone"
@@ -148,9 +212,14 @@ const ContactTeam = () => {
                 ></textarea>
               </div>
 
-              <button type="submit" className="btn-submit-message">
-                Send Message ↗
+              <button
+                type="submit"
+                className={`btn-submit-message ${isSending ? 'sending' : ''}`}
+                disabled={isSending}
+              >
+                {isSending ? 'Sending...' : 'Send Message'}
               </button>
+
               {submitMessage && <p role="status">{submitMessage}</p>}
             </form>
           </div>
@@ -163,6 +232,7 @@ const ContactTeam = () => {
             {/* Call Us Block */}
             <div className="info-block">
               <h3 className="column-title">Call us</h3>
+
               <p className="column-desc">
                 Direct phone lines for immediate assistance regarding orders,
                 sample requests, and export specifications.
@@ -180,6 +250,7 @@ const ContactTeam = () => {
                       <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1.003 1.003 0 011.02-.24c1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
                     </svg>
                   </span>
+
                   <span>+251 1011121314</span>
                 </a>
 
@@ -191,9 +262,10 @@ const ContactTeam = () => {
                       viewBox="0 0 24 24"
                       fill="currentColor"
                     >
-                      <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1.003 1.003 0 011.02-.24c1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+                      <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l-2.2-2.2a1.003 1.003 0 011.02-.24c1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
                     </svg>
                   </span>
+
                   <span>+251 1011121314</span>
                 </a>
               </div>
@@ -202,6 +274,7 @@ const ContactTeam = () => {
             {/* Visit Us Block */}
             <div className="info-block">
               <h3 className="column-title">Visit us</h3>
+
               <p className="column-desc">
                 Secofet Trading PLC Headquarters, Bole Sub-City, Addis Ababa,
                 Ethiopia.
@@ -211,6 +284,7 @@ const ContactTeam = () => {
             {/* Follow Us Block */}
             <div className="info-block">
               <h3 className="column-title">Follow us</h3>
+
               <p className="column-desc">
                 Stay updated with our harvest updates, cupping scores, and
                 global coffee trade news.
@@ -231,6 +305,7 @@ const ContactTeam = () => {
                     <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
                   </svg>
                 </a>
+
                 <a
                   href="#instagram"
                   className="social-icon"
@@ -258,6 +333,7 @@ const ContactTeam = () => {
                     <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
                   </svg>
                 </a>
+
                 <a
                   href="#linkedin"
                   className="social-icon"

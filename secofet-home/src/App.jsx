@@ -18,9 +18,19 @@ import RequestSamplePage from './pages/RequestSamplePage';
 import TermsConditionsPage from './pages/TermsConditionsPage';
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
 import CookiePolicyPage from './pages/CookiePolicyPage';
-// import './styles/Responsive.css';
 
+import { supabase } from './supabaseClient';
 function ScrollToTop() {
+  useEffect(() => {
+    async function testConnection() {
+      const { data, error } = await supabase.from('rfq_requests').select('*');
+
+      console.log('Data:', data);
+      console.log('Error:', error);
+    }
+
+    testConnection();
+  }, []);
   const { pathname } = useLocation();
 
   useEffect(() => {

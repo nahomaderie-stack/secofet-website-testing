@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/RFQSample.css';
+import { supabase } from '../supabaseClient';
 
 const RFQQuote = ({ title = 'Quote.' }) => {
   const [formData, setFormData] = useState({
@@ -22,25 +23,39 @@ const RFQQuote = ({ title = 'Quote.' }) => {
   });
   const [submitMessage, setSubmitMessage] = useState('');
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsSubmitting(true);
+
+    const { error } = await supabase.from('rfq_requests').insert([
+      {
+        company_name: formData.companyName,
+        contact_name: formData.contactPerson,
+        email: formData.email,
+        country: formData.country,
+        coffee_type: formData.coffeeType,
+        quantity: 10,
+        quantity_unit: 'kg',
+      },
+    ]);
+
+    console.log('Insert error:', error);
+
+    if (error) {
+      setIsSubmitting(false);
+      setSubmitMessage('Something went wrong. Please try again.');
+      return;
+    }
+
+    setIsSubmitting(false);
     setIsSubmitted(true);
-    const body = Object.entries(formData)
-      .map(
-        ([field, value]) =>
-          `${field.replace(/([A-Z])/g, ' $1')}: ${value || 'Not specified'}`,
-      )
-      .join('\n');
-    window.location.href = `mailto:info@secofet.com?subject=${encodeURIComponent('Website request for quote')}&body=${encodeURIComponent(body)}`;
-    setSubmitMessage(
-      'Your email app is opening with your quote request. Send the draft to complete your request.',
-    );
   };
 
   return (
@@ -74,6 +89,7 @@ const RFQQuote = ({ title = 'Quote.' }) => {
                     placeholder="e.g. Acme Coffee Roasters"
                     value={formData.companyName}
                     onChange={handleChange}
+                    disabled={isSubmitted}
                     required
                   />
                 </div>
@@ -87,6 +103,7 @@ const RFQQuote = ({ title = 'Quote.' }) => {
                     placeholder="Full Name"
                     value={formData.contactPerson}
                     onChange={handleChange}
+                    disabled={isSubmitted}
                     required
                   />
                 </div>
@@ -100,6 +117,7 @@ const RFQQuote = ({ title = 'Quote.' }) => {
                     placeholder="email@company.com"
                     value={formData.email}
                     onChange={handleChange}
+                    disabled={isSubmitted}
                     required
                   />
                 </div>
@@ -113,6 +131,7 @@ const RFQQuote = ({ title = 'Quote.' }) => {
                     placeholder="+1 (555) 000-0000"
                     value={formData.phone}
                     onChange={handleChange}
+                    disabled={isSubmitted}
                   />
                 </div>
 
@@ -124,6 +143,7 @@ const RFQQuote = ({ title = 'Quote.' }) => {
                       name="country"
                       value={formData.country}
                       onChange={handleChange}
+                      disabled={isSubmitted}
                       required
                     >
                       <option value="" disabled hidden>
@@ -146,6 +166,7 @@ const RFQQuote = ({ title = 'Quote.' }) => {
                       name="buyerType"
                       value={formData.buyerType}
                       onChange={handleChange}
+                      disabled={isSubmitted}
                     >
                       <option value="" disabled hidden>
                         Select Buyer Type
@@ -166,6 +187,7 @@ const RFQQuote = ({ title = 'Quote.' }) => {
                       name="processingType"
                       value={formData.processingType}
                       onChange={handleChange}
+                      disabled={isSubmitted}
                     >
                       <option value="" disabled hidden>
                         Select Processing
@@ -189,6 +211,7 @@ const RFQQuote = ({ title = 'Quote.' }) => {
                       name="coffeeType"
                       value={formData.coffeeType}
                       onChange={handleChange}
+                      disabled={isSubmitted}
                     >
                       <option value="" disabled hidden>
                         Select Coffee Type
@@ -212,6 +235,7 @@ const RFQQuote = ({ title = 'Quote.' }) => {
                       name="coffeeOrigin"
                       value={formData.coffeeOrigin}
                       onChange={handleChange}
+                      disabled={isSubmitted}
                     >
                       <option value="" disabled hidden>
                         Select Origin Region
@@ -233,6 +257,7 @@ const RFQQuote = ({ title = 'Quote.' }) => {
                       name="coffeeGrade"
                       value={formData.coffeeGrade}
                       onChange={handleChange}
+                      disabled={isSubmitted}
                     >
                       <option value="" disabled hidden>
                         Select Grade
@@ -264,6 +289,7 @@ const RFQQuote = ({ title = 'Quote.' }) => {
                     placeholder="e.g. 1 FCL (320 bags / 19.2 MT)"
                     value={formData.quantityRequired}
                     onChange={handleChange}
+                    disabled={isSubmitted}
                   />
                 </div>
 
@@ -277,6 +303,7 @@ const RFQQuote = ({ title = 'Quote.' }) => {
                       name="destinationCountry"
                       value={formData.destinationCountry}
                       onChange={handleChange}
+                      disabled={isSubmitted}
                     >
                       <option value="" disabled hidden>
                         Select Destination
@@ -298,6 +325,7 @@ const RFQQuote = ({ title = 'Quote.' }) => {
                       name="destinationPort"
                       value={formData.destinationPort}
                       onChange={handleChange}
+                      disabled={isSubmitted}
                     >
                       <option value="" disabled hidden>
                         Select Port
@@ -321,6 +349,7 @@ const RFQQuote = ({ title = 'Quote.' }) => {
                       name="incoterm"
                       value={formData.incoterm}
                       onChange={handleChange}
+                      disabled={isSubmitted}
                     >
                       <option value="" disabled hidden>
                         Select Incoterm
@@ -348,6 +377,7 @@ const RFQQuote = ({ title = 'Quote.' }) => {
                     placeholder="e.g. Q4 2026 / Nov 2026"
                     value={formData.shipmentDate}
                     onChange={handleChange}
+                    disabled={isSubmitted}
                   />
                 </div>
               </div>
@@ -360,7 +390,11 @@ const RFQQuote = ({ title = 'Quote.' }) => {
                 className={`btn-submit-rfq ${isSubmitted ? 'submitted' : ''}`}
                 disabled={isSubmitted}
               >
-                {isSubmitted ? 'Submitted' : 'Submit Request'}
+                {isSubmitting
+                  ? 'Submitting...'
+                  : isSubmitted
+                    ? 'Submitted'
+                    : 'Submit Request'}
               </button>
 
               <Link to="/contact" className="btn-contact-link btn-secondary">
@@ -381,6 +415,7 @@ const RFQQuote = ({ title = 'Quote.' }) => {
                 </svg>
               </Link>
             </div>
+
             {submitMessage && <p role="status">{submitMessage}</p>}
           </form>
         </div>

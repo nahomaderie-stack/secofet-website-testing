@@ -10,7 +10,6 @@
   padding: 0;
 }
 
-
 /* ========================================
    HTML
 ======================================== */
@@ -18,7 +17,6 @@
 html {
   scroll-behavior: smooth;
 }
-
 
 /* ========================================
    BODY
@@ -29,14 +27,13 @@ body {
   min-height: 100vh;
 
   font-family: var(--font-primary);
-  background-color: var(--color-primary);
+  background-color: #fff;
   color: #000000;
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
 }
-
 
 /* ========================================
    ROOT
@@ -45,7 +42,6 @@ body {
 #root {
   min-height: 100vh;
 }
-
 
 /* ========================================
    TYPOGRAPHY
@@ -74,7 +70,6 @@ p {
   line-height: inherit;
 }
 
-
 /* ========================================
    LINKS
 ======================================== */
@@ -83,7 +78,6 @@ a {
   color: inherit;
   text-decoration: none;
 }
-
 
 /* ========================================
    BUTTONS
@@ -102,7 +96,6 @@ button {
   cursor: pointer;
 }
 
-
 /* ========================================
    FORM ELEMENTS
 ======================================== */
@@ -118,7 +111,6 @@ textarea {
   resize: vertical;
 }
 
-
 /* ========================================
    IMAGES
 ======================================== */
@@ -132,7 +124,6 @@ svg {
   max-width: 100%;
 }
 
-
 /* ========================================
    LISTS
 ======================================== */
@@ -141,7 +132,6 @@ ul,
 ol {
   list-style: none;
 }
-
 
 /* ========================================
    SELECTION
@@ -166,7 +156,6 @@ ol {
   outline: 2px solid currentColor;
   outline-offset: 4px;
 }
-
 
 /* ========================================
    REDUCED MOTION
