@@ -220,7 +220,20 @@ const ContactTeam = () => {
                 {isSending ? 'Sending...' : 'Send Message'}
               </button>
 
-              {submitMessage && <p role="status">{submitMessage}</p>}
+              {submitMessage && (
+                <div
+                  className={`submit-message ${
+                    submitMessage.includes('successfully') ? 'success' : 'error'
+                  }`}
+                  role="status"
+                >
+                  <span className="submit-message-icon">
+                    {submitMessage.includes('successfully') ? '✓' : '×'}
+                  </span>
+
+                  <span>{submitMessage}</span>
+                </div>
+              )}
             </form>
           </div>
 
@@ -251,10 +264,10 @@ const ContactTeam = () => {
                     </svg>
                   </span>
 
-                  <span>+251 1011121314</span>
+                  <span>+2511 (1668) 3235</span>
                 </a>
 
-                <a href="tel:+2511011121314" className="phone-badge">
+                <a href="tel:+251979321414" className="phone-badge">
                   <span className="phone-icon">
                     <svg
                       width="14"
@@ -266,7 +279,7 @@ const ContactTeam = () => {
                     </svg>
                   </span>
 
-                  <span>+251 1011121314</span>
+                  <span>+2519 (7932) 1414</span>
                 </a>
               </div>
             </div>

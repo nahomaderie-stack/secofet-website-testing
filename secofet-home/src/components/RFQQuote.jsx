@@ -39,19 +39,45 @@ const RFQQuote = ({ title = 'Quote.' }) => {
         company_name: formData.companyName,
         contact_name: formData.contactPerson,
         email: formData.email,
+        phone: formData.phone,
         country: formData.country,
+        buyer_type: formData.buyerType,
+        processing_type: formData.processingType,
         coffee_type: formData.coffeeType,
-        quantity: 10,
-        quantity_unit: 'kg',
+        coffee_origin: formData.coffeeOrigin,
+        coffee_grade: formData.coffeeGrade,
+        quantity_required: formData.quantityRequired,
+        destination_country: formData.destinationCountry,
+        destination_port: formData.destinationPort,
+        incoterm: formData.incoterm,
+        shipment_date: formData.shipmentDate,
       },
     ]);
 
-    console.log('Insert error:', error);
+    console.log('FULL INSERT ERROR:', error);
 
     if (error) {
       setIsSubmitting(false);
       setSubmitMessage('Something went wrong. Please try again.');
       return;
+    }
+    const { data: emailData, error: emailError } =
+      await supabase.functions.invoke('send-rfq-email', {
+        body: formData,
+      });
+
+    console.log('Email function response:', emailData);
+    console.log('Email function error:', emailError);
+
+    if (emailError) {
+      console.error('Email failed:', emailError);
+    }
+
+    console.log('Email function response:', emailData);
+    console.log('Email function error:', emailError);
+
+    if (emailError) {
+      console.error('Email failed:', emailError);
     }
 
     setIsSubmitting(false);
