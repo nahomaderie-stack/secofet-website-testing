@@ -18,13 +18,16 @@ const Footer = () => {
     e.preventDefault();
 
     if (email.trim()) {
-      window.location.href = `https://mail.google.com/mail/?view=cm&to=contacts@secofet.com&su=${encodeURIComponent(
-        'Newsletter signup',
-      )}&body=${encodeURIComponent(
-        `Please add ${email.trim()} to the Secofet newsletter.`,
-      )}`;
+      window.open(
+        `https://mail.google.com/mail/?view=cm&to=info@secofet.com&su=${encodeURIComponent(
+          'Contact Secofet',
+        )}&body=${encodeURIComponent(
+          `Hello Secofet team,\n\nPlease contact me at ${email.trim()}.\n\nThank you.`,
+        )}`,
+        '_blank',
+      );
 
-      setSubscribeMessage('Gmail is opening. Please send the email.');
+      setSubscribeMessage('Gmail app is opening. Please send us your email.');
     }
   };
 

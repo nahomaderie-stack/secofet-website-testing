@@ -159,7 +159,7 @@ const ContactTeam = () => {
                     required
                   >
                     <option value="" disabled hidden>
-                      Country ▾
+                      Country
                     </option>
                     <option value="Ethiopia">Ethiopia</option>
                     <option value="United States">United States</option>
