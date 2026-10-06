@@ -148,26 +148,19 @@ function splitBlockWords(block) {
   return wordIndex > 0;
 }
 
-export function observeSplitTextReveal(root) {
+export function prepareSplitTextReveal(root) {
   if (
     !root ||
     !('IntersectionObserver' in window) ||
     window.matchMedia('(prefers-reduced-motion: reduce)').matches
   ) {
-    return () => {};
+    return {
+      activate: () => undefined,
+      cleanup: () => {},
+    };
   }
 
-  const intersectionObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        entry.target.classList.toggle(
-          'split-reveal-visible',
-          entry.isIntersecting,
-        );
-      });
-    },
-    { threshold: 0.12, rootMargin: '0px 0px -6% 0px' },
-  );
+  let intersectionObserver = null;
 
   const prepareTextBlocks = () => {
     getTopLevelTextBlocks(root).forEach((block) => {
@@ -175,14 +168,12 @@ export function observeSplitTextReveal(root) {
       if (!hasWords) return;
 
       block.classList.add('split-reveal-block');
-      if (!block.classList.contains('split-reveal-visible')) {
-        intersectionObserver.observe(block);
-      }
+      intersectionObserver?.observe(block);
     });
   };
 
-  prepareTextBlocks();
   root.classList.add('split-reveal-ready');
+  prepareTextBlocks();
 
   const mutationObserver = new MutationObserver(prepareTextBlocks);
   mutationObserver.observe(root, {
@@ -191,9 +182,41 @@ export function observeSplitTextReveal(root) {
     subtree: true,
   });
 
-  return () => {
-    mutationObserver.disconnect();
-    intersectionObserver.disconnect();
-    root.classList.remove('split-reveal-ready');
+  return {
+    activate() {
+      if (intersectionObserver) return undefined;
+
+      intersectionObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            entry.target.classList.toggle(
+              'split-reveal-visible',
+              entry.isIntersecting,
+            );
+          });
+        },
+        { threshold: 0.12, rootMargin: '0px 0px -6% 0px' },
+      );
+
+      root.querySelectorAll('.split-reveal-block').forEach((block) => {
+        intersectionObserver.observe(block);
+      });
+
+      return () => {
+        intersectionObserver?.disconnect();
+        intersectionObserver = null;
+        root.querySelectorAll('.split-reveal-block').forEach((block) => {
+          block.classList.remove('split-reveal-visible');
+        });
+      };
+    },
+    cleanup() {
+      mutationObserver.disconnect();
+      intersectionObserver?.disconnect();
+      root.classList.remove('split-reveal-ready');
+      root.querySelectorAll('.split-reveal-block').forEach((block) => {
+        block.classList.remove('split-reveal-visible');
+      });
+    },
   };
 }

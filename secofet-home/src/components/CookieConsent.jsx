@@ -62,7 +62,7 @@ const CookieConsent = () => {
     let displayTimer;
 
     const showAfterPageLoad = () => {
-      displayTimer = window.setTimeout(() => setShowBanner(true), 3000);
+      displayTimer = window.setTimeout(() => setShowBanner(true), 6000);
     };
 
     if (document.readyState === 'complete') {

@@ -14,7 +14,8 @@
   will-change: transform;
 }
 
-.initial-curtain.is-opening .initial-curtain__panel {
+.initial-curtain.is-opening .initial-curtain__panel,
+.initial-curtain.is-blank .initial-curtain__panel {
   transform: translateY(-100%);
 }
 

@@ -49,6 +49,7 @@ function InitialCurtainProvider({ children }) {
   const [phase, setPhase] = useState('loading');
 
   const isRevealEnabled = phase === 'opened';
+  const isCurtainVisible = phase !== 'opened';
 
   // Wait for BOTH:
   // 1. Minimum white-screen duration
@@ -80,11 +81,19 @@ function InitialCurtainProvider({ children }) {
     ).matches;
 
     const fallbackTimer = window.setTimeout(
-      () => setPhase('opened'),
+      () => setPhase('revealed'),
       prefersReducedMotion ? 80 : CURTAIN_DURATION + 100,
     );
 
     return () => window.clearTimeout(fallbackTimer);
+  }, [phase]);
+
+  // Give the fully revealed page a short beat before starting split-text motion.
+  useEffect(() => {
+    if (phase !== 'revealed') return undefined;
+
+    const revealTimer = window.setTimeout(() => setPhase('opened'), 350);
+    return () => window.clearTimeout(revealTimer);
   }, [phase]);
 
   const finishOpening = (event) => {
@@ -97,7 +106,7 @@ function InitialCurtainProvider({ children }) {
     }
 
     setPhase((currentPhase) =>
-      currentPhase === 'opening' ? 'opened' : currentPhase,
+      currentPhase === 'opening' ? 'revealed' : currentPhase,
     );
   };
 
@@ -107,10 +116,14 @@ function InitialCurtainProvider({ children }) {
         {children}
       </InitialRevealContext.Provider>
 
-      {!isRevealEnabled && (
+      {isCurtainVisible && (
         <div
           className={`initial-curtain ${
-            phase === 'opening' ? 'is-opening' : ''
+            phase === 'opening'
+              ? 'is-opening'
+              : phase === 'revealed'
+                ? 'is-blank'
+                : ''
           }`}
           style={{
             '--curtain-duration': `${CURTAIN_DURATION}ms`,
