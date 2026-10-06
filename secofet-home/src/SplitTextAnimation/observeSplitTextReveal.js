@@ -4,6 +4,12 @@ const TEXT_BLOCK_SELECTOR =
 const SEMANTIC_TEXT_SELECTOR =
   'h1, h2, h3, h4, h5, h6, p, li, blockquote, figcaption, small';
 
+const HERO_ACTION_SELECTOR = [
+  '.hero-section .hero-cta-group > a',
+  '.our-coffees-hero .hero-actions > a',
+  '.origins-hero .origins-hero-actions > a',
+].join(', ');
+
 const SKIP_SELECTOR = [
   'a',
   'button',
@@ -170,6 +176,14 @@ export function prepareSplitTextReveal(root) {
       block.classList.add('split-reveal-block');
       intersectionObserver?.observe(block);
     });
+
+    root.querySelectorAll(HERO_ACTION_SELECTOR).forEach((action, index) => {
+      if (action.classList.contains('split-reveal-hero-action')) return;
+
+      action.classList.add('split-reveal-hero-action', 'split-reveal-block');
+      action.style.setProperty('--split-action-index', index);
+      intersectionObserver?.observe(action);
+    });
   };
 
   root.classList.add('split-reveal-ready');
@@ -216,6 +230,10 @@ export function prepareSplitTextReveal(root) {
       root.classList.remove('split-reveal-ready');
       root.querySelectorAll('.split-reveal-block').forEach((block) => {
         block.classList.remove('split-reveal-visible');
+      });
+      root.querySelectorAll('.split-reveal-hero-action').forEach((action) => {
+        action.classList.remove('split-reveal-hero-action', 'split-reveal-block');
+        action.style.removeProperty('--split-action-index');
       });
     },
   };

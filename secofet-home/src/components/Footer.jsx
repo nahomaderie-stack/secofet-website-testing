@@ -16,9 +16,15 @@ const Footer = () => {
 
   const handleSubscribe = (e) => {
     e.preventDefault();
+
     if (email.trim()) {
-      window.location.href = `mailto:info@secofet.com?subject=${encodeURIComponent('Newsletter signup')}&body=${encodeURIComponent(`Please add ${email.trim()} to the Secofet newsletter.`)}`;
-      setSubscribeMessage('Your email app is opening with a signup request. Send the draft to complete it.');
+      window.location.href = `https://mail.google.com/mail/?view=cm&to=contacts@secofet.com&su=${encodeURIComponent(
+        'Newsletter signup',
+      )}&body=${encodeURIComponent(
+        `Please add ${email.trim()} to the Secofet newsletter.`,
+      )}`;
+
+      setSubscribeMessage('Gmail is opening. Please send the email.');
     }
   };
 
@@ -34,9 +40,6 @@ const Footer = () => {
                 <img src={Secofetlogo} alt="Secofet" />
               </Link>
             </div>
-            {/* <p className="footer-tagline">
-              A commercial and speciality Coffee outsourcing
-            </p> */}
           </div>
 
           {/* Column 1: Main Pages */}
@@ -85,7 +88,7 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Bottom Content Row: Back to Top, Newsletter, Email/Copyright */}
+        {/* Bottom Content Row */}
         <div className="footer-bottom">
           {/* Back to top button */}
           <div className="footer-back-to-top">
@@ -118,6 +121,7 @@ const Footer = () => {
             <h3 className="newsletter-heading">
               Secofet <br /> in your mailbox
             </h3>
+
             <form onSubmit={handleSubscribe} className="newsletter-form">
               <input
                 type="email"
@@ -127,6 +131,7 @@ const Footer = () => {
                 required
                 className="newsletter-input"
               />
+
               <button
                 type="submit"
                 className="newsletter-btn"
@@ -147,6 +152,7 @@ const Footer = () => {
                 </svg>
               </button>
             </form>
+
             {subscribeMessage && <p role="status">{subscribeMessage}</p>}
           </div>
 
@@ -155,12 +161,15 @@ const Footer = () => {
             <a href="mailto:info@secofet.com" className="footer-email">
               info@secofet.com
             </a>
+
             <a href="tel:+251116683235" className="footer-email">
               Call us +251116683235
             </a>
+
             <a href="tel:+251979321414" className="footer-email">
               Call us +251979321414
             </a>
+
             <div className="footer-copyright">
               <p>Secofet trading</p>
               <p>2026 © All rights reserved</p>
