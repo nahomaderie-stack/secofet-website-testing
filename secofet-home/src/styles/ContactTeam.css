@@ -228,8 +228,9 @@
 }
 
 .social-icon:hover {
-  opacity: 0.85;
-  transform: translateY(-2px);
+  opacity: 0.95;
+  background-color: var(--color-primary);
+  transform: translateY(-1.4px);
 }
 .btn-submit-message.sending {
   background: #999;
