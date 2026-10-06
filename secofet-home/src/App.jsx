@@ -19,6 +19,7 @@ import TermsConditionsPage from './pages/TermsConditionsPage';
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
 import CookiePolicyPage from './pages/CookiePolicyPage';
 import CookieConsent from './components/CookieConsent';
+import InitialCurtainProvider from './SplitTextAnimation/InitialCurtainProvider';
 
 import { supabase } from './supabaseClient';
 function ScrollToTop() {
@@ -43,28 +44,30 @@ function ScrollToTop() {
 
 function App() {
   return (
-    <div className="app-container">
-      <ScrollToTop />
-      <Header />
+    <InitialCurtainProvider>
+      <div className="app-container">
+        <ScrollToTop />
+        <Header />
 
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/about" element={<AboutUsPage />} />
-        <Route path="/our-coffees" element={<OurCoffeesPage />} />
-        <Route path="/origins" element={<OriginsPage />} />
-        <Route path="/operations" element={<OurOperationsPage />} />
-        <Route path="/contact" element={<ContactPage />} />
-        <Route path="/rfq" element={<RequestQuotePage />} />
-        <Route path="/request-sample" element={<RequestSamplePage />} />
-        <Route path="/terms" element={<TermsConditionsPage />} />
-        <Route path="/privacy" element={<PrivacyPolicyPage />} />
-        <Route path="/cookie" element={<CookiePolicyPage />} />
-        <Route path="*" element={<NotFoundPage />} />
-      </Routes>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/about" element={<AboutUsPage />} />
+          <Route path="/our-coffees" element={<OurCoffeesPage />} />
+          <Route path="/origins" element={<OriginsPage />} />
+          <Route path="/operations" element={<OurOperationsPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="/rfq" element={<RequestQuotePage />} />
+          <Route path="/request-sample" element={<RequestSamplePage />} />
+          <Route path="/terms" element={<TermsConditionsPage />} />
+          <Route path="/privacy" element={<PrivacyPolicyPage />} />
+          <Route path="/cookie" element={<CookiePolicyPage />} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
 
-      <Footer />
-      <CookieConsent />
-    </div>
+        <Footer />
+        <CookieConsent />
+      </div>
+    </InitialCurtainProvider>
   );
 }
 

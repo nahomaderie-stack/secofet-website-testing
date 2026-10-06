@@ -1,12 +1,15 @@
-import { useLayoutEffect, useRef } from 'react';
+import { useContext, useLayoutEffect, useRef } from 'react';
+import InitialRevealContext from './InitialRevealContext';
 
 const SplitTextReveal = ({ as: Element = 'p', className = '', text = '' }) => {
   const elementRef = useRef(null);
+  const isRevealEnabled = useContext(InitialRevealContext);
 
   useLayoutEffect(() => {
     const element = elementRef.current;
 
     if (
+      !isRevealEnabled ||
       !element ||
       !('IntersectionObserver' in window) ||
       window.matchMedia('(prefers-reduced-motion: reduce)').matches
@@ -23,7 +26,7 @@ const SplitTextReveal = ({ as: Element = 'p', className = '', text = '' }) => {
 
     observer.observe(element);
     return () => observer.disconnect();
-  }, []);
+  }, [isRevealEnabled]);
 
   const segments = text.match(/\s+|[^\s]+/gu) || [];
 
