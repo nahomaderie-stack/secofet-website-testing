@@ -5,10 +5,11 @@ import MissionVision from '../components/MissionVision';
 import SecofetTeam from '../components/SecofetTeam';
 import WhatWeDo from '../components/WhatWeDo';
 import WorkWithSecofet from '../components/WorkWithSecofet';
+import SplitTextPage from '../SplitTextAnimation/SplitTextPage';
 
 function AboutUsPage() {
   return (
-    <>
+    <SplitTextPage>
       <AboutSecofetBanner />
       <AboutSecofetDetail />
       <WhatWeDo />
@@ -16,7 +17,7 @@ function AboutUsPage() {
       <CoreValues />
       <SecofetTeam />
       <WorkWithSecofet />
-    </>
+    </SplitTextPage>
   );
 }
 

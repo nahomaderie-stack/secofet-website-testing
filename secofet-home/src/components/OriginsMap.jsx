@@ -1,4 +1,5 @@
 import '../styles/MapSection.css';
+import SplitTextReveal from '../SplitTextAnimation/SplitTextReveal';
 
 const mapLocations = {
   Sidama: { label: 'Sidama, Ethiopia', search: 'Sidama, Ethiopia' },
@@ -15,7 +16,12 @@ const OriginsMap = ({ origin = 'Yirgacheffe' }) => {
         {/* Header Overlay Card */}
         <div className="map-header-card">
           <span className="map-tag">• Origin Sourcing Hub</span>
-          <h3 className="map-location-title">{location.label}</h3>
+          <SplitTextReveal
+            key={origin}
+            as="h3"
+            className="map-location-title"
+            text={location.label}
+          />
           <p className="map-location-desc">
             Addis Ababa - Moyale Rd, SNNPR, Ethiopia
           </p>

@@ -1,3 +1,4 @@
+import SplitTextReveal from '../SplitTextAnimation/SplitTextReveal';
 import '../styles/OriginsCard.css';
 
 const originsData = [
@@ -63,12 +64,28 @@ const OriginsCard = ({ selectedOrigin, onSelectOrigin }) => {
             <div className="origins-card">
                 {/* Left Column: Description & Selection List */}
                 <div className="origins-left">
-                    <span className="origins-tag">{activeOrigin.subtitle}</span>
-                    <h2 className="origins-title">{activeOrigin.name}</h2>
+                    <SplitTextReveal
+                        key={`${activeOrigin.id}-subtitle`}
+                        as="span"
+                        className="origins-tag"
+                        text={activeOrigin.subtitle}
+                    />
+                    <SplitTextReveal
+                        key={`${activeOrigin.id}-title`}
+                        as="h2"
+                        className="origins-title"
+                        text={activeOrigin.name}
+                    />
 
                     <div className="origins-description">
-                        <p>{activeOrigin.description}</p>
-                        <p>{activeOrigin.descriptionExtra}</p>
+                        <SplitTextReveal
+                            key={`${activeOrigin.id}-description`}
+                            text={activeOrigin.description}
+                        />
+                        <SplitTextReveal
+                            key={`${activeOrigin.id}-description-extra`}
+                            text={activeOrigin.descriptionExtra}
+                        />
                     </div>
 
                     <div className="origins-list">
@@ -99,32 +116,56 @@ const OriginsCard = ({ selectedOrigin, onSelectOrigin }) => {
                     <div className="spec-card">
                         <div className="spec-group">
                             <label className="spec-label">Location</label>
-                            <p className="spec-value">{activeOrigin.specs.location}</p>
+                            <SplitTextReveal
+                                key={`${activeOrigin.id}-location`}
+                                className="spec-value"
+                                text={activeOrigin.specs.location}
+                            />
                         </div>
 
                         <div className="spec-group">
                             <label className="spec-label">Elevation</label>
-                            <p className="spec-value">{activeOrigin.specs.elevation}</p>
+                            <SplitTextReveal
+                                key={`${activeOrigin.id}-elevation`}
+                                className="spec-value"
+                                text={activeOrigin.specs.elevation}
+                            />
                         </div>
 
                         <div className="spec-group">
                             <label className="spec-label">Climate</label>
-                            <p className="spec-value">{activeOrigin.specs.climate}</p>
+                            <SplitTextReveal
+                                key={`${activeOrigin.id}-climate`}
+                                className="spec-value"
+                                text={activeOrigin.specs.climate}
+                            />
                         </div>
 
                         <div className="spec-group">
                             <label className="spec-label">Coffee</label>
-                            <p className="spec-value">{activeOrigin.specs.coffee}</p>
+                            <SplitTextReveal
+                                key={`${activeOrigin.id}-coffee`}
+                                className="spec-value"
+                                text={activeOrigin.specs.coffee}
+                            />
                         </div>
 
                         <div className="spec-group">
                             <label className="spec-label">Processing</label>
-                            <p className="spec-value">{activeOrigin.specs.processing}</p>
+                            <SplitTextReveal
+                                key={`${activeOrigin.id}-processing`}
+                                className="spec-value"
+                                text={activeOrigin.specs.processing}
+                            />
                         </div>
 
                         <div className="spec-group">
                             <label className="spec-label">Location</label>
-                            <p className="spec-value">{activeOrigin.specs.secondaryLocation}</p>
+                            <SplitTextReveal
+                                key={`${activeOrigin.id}-secondary-location`}
+                                className="spec-value"
+                                text={activeOrigin.specs.secondaryLocation}
+                            />
                         </div>
                     </div>
                 </div>

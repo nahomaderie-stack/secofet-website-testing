@@ -63,22 +63,50 @@ const AboutSecofetDetail = () => {
   const sectionRef = useRef(null);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const [entry] = entries;
-        if (entry.isIntersecting) {
-          setHasAnimated(true);
-          observer.disconnect(); // Trigger animation once on scroll into view
-        }
-      },
-      { threshold: 0.6 }, // Triggers when 30% of the section is visible
-    );
+    const section = sectionRef.current;
+    if (!section) return undefined;
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
+    let observer;
+    let hasTriggered = false;
 
-    return () => observer.disconnect();
+    const observeSection = () => {
+      if (hasTriggered) return;
+
+      observer?.disconnect();
+
+      const viewportHeight = window.innerHeight;
+      const sectionHeight = section.getBoundingClientRect().height;
+      const requiredVisibleHeight =
+        sectionHeight >= viewportHeight * 0.6
+          ? viewportHeight * 0.6
+          : sectionHeight * 0.6;
+      const threshold = requiredVisibleHeight / sectionHeight;
+
+      observer = new IntersectionObserver(
+        ([entry]) => {
+          if (
+            entry.isIntersecting &&
+            entry.intersectionRect.height >= requiredVisibleHeight - 1
+          ) {
+            hasTriggered = true;
+            setHasAnimated(true);
+            observer.disconnect();
+            window.removeEventListener('resize', observeSection);
+          }
+        },
+        { threshold },
+      );
+
+      observer.observe(section);
+    };
+
+    observeSection();
+    window.addEventListener('resize', observeSection);
+
+    return () => {
+      observer?.disconnect();
+      window.removeEventListener('resize', observeSection);
+    };
   }, []);
 
   return (

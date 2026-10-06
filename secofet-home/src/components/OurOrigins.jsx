@@ -1,8 +1,8 @@
 import { useState } from 'react';
+import SplitTextReveal from '../SplitTextAnimation/SplitTextReveal';
 import { Link } from 'react-router-dom';
 import '../styles/OurOrigins.css';
 
-import heroImg from '../assets/Images/Hero-image-2.png';
 import yirgacheffeImg from '../assets/Images/Yirgacheffe-farm.png';
 import coffeeFarmImg from '../assets/Images/Coffee-farm-2.png';
 import coffeeDryingImg from '../assets/Images/Coffee-drying-3.png';
@@ -110,7 +110,11 @@ const OurOrigins = () => {
         <div className="origins-card">
           {/* Left Dark Content Column */}
           <div className="origins-card-left">
-            <p className="origin-dynamic-desc">{currentOrigin.description}</p>
+            <SplitTextReveal
+              key={activeOrigin}
+              className="origin-dynamic-desc"
+              text={currentOrigin.description}
+            />
 
             {/* Accordion List Selector */}
             <div className="origin-selector-list">
