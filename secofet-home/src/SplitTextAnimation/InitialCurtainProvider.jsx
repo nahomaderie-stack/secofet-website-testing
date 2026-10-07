@@ -7,7 +7,7 @@ import './InitialCurtain.css';
 // ==============================
 
 const WHITE_SCREEN_DURATION = 2000; // White screen waiting time
-const CURTAIN_DURATION = 700; // Curtain opening animation
+const CURTAIN_DURATION = 800; // Curtain opening animation
 
 function waitForWindowLoad() {
   if (document.readyState === 'complete') return Promise.resolve();
