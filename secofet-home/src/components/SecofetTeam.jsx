@@ -1,156 +1,209 @@
+
 import { useRef } from 'react';
 import '../styles/SecofetTeam.css';
 
-// SVG Placeholder Helper (Light grey background with dark icon)
+// import AddisAlessa from '../assets/Team/Addis-Alessa.jpg';
+// import NahomTadesse from '../assets/Team/Nahom-Tadesse.jpg';
+import MekdesDemeke from '../assets/Team/Mekdes-Demeke.jpg';
+import RedietMulugeta from '../assets/Team/Rediet-Mulugeta.jpg';
+import TsehayeZelalem from '../assets/Team/Tsehaye-Zelalem.jpg';
+
+// SVG Placeholder Helper
 const createPlaceholder = (name) =>
-    `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="600" height="800" viewBox="0 0 600 800"><rect width="100%" height="100%" fill="%23d1d5db"/><circle cx="300" cy="320" r="120" fill="%239ca3af"/><path d="M120 700 C 120 500, 480 500, 480 700 Z" fill="%239ca3af"/><text x="50%" y="750" font-family="sans-serif" font-size="28" font-weight="bold" fill="%234b5563" text-anchor="middle">${encodeURIComponent(name)}</text></svg>`;
+  `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="600" height="800" viewBox="0 0 600 800"><rect width="100%" height="100%" fill="%23d1d5db"/><circle cx="300" cy="320" r="120" fill="%239ca3af"/><path d="M120 700 C 120 500, 480 500, 480 700 Z" fill="%239ca3af"/><text x="50%" y="750" font-family="sans-serif" font-size="28" font-weight="bold" fill="%234b5563" text-anchor="middle">${encodeURIComponent(name)}</text></svg>`;
 
 const teamMembers = [
-    {
-        id: 1,
-        name: 'Addis Alessa',
-        role: 'CEO & Founder',
-        bio: 'Addis has over 15 years of experience in strategic leadership and Ethiopian coffee export operations.',
-        image: createPlaceholder('Addis Alessa'),
-        linkedin: '#',
-        twitter: '#',
-        instagram: '#'
-    },
-    {
-        id: 2,
-        name: 'Nahom Tadesse',
-        role: 'dolor sit amet',
-        bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-        image: createPlaceholder('Nahom Tadesse'),
-        linkedin: '#',
-        twitter: '#',
-        instagram: '#'
-    },
-    {
-        id: 3,
-        name: 'Phillip Ekstrom',
-        role: 'Head of Quality & Sourcing',
-        bio: 'Q-Grader certified specialist managing origin washing stations in Yirgacheffe, Sidama, and Gedeo.',
-        image: createPlaceholder('Phillip Ekstrom'),
-        linkedin: '#',
-        twitter: '#',
-        instagram: '#'
-    },
-    {
-        id: 4,
-        name: 'Abram Culhane',
-        role: 'Head of Export Operations',
-        bio: 'Directing port logistics, customs compliance, and contract fulfillment for international buyers.',
-        image: createPlaceholder('Abram Culhane'),
-        linkedin: '#',
-        twitter: '#',
-        instagram: '#'
-    },
-    {
-        id: 5,
-        name: 'Sophia Chen',
-        role: 'Client Relations Manager',
-        bio: 'Connecting specialty roasters and commercial buyers with seamless sample requests and order tracking.',
-        image: createPlaceholder('Sophia Chen'),
-        linkedin: '#',
-        twitter: '#',
-        instagram: '#'
-    },
-    {
-        id: 6,
-        name: 'Sophia Chen',
-        role: 'Client Relations Manager',
-        bio: 'Connecting specialty roasters and commercial buyers with seamless sample requests and order tracking.',
-        image: createPlaceholder('Sophia Chen'),
-        linkedin: '#',
-        twitter: '#',
-        instagram: '#'
-    }
+  {
+    id: 1,
+    name: 'Addis Alessa',
+    role: 'CEO & Founder',
+    bio: 'Addis has over 15 years of experience in strategic leadership and Ethiopian coffee export operations.',
+    image: createPlaceholder('Addis Alessa'),
+    linkedin: 'https://www.linkedin.com/',
+    email: 'info@secofet.com',
+  },
+
+  {
+    id: 2,
+    name: 'Rediet Mulugeta',
+    role: 'Head of Quality & Sourcing',
+    bio: 'Q-Grader certified specialist managing origin washing stations in Yirgacheffe, Sidama, and Gedeo.',
+    image: RedietMulugeta,
+    linkedin: 'https://www.linkedin.com/',
+    email: 'info@secofet.com',
+  },
+
+  {
+    id: 3,
+    name: 'Mekdes Demeke',
+    role: 'Head of Export Operations',
+    bio: 'Directing port logistics, customs compliance, and contract fulfillment for international buyers.',
+    image: MekdesDemeke,
+    linkedin: 'https://www.linkedin.com/',
+    email: 'info@secofet.com',
+  },
+
+  {
+    id: 4,
+    name: 'Tsehaye Zelalem',
+    role: 'Client Relations Manager',
+    bio: 'Connecting specialty roasters and commercial buyers with seamless sample requests and order tracking.',
+    image: TsehayeZelalem,
+    linkedin: 'https://www.linkedin.com/',
+    email: 'info@secofet.com',
+  },
+
+  {
+    id: 5,
+    name: 'Nahom Tadesse',
+    role: 'dolor sit amet',
+    bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    image: createPlaceholder('Nahom Tadesse'),
+    linkedin: 'https://www.linkedin.com/',
+    email: 'info@secofet.com',
+  },
+
+  {
+    id: 6,
+    name: 'Sophia Chen',
+    role: 'Client Relations Manager',
+    bio: 'Connecting specialty roasters and commercial buyers with seamless sample requests and order tracking.',
+    image: createPlaceholder('Sophia Chen'),
+    linkedin: 'https://www.linkedin.com/',
+    email: 'info@secofet.com',
+  },
 ];
 
 const SecofetTeam = () => {
-    const scrollContainerRef = useRef(null);
+  const scrollContainerRef = useRef(null);
 
-    const scroll = (direction) => {
-        if (scrollContainerRef.current) {
-            const scrollAmount = direction === 'left' ? -320 : 320;
-            scrollContainerRef.current.scrollBy({
-                left: scrollAmount,
-                behavior: 'smooth'
-            });
-        }
-    };
+  const scroll = (direction) => {
+    if (scrollContainerRef.current) {
+      const scrollAmount = direction === 'left' ? -320 : 320;
 
-    return (
-        <section className="team-section">
-            <div className="team-container">
+      scrollContainerRef.current.scrollBy({
+        left: scrollAmount,
+        behavior: 'smooth',
+      });
+    }
+  };
 
-                {/* Section Header */}
-                <div className="team-header">
-                    <div className="header-left">
-                        <span className="badge-outline">Our Team</span>
-                        <h2 className="team-title">
-                            Meet the producers, partners, professionals,<br />
-                            and <span className="serif-text">Secofet team members</span> who contribute to<br />
-                            every coffee we bring to market.
-                        </h2>
-                    </div>
+  return (
+    <section className="team-section">
+      <div className="team-container">
 
-                    {/* Slider Controls */}
-                    <div className="slider-controls">
-                        <button
-                            className="slider-btn"
-                            onClick={() => scroll('left')}
-                            aria-label="Previous Slide"
-                        >
-                            ←
-                        </button>
-                        <button
-                            className="slider-btn active-blue"
-                            onClick={() => scroll('right')}
-                            aria-label="Next Slide"
-                        >
-                            →
-                        </button>
-                    </div>
+        {/* Section Header */}
+        <div className="team-header">
+          <div className="header-left">
+            <span className="badge-outline">Our Team</span>
+
+            <h2 className="team-title">
+              Meet the producers, partners, professionals,
+              <br />
+              and <span className="serif-text">Secofet team members</span> who
+              contribute to
+              <br />
+              every coffee we bring to market.
+            </h2>
+          </div>
+
+          {/* Slider Controls */}
+          <div className="slider-controls">
+            <button
+              className="slider-btn"
+              onClick={() => scroll('left')}
+              aria-label="Previous Slide"
+            >
+              ←
+            </button>
+
+            <button
+              className="slider-btn active-blue"
+              onClick={() => scroll('right')}
+              aria-label="Next Slide"
+            >
+              →
+            </button>
+          </div>
+        </div>
+
+        {/* Horizontal Card Carousel */}
+        <div className="team-carousel" ref={scrollContainerRef}>
+          {teamMembers.map((member) => (
+            <div key={member.id} className="team-card">
+
+              {/* Photo State */}
+              <div className="card-photo-state">
+                <img
+                  src={member.image}
+                  alt={member.name}
+                  className="member-img"
+                />
+
+                <div className="photo-overlay-info">
+                  <h3 className="member-name">{member.name}</h3>
+                  <p className="member-role">{member.role}</p>
+                </div>
+              </div>
+
+              {/* Hover State */}
+              <div className="card-blue-hover-state">
+                <div className="hover-content-top">
+                  <h3 className="hover-name">{member.name}</h3>
+                  <p className="hover-role">{member.role}</p>
+                  <p className="hover-bio">{member.bio}</p>
                 </div>
 
-                {/* Horizontal Card Carousel */}
-                <div className="team-carousel" ref={scrollContainerRef}>
-                    {teamMembers.map((member) => (
-                        <div key={member.id} className="team-card">
+                {/* Social / Contact Links */}
+                <div className="hover-socials">
 
-                            {/* Normal State: Photo & Bottom Overlay */}
-                            <div className="card-photo-state">
-                                <img src={member.image} alt={member.name} className="member-img" />
-                                <div className="photo-overlay-info">
-                                    <h3 className="member-name">{member.name}</h3>
-                                    <p className="member-role">{member.role}</p>
-                                </div>
-                            </div>
+                  {/* LinkedIn */}
+                  <a
+                    href={member.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`${member.name} LinkedIn`}
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      aria-hidden="true"
+                    >
+                      <path
+                        fill="currentColor"
+                        d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.44-2.13 2.94v5.67H9.35V8.99h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.3zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM3.56 8.99h3.57v11.46H3.56V8.99z"
+                      />
+                    </svg>
+                  </a>
 
-                            {/* Hover State: Solid Blue Overlay */}
-                            <div className="card-blue-hover-state">
-                                <div className="hover-content-top">
-                                    <h3 className="hover-name">{member.name}</h3>
-                                    <p className="hover-role">{member.role}</p>
-                                    <p className="hover-bio">{member.bio}</p>
-                                </div>
+                  {/* Gmail */}
+                  <a
+                    href={`https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(member.email)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`Email ${member.name}`}
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      aria-hidden="true"
+                    >
+                      <path
+                        fill="currentColor"
+                        d="M20 4H4a2 2 0 0 0-2 2v12c0 1.1.9 2 2 2h16a2 2 0 0 0 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"
+                      />
+                    </svg>
+                  </a>
 
-                                <div className="hover-socials">
-                                    <a href={member.linkedin} aria-label="LinkedIn">in</a>
-                                    <a href={member.twitter} aria-label="Twitter">tw</a>
-                                    <a href={member.instagram} aria-label="Instagram">ig</a>
-                                </div>
-                            </div>
-
-                        </div>
-                    ))}
                 </div>
+              </div>
 
             </div>
-        </section>
-    );
+          ))}
+        </div>
+
+      </div>
+    </section>
+  );
 };
 
 export default SecofetTeam;
+

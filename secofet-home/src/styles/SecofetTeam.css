@@ -130,6 +130,18 @@
   width: 100%;
   height: 100%;
 }
+.card-photo-state::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.85) 0%,
+    rgba(0, 0, 0, 0.15) 35%,
+    rgba(0, 0, 0, 0) 65%
+  );
+  pointer-events: none;
+}
 
 .member-img {
   width: 100%;
@@ -149,15 +161,11 @@
 .photo-overlay-info {
   position: absolute;
   bottom: 0;
-  inset-x: 0;
+  inset-inline: 0;
   padding: 24px 20px;
-  background: linear-gradient(
-    180deg,
-    rgba(0, 0, 0, 0) 0%,
-    rgba(0, 0, 0, 0.85) 100%
-  );
   color: #ffffff;
   text-align: center;
+  z-index: 1;
   transition: opacity 0.4s ease;
 }
 
@@ -166,14 +174,14 @@
 }
 
 .member-name {
-  font-size: 1.1rem;
+  font-size: 1.25rem;
   font-weight: 700;
-  margin: 0 0 4px 0;
+  margin: 0 0 2px 0;
   color: #ffffff;
 }
 
 .member-role {
-  font-size: 0.8rem;
+  font-size: 0.95rem;
   color: #d1d5db;
   margin: 0;
   font-weight: 400;
@@ -270,6 +278,36 @@
 .hover-socials a:hover {
   opacity: 1;
   transform: translateY(-2px);
+}
+.hover-socials {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.hover-socials a {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  text-decoration: none;
+  opacity: 0.85;
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+}
+
+.hover-socials a:hover {
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+.hover-socials svg {
+  width: 18px;
+  height: 18px;
+  display: block;
 }
 
 /* ==========================================================================

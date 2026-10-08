@@ -217,11 +217,11 @@
 
 @media (max-width: 640px) {
   .hero-section {
-    min-height: 90svh;
+    min-height: 92svh;
   }
 
   .hero-container {
-    padding: 260px 20px 55px;
+    padding: 285px 20px 15px;
     min-height: 80vh;
   }
 
