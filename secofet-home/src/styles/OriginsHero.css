@@ -188,7 +188,7 @@
   }
 
   .origins-hero-content {
-    padding: 0 20px 36px;
+    padding: 0 20px 60px;
   }
 
   .origins-hero-title {
@@ -199,8 +199,8 @@
 
   .origins-hero-description {
     max-width: 36rem;
-    font-size: 0.95rem;
-    line-height: 1.55;
+    font-size: 0.75rem;
+    line-height: 1.5;
     margin-bottom: 24px;
   }
 
