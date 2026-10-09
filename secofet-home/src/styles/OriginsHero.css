@@ -170,35 +170,35 @@
   }
 
   .origins-hero-title {
-    font-size: clamp(38px, 4.8vw, 52px);
+    font-size: clamp(38px, 4.8vw, 48px);
     line-height: 1.12;
-    margin-bottom: 14px;
+    margin: 0 0 10px;
   }
 
   .origins-hero-description {
-    max-width: 520px;
-    font-size: 0.95rem;
-    margin-bottom: 28px;
+    max-width: 480px;
+    font-size: 0.85rem;
+    margin: 5px 0 25px;
   }
 }
 
 @media (max-width: 640px) {
   .origins-hero {
-    min-height: max(520px, calc(100svh - 68px));
+    min-height: calc(100svh - 68px);
   }
 
   .origins-hero-content {
-    padding: 0 20px 85px;
+    padding: 0 20px 36px;
   }
 
   .origins-hero-title {
-    font-size: clamp(1.75rem, 8vw, 2.25rem);
-    line-height: 1.12;
-    margin-bottom: 14px;
+    font-size: clamp(1.5rem, 6.5vw, 2.1rem);
+    line-height: 1.15;
+    margin: 0 0 14px;
   }
 
   .origins-hero-description {
-    max-width: 36rem;
+    max-width: 320px;
     font-size: 0.75rem;
     line-height: 1.5;
     margin-bottom: 24px;

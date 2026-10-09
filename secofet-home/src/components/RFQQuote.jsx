@@ -32,56 +32,61 @@ const RFQQuote = ({ title = 'Quote.' }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (isSubmitting || isSubmitted) return;
+
     setIsSubmitting(true);
+    setSubmitMessage('');
 
-    const { error } = await supabase.from('rfq_requests').insert([
-      {
-        company_name: formData.companyName,
-        contact_name: formData.contactPerson,
-        email: formData.email,
-        phone: formData.phone,
-        country: formData.country,
-        buyer_type: formData.buyerType,
-        processing_type: formData.processingType,
-        coffee_type: formData.coffeeType,
-        coffee_origin: formData.coffeeOrigin,
-        coffee_grade: formData.coffeeGrade,
-        quantity_required: formData.quantityRequired,
-        destination_country: formData.destinationCountry,
-        destination_port: formData.destinationPort,
-        incoterm: formData.incoterm,
-        shipment_date: formData.shipmentDate,
-      },
-    ]);
+    try {
+      const { error } = await supabase.from('rfq_requests').insert([
+        {
+          company_name: formData.companyName,
+          contact_name: formData.contactPerson,
+          email: formData.email,
+          phone: formData.phone,
+          country: formData.country,
+          buyer_type: formData.buyerType,
+          processing_type: formData.processingType,
+          coffee_type: formData.coffeeType,
+          coffee_origin: formData.coffeeOrigin,
+          coffee_grade: formData.coffeeGrade,
+          quantity_required: formData.quantityRequired,
+          destination_country: formData.destinationCountry,
+          destination_port: formData.destinationPort,
+          incoterm: formData.incoterm,
+          shipment_date: formData.shipmentDate,
+        },
+      ]);
 
-    console.log('FULL INSERT ERROR:', error);
+      if (error) {
+        setSubmitMessage('Something went wrong. Please try again.');
+        return;
+      }
 
-    if (error) {
-      setIsSubmitting(false);
+      // Keep a saved request from appearing unsent if its notification fails.
+      setIsSubmitted(true);
+
+      try {
+        const { error: emailError } = await supabase.functions.invoke(
+          'send-rfq-email',
+          { body: formData },
+        );
+
+        if (emailError) {
+          setSubmitMessage(
+            'Your request was received, but its notification email could not be sent.',
+          );
+        }
+      } catch {
+        setSubmitMessage(
+          'Your request was received, but its notification email could not be sent.',
+        );
+      }
+    } catch {
       setSubmitMessage('Something went wrong. Please try again.');
-      return;
+    } finally {
+      setIsSubmitting(false);
     }
-    const { data: emailData, error: emailError } =
-      await supabase.functions.invoke('send-rfq-email', {
-        body: formData,
-      });
-
-    console.log('Email function response:', emailData);
-    console.log('Email function error:', emailError);
-
-    if (emailError) {
-      console.error('Email failed:', emailError);
-    }
-
-    console.log('Email function response:', emailData);
-    console.log('Email function error:', emailError);
-
-    if (emailError) {
-      console.error('Email failed:', emailError);
-    }
-
-    setIsSubmitting(false);
-    setIsSubmitted(true);
   };
 
   return (
@@ -414,7 +419,7 @@ const RFQQuote = ({ title = 'Quote.' }) => {
               <button
                 type="submit"
                 className={`btn-submit-rfq ${isSubmitted ? 'submitted' : ''}`}
-                disabled={isSubmitted}
+                disabled={isSubmitting || isSubmitted}
               >
                 {isSubmitting
                   ? 'Submitting...'

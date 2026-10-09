@@ -1,12 +1,55 @@
 import { useEffect, useRef, useState } from 'react';
 import '../styles/CookieConsent.css';
 
+const readCookieConsent = () => {
+  let savedConsent;
+
+  try {
+    savedConsent = window.localStorage.getItem('cookieConsent');
+  } catch {
+    return { hasSavedConsent: false, analytics: false, marketing: false };
+  }
+
+  if (!savedConsent) {
+    return { hasSavedConsent: false, analytics: false, marketing: false };
+  }
+
+  if (savedConsent === 'accepted') {
+    return { hasSavedConsent: true, analytics: true, marketing: true };
+  }
+
+  if (savedConsent === 'declined') {
+    return { hasSavedConsent: true, analytics: false, marketing: false };
+  }
+
+  try {
+    const parsedConsent = JSON.parse(savedConsent);
+
+    if (
+      parsedConsent &&
+      typeof parsedConsent === 'object' &&
+      !Array.isArray(parsedConsent)
+    ) {
+      return {
+        hasSavedConsent: true,
+        analytics: Boolean(parsedConsent.analytics),
+        marketing: Boolean(parsedConsent.marketing),
+      };
+    }
+  } catch {
+    // Treat invalid saved data as no choice so the banner can be shown again.
+  }
+
+  return { hasSavedConsent: false, analytics: false, marketing: false };
+};
+
 const CookieConsent = () => {
+  const [initialConsent] = useState(readCookieConsent);
   const [showBanner, setShowBanner] = useState(false);
   const [isDismissing, setIsDismissing] = useState(false);
   const [showPreferences, setShowPreferences] = useState(false);
-  const [analytics, setAnalytics] = useState(false);
-  const [marketing, setMarketing] = useState(false);
+  const [analytics, setAnalytics] = useState(initialConsent.analytics);
+  const [marketing, setMarketing] = useState(initialConsent.marketing);
 
   const dismissTimer = useRef(null);
   const manageButtonRef = useRef(null);
@@ -20,44 +63,9 @@ const CookieConsent = () => {
     }
   };
 
-  // Load saved cookie consent
+  // Show the banner after page load only when no valid choice is stored.
   useEffect(() => {
-    let savedConsent = null;
-
-    try {
-      savedConsent = window.localStorage.getItem('cookieConsent');
-    } catch {
-      // Continue without persisted consent when browser storage is unavailable.
-    }
-
-    if (savedConsent) {
-      try {
-        const parsedConsent = JSON.parse(savedConsent);
-
-        if (
-          parsedConsent &&
-          typeof parsedConsent === 'object' &&
-          !Array.isArray(parsedConsent)
-        ) {
-          setAnalytics(Boolean(parsedConsent.analytics));
-          setMarketing(Boolean(parsedConsent.marketing));
-        }
-      } catch {
-        // Support previous simple consent values.
-        if (savedConsent === 'accepted') {
-          setAnalytics(true);
-          setMarketing(true);
-        }
-
-        if (savedConsent === 'declined') {
-          setAnalytics(false);
-          setMarketing(false);
-        }
-      }
-
-      // Don't show the banner if the user has already made a choice.
-      return;
-    }
+    if (initialConsent.hasSavedConsent) return undefined;
 
     let displayTimer;
 
@@ -75,7 +83,7 @@ const CookieConsent = () => {
       window.removeEventListener('load', showAfterPageLoad);
       window.clearTimeout(displayTimer);
     };
-  }, []);
+  }, [initialConsent.hasSavedConsent]);
 
   // Clear dismiss timer
   useEffect(() => {

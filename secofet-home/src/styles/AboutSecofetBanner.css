@@ -153,11 +153,15 @@
 }
 
 .about-secofet-section .dot {
+  display: block;
   width: 7px;
   height: 7px;
+  padding: 0;
+  border: 0;
   border-radius: 50%;
   background-color: rgba(255, 255, 255, 0.4);
   cursor: pointer;
+  flex: 0 0 7px;
   transition:
     background-color 0.2s ease,
     transform 0.2s ease;

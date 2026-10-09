@@ -25,6 +25,7 @@ const ContactTeam = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (isSending) return;
 
     setIsSending(true);
     setSubmitMessage('');
@@ -50,18 +51,6 @@ const ContactTeam = () => {
         throw error;
       }
 
-      // Send the email through the Edge Function
-      const { error: emailError } = await supabase.functions.invoke(
-        'super-worker',
-        {
-          body: formData,
-        },
-      );
-
-      if (emailError) {
-        throw emailError;
-      }
-
       setSubmitMessage(
         'Thank you for contacting us. Your message has been sent successfully.',
       );
@@ -76,9 +65,17 @@ const ContactTeam = () => {
         role: '',
         message: '',
       });
-    } catch (error) {
-      console.error('Contact form error:', error);
 
+      // The database insert is the durable submission; the email is a
+      // notification and must not make a saved message look unsent.
+      try {
+        await supabase.functions.invoke('super-worker', {
+          body: formData,
+        });
+      } catch {
+        // The saved message is still submitted if notification fails.
+      }
+    } catch {
       setSubmitMessage(
         'Something went wrong while sending your message. Please try again.',
       );
@@ -252,7 +249,7 @@ const ContactTeam = () => {
               </p>
 
               <div className="phone-badges">
-                <a href="tel:+2511011121314" className="phone-badge">
+                <a href="tel:+251116683235" className="phone-badge">
                   <span className="phone-icon">
                     <svg
                       width="14"

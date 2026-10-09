@@ -80,7 +80,20 @@ const KeyCategories = () => {
                   {/* Category Title & Badge (Always visible in both collapsed and expanded states) */}
                   <div className="card-header-info">
                     <span className="card-number">0{index + 1}</span>
-                    <h3 className="card-title">{cat.title}</h3>
+                    <h3 className="card-title">
+                      <button
+                        type="button"
+                        className="category-card-title"
+                        aria-label={`Show details for ${cat.title}`}
+                        aria-expanded={isExpanded}
+                        onClick={(event) => {
+                          event.stopPropagation();
+                          setActiveIndex(index);
+                        }}
+                      >
+                        {cat.title}
+                      </button>
+                    </h3>
                   </div>
 
                   {/* Expanded Body Details */}

@@ -66,6 +66,13 @@
   box-shadow: 0 20px 48px rgba(0, 0, 0, 0.22);
 }
 
+.category-card-title {
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
 /* Active Hovered Card Expands */
 .category-card.expanded {
   flex-grow: 4;

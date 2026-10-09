@@ -86,10 +86,13 @@ const Header = () => {
           {/* Mobile Hamburger Toggle */}
           <button
             className="mobile-menu-toggle"
+            type="button"
             onClick={() => {
               setIsMobileMenuOpen(!isMobileMenuOpen);
             }}
             aria-label="Toggle Navigation Menu"
+            aria-expanded={isMobileMenuOpen}
+            aria-controls="mobile-navigation"
           >
             <span className={`bar ${isMobileMenuOpen ? 'open' : ''}`}></span>
             <span className={`bar ${isMobileMenuOpen ? 'open' : ''}`}></span>
@@ -99,7 +102,10 @@ const Header = () => {
       </div>
 
       {/* Mobile Dropdown Navigation */}
-      <div className={`mobile-nav ${isMobileMenuOpen ? 'open' : ''}`}>
+      <div
+        id="mobile-navigation"
+        className={`mobile-nav ${isMobileMenuOpen ? 'open' : ''}`}
+      >
         <ul>
           {navLinks.map((link) => (
             <li key={link.to}>

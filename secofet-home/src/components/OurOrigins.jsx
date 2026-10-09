@@ -149,9 +149,12 @@ const OurOrigins = () => {
             {/* Carousel Dots Indicator */}
             <div className="origin-dots">
               {originsData.map((item) => (
-                <span
+                <button
                   key={item.id}
+                  type="button"
                   className={`dot ${item.id === activeOrigin ? 'active' : ''}`}
+                  aria-label={`Show ${item.name} origin`}
+                  aria-pressed={item.id === activeOrigin}
                   onClick={() => setActiveOrigin(item.id)}
                 />
               ))}

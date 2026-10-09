@@ -93,9 +93,12 @@ const AboutSecofetBanner = () => {
               {/* Dots */}
               <div className="carousel-dots">
                 {slides.map((_, index) => (
-                  <span
+                  <button
                     key={index}
+                    type="button"
                     className={`dot ${currentIndex === index ? 'active' : ''}`}
+                    aria-label={`Show slide ${index + 1}`}
+                    aria-current={currentIndex === index ? 'true' : undefined}
                     onClick={() => setCurrentIndex(index)}
                   />
                 ))}
