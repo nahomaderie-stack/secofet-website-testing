@@ -93,7 +93,7 @@
   display: block;
   font-size: 0.8rem;
   font-weight: 700;
-  color: var(--color-primary);
+  color: var(--color-text-light-4);
   /* Light accent green */
   text-transform: uppercase;
   letter-spacing: 0.05em;

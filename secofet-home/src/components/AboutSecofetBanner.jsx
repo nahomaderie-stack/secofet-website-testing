@@ -2,7 +2,10 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/AboutSecofetBanner.css';
 
-import heroImg from '../assets/Images/Hero-image-2.png';
+import heroImg from '../assets/Images/AboutSecofet.jpg';
+import heroImg1 from '../assets/Images/AboutSecofet1.jpg';
+import heroImg2 from '../assets/Images/AboutSecofet2.jpg';
+import heroImg3 from '../assets/Images/AboutSecofet3.jpg';
 
 const slides = [
   {
@@ -12,17 +15,17 @@ const slides = [
   },
   {
     id: 2,
-    image: heroImg,
+    image: heroImg1,
     alt: 'Secofet Coffee Sourcing and Inspection',
   },
   {
     id: 3,
-    image: heroImg,
+    image: heroImg2,
     alt: 'Coffee Processing and Quality Assurance',
   },
   {
     id: 4,
-    image: heroImg,
+    image: heroImg3,
     alt: 'Export Logistics and Preparation',
   },
 ];
@@ -50,11 +53,20 @@ const AboutSecofetBanner = () => {
 
         {/* Carousel Card Box */}
         <div className="carousel-card">
-          <img
-            src={slides[currentIndex].image}
-            alt={slides[currentIndex].alt}
-            className="carousel-bg-img"
-          />
+          <div
+            className="carousel-image-track"
+            style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+          >
+            {slides.map((slide, index) => (
+              <img
+                key={slide.id}
+                src={slide.image}
+                alt={slide.alt}
+                className="carousel-bg-img"
+                aria-hidden={index !== currentIndex}
+              />
+            ))}
+          </div>
 
           {/* Dark Overlay Gradient */}
           <div className="carousel-overlay"></div>

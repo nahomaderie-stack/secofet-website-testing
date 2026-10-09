@@ -3,9 +3,9 @@ import SplitTextReveal from '../SplitTextAnimation/SplitTextReveal';
 import { Link } from 'react-router-dom';
 import '../styles/OurOrigins.css';
 
-import yirgacheffeImg from '../assets/Images/Yirgacheffe-farm.png';
-import coffeeFarmImg from '../assets/Images/Coffee-farm-2.png';
-import coffeeDryingImg from '../assets/Images/Coffee-drying-3.png';
+import yirgacheffeImg from '../assets/Images/Coffee-farm-1.jpg';
+import coffeeFarmImg from '../assets/Images/Sourcing.jpg';
+import coffeeDryingImg from '../assets/Images/Coffee-store-1.jpg';
 
 const operationsData = [
   {
@@ -52,9 +52,10 @@ const OurOperations = () => {
 
           <div className="origins-lead-text">
             <p className="lead-paragraph">
-              We connect international importers and specialty roasters with Exceptional
-              Ethiopian green coffee, bringing together origin-focused sourcing,
-              carefully selected coffees, and export expertise.
+              We connect international importers and specialty roasters with
+              Exceptional Ethiopian green coffee, bringing together
+              origin-focused sourcing, carefully selected coffees, and export
+              expertise.
             </p>
 
             <p className="sub-paragraph">

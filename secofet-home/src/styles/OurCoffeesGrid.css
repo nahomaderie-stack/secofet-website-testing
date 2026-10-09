@@ -28,7 +28,7 @@
   display: block;
   font-size: 0.85rem;
   font-weight: 700;
-  color: var(--color-primary);
+  color: var(--color-text-light-4);
   letter-spacing: 0.05em;
   margin-bottom: 12px;
 }
@@ -50,36 +50,156 @@
   margin: 0;
 }
 
-/* --- 3-Column Solid Box Grid --- */
+/* --- Single Row of Coffee Grade Cards --- */
 .category-cards-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 16px;
   align-items: stretch;
 }
 
 .category-card-box {
+  position: relative;
   width: 100%;
-  height: 520px;
+  height: 360px;
   background-color: #38783e;
-  /* Solid green matching design mockup */
   border-radius: 4px;
   overflow: hidden;
+  isolation: isolate;
+  cursor: default;
+  scroll-snap-align: start;
   transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
+    transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.category-card-box:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4);
+.category-card-box:hover,
+.category-card-box:focus-visible {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.28);
+}
+
+.category-card-box:focus-visible {
+  outline: 3px solid #ffffff;
+  outline-offset: 4px;
 }
 
 .category-card-img {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
+  box-sizing: border-box;
+  border: 0px solid #ffffff;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.category-card-front {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  align-items: flex-end;
+  padding: 28px 24px;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.5) 0%,
+    rgba(0, 0, 0, 0.15) 55%,
+    rgba(0, 0, 0, 0) 90%
+  );
+  opacity: 1;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.category-card-title {
+  color: #ffffff;
+  font-size: 1.25rem;
+  line-height: 1.2;
+  font-weight: 700;
+  margin: 0;
+}
+
+.category-card-hover {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 32px 24px;
+  box-sizing: border-box;
+  border-radius: inherit;
+  background-color: var(--color-primary);
+  color: #ffffff;
+  opacity: 0;
+  transform: translateY(100%);
+  pointer-events: none;
+  will-change: opacity, transform;
+  transition:
+    opacity 0.35s ease,
+    transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.category-card-box:hover .category-card-hover,
+.category-card-box:focus-visible .category-card-hover {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.category-card-box:hover .category-card-front,
+.category-card-box:focus-visible .category-card-front {
+  opacity: 0;
+}
+
+.category-card-box:hover .category-card-img,
+.category-card-box:focus-visible .category-card-img {
+  transform: scale(1.05);
+}
+
+.category-card-kicker,
+.category-card-hover-title,
+.category-card-description {
+  transform: translateY(6px);
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.category-card-kicker {
+  margin-bottom: auto;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.category-card-hover-title {
+  margin: 0 0 10px;
+  color: #ffffff;
+  font-size: 1.45rem;
+  line-height: 1.15;
+  font-weight: 700;
+  transition-delay: 0.05s;
+}
+
+.category-card-description {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.9rem;
+  line-height: 1.55;
+  font-weight: 400;
+  transition-delay: 0.1s;
+}
+
+.category-card-box:hover .category-card-kicker,
+.category-card-box:hover .category-card-hover-title,
+.category-card-box:hover .category-card-description,
+.category-card-box:focus-visible .category-card-kicker,
+.category-card-box:focus-visible .category-card-hover-title,
+.category-card-box:focus-visible .category-card-description {
+  transform: translateY(0);
 }
 
 /* ==========================================================================
@@ -90,10 +210,6 @@
   .our-coffees-grid-section {
     padding: 75px 40px;
   }
-  .category-cards-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
   .category-card-box {
     height: 380px;
   }
@@ -113,6 +229,18 @@
     font-weight: 300;
     margin: 0;
     max-width: 580px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .category-cards-grid {
+    grid-template-columns: repeat(5, minmax(200px, 1fr));
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x proximity;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.4) rgba(255, 255, 255, 0.08);
+    padding: 6px 4px 14px;
   }
 }
 
@@ -147,11 +275,24 @@
   }
 
   .category-cards-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(5, minmax(240px, 1fr));
     gap: 16px;
+    scroll-snap-type: x mandatory;
   }
 
   .category-card-box {
     height: 320px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .category-card-box,
+  .category-card-img,
+  .category-card-front,
+  .category-card-hover,
+  .category-card-kicker,
+  .category-card-hover-title,
+  .category-card-description {
+    transition-duration: 0.01ms;
   }
 }

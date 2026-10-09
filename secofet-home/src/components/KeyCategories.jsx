@@ -2,8 +2,8 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/KeyCategories.css';
 
-import yirgacheffeImg from '../assets/Images/Yirgacheffe-farm.png';
-import coffeeFarmImg from '../assets/Images/Coffee-farm-2.png';
+import yirgacheffeImg from '../assets/Images/Yirgacheffe.jpg';
+import coffeeFarmImg from '../assets/Images/Sidamo-2.jpg';
 import coffeeDryingImg from '../assets/Images/Coffee-drying-3.png';
 
 const categories = [

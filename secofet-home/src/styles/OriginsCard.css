@@ -43,7 +43,7 @@
 }
 
 .origins-wrapper .origins-tag {
-  color: var(--color-primary);
+  color: var(--color-light-4);
 
   font-size: 0.8rem;
   font-weight: 700;

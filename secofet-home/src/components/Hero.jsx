@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import '../styles/Hero.css';
+import coffeeDryingImg from '../assets/Images/Coffee-drying-3.png';
 
 const Hero = () => {
   return (
@@ -11,10 +12,15 @@ const Hero = () => {
       <div className="hero-container">
         <div className="hero-content">
           <h1 className="hero-title">
-            The World’s Most Sought-After
-            <br />
-            Ethiopian <span className="serif-text">Coffee</span> Carefully
-            Sourced, <span className="serif-text">Reliably</span> Exported.
+            <span className="hero-title-line">
+              The World’s Most Sought-After
+            </span>
+            <span className="hero-title-line">
+              Ethiopian <span className="serif-text">Coffee</span> Carefully
+            </span>
+            <span className="hero-title-line">
+              Sourced, <span className="serif-text">Reliably</span> Exported.
+            </span>
           </h1>
 
           <p className="hero-subtitle">
@@ -47,6 +53,33 @@ const Hero = () => {
           </div>
         </div>
       </div>
+
+      {/* <aside className="hero-highlights" aria-label="Ethiopian coffee highlights">
+        <article className="hero-highlight-card">
+          <span className="hero-highlight-eyebrow">Ethiopian origins</span>
+          <h2 className="hero-highlight-title">Yirgacheffe</h2>
+          <p className="hero-highlight-description">Sidamo · Guji</p>
+        </article>
+
+        <article className="hero-highlight-card">
+          <span className="hero-highlight-eyebrow">Cup character</span>
+          <h2 className="hero-highlight-title">Floral &amp; bright</h2>
+          <p className="hero-highlight-description">
+            Citrus · stone fruit · berries
+          </p>
+        </article>
+
+        <article className="hero-highlight-card hero-highlight-card-image">
+          <img src={coffeeDryingImg} alt="" aria-hidden="true" />
+          <div className="hero-highlight-image-content">
+            <span className="hero-highlight-eyebrow">Ethiopian coffee</span>
+            <h2 className="hero-highlight-title">From origin to export</h2>
+            <p className="hero-highlight-description">
+              Carefully selected for global market.
+            </p>
+          </div>
+        </article>
+      </aside> */}
     </section>
   );
 };

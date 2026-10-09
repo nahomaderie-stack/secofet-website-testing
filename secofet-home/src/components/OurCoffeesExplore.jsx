@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom';
+import SplitTextReveal from '../SplitTextAnimation/SplitTextReveal';
 import '../styles/OurCoffeesExplore.css';
 
 // Import your drying beds hero image asset
-import coffeeDryingBeds from '../assets/Images/Coffee-Farm.png';
+import coffeeDryingBeds from '../assets/Images/ExploreImage.jpg';
 
 const OurCoffeesExplore = () => {
   return (
@@ -18,19 +19,27 @@ const OurCoffeesExplore = () => {
       <div className="hero-content-container">
         {/* Main Headline */}
         <h1 className="hero-main-title">
-          Explore our carefully
-          <br />
-          sourced <span className="serif-text">Ethiopian Arabica</span>
-          <br />
-          coffees.
+          <SplitTextReveal
+            as="span"
+            className="coffee-hero-title-line"
+            text="Explore our carefully"
+          />
+          <span className="coffee-hero-title-line coffee-hero-title-line--mixed">
+            <SplitTextReveal as="span" text="sourced" />{' '}
+            <SplitTextReveal
+              as="span"
+              className="serif-text"
+              text="Ethiopian Arabica"
+            />
+          </span>
+          <SplitTextReveal as="span" className="coffee-hero-title-line" text="coffees." />
         </h1>
 
         {/* Subtitle Description */}
-        <p className="hero-subtitle">
-          From the highlands of Yirgacheffe, Gedeo, and Sidama, discover coffees
-          shaped by unique origins, careful cultivation, and generations of
-          expertise.
-        </p>
+        <SplitTextReveal
+          className="hero-subtitle"
+          text="From the highlands of Yirgacheffe, Gedeo, and Sidama, discover coffees shaped by unique origins, careful cultivation, and generations of expertise."
+        />
 
         {/* Quick CTA Actions */}
         <div className="hero-actions">

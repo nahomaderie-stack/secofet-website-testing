@@ -1,7 +1,7 @@
 import '../styles/MissionVision.css';
 
-import coffeeCherriesImg from '../assets/Images/Hero-image-2.png';
-import exportTruckImg from '../assets/Images/Hero-image-2.png';
+import coffeeCherriesImg from '../assets/Images/Coffee-Image.png';
+import exportTruckImg from '../assets/Images/secofet-trading-plc-cherry.png';
 
 const MissionVision = () => {
   return (

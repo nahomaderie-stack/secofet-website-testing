@@ -1,8 +1,10 @@
 import '../styles/CoffeeFarmsGrid.css';
-
-// SVG Placeholder Generator
-const createPlaceholder = (label) =>
-    `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="600" height="800" viewBox="0 0 600 800"><rect width="100%" height="100%" fill="%232b2b2b"/><text x="50%" y="50%" font-family="sans-serif" font-size="22" font-weight="bold" fill="%236b7280" text-anchor="middle">${encodeURIComponent(label)}</text></svg>`;
+import highlandFarm from '../assets/Images/Yirgacheffe-farm.png';
+import coffeeCherries from '../assets/Images/Coffee-cherry.png';
+import highlandDryingBeds from '../assets/Images/AboutSecofet2.jpg';
+import coffeeSorting from '../assets/Images/CoffeeGrade.jpg';
+import dryingCoffee from '../assets/Images/Coffee-drying-3.png';
+import farmersAtWork from '../assets/Images/AboutSecofet3.jpg';
 
 const CoffeeFarmsGrid = () => {
     return (
@@ -27,32 +29,32 @@ const CoffeeFarmsGrid = () => {
 
                         {/* Box 1: Left Medium-Tall (Starts aligned under text) */}
                         <div className="mosaic-card card-1">
-                            <img src={createPlaceholder('Highland Farms')} alt="Highland Farms" />
+                            <img src={highlandFarm} alt="Coffee farm among Ethiopia's highland forests" />
                         </div>
 
                         {/* Box 2: Middle Top Square */}
                         <div className="mosaic-card card-2">
-                            <img src={createPlaceholder('Cherries')} alt="Cherries" />
+                            <img src={coffeeCherries} alt="Ripe coffee cherries growing on a branch" />
                         </div>
 
                         {/* Box 3: Center Hero Tall (Pushes up above the rest) */}
                         <div className="mosaic-card card-3">
-                            <img src={createPlaceholder('Gedeo Valley')} alt="Gedeo Valley" />
+                            <img src={highlandDryingBeds} alt="Coffee drying beds in an Ethiopian highland landscape" />
                         </div>
 
                         {/* Box 4: Far Right Medium Square */}
                         <div className="mosaic-card card-4">
-                            <img src={createPlaceholder('Soil')} alt="Soil" />
+                            <img src={coffeeSorting} alt="Hands sorting green coffee beans" />
                         </div>
 
                         {/* Box 5: Middle Bottom Wide Block */}
                         <div className="mosaic-card card-5">
-                            <img src={createPlaceholder('Drying Beds')} alt="Drying Beds" />
+                            <img src={dryingCoffee} alt="Green coffee drying on raised beds" />
                         </div>
 
                         {/* Box 6: Bottom Right Square Block */}
                         <div className="mosaic-card card-6">
-                            <img src={createPlaceholder('Farmers')} alt="Farmers" />
+                            <img src={farmersAtWork} alt="Farmers working together at a coffee drying station" />
                         </div>
 
                     </div>

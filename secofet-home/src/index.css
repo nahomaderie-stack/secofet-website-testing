@@ -302,9 +302,11 @@
   /* Text */
   --color-text-dark: #000000;
   --color-text-dark-2: #121518;
+  --color-text-dark-3: #323232;
   --color-text-light: #ffffff;
   --color-text-light-2: #dfdfdf;
   --color-text-light-3: #f0f0f0;
+  --color-text-light-4: #f0f0f0d0;
 
   /* Accent */
   --color-accent: #069f39;
