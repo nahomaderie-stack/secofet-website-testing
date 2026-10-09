@@ -114,7 +114,7 @@ const SecofetTeam = () => {
               onClick={() => scroll('left')}
               aria-label="Previous Slide"
             >
-              ←
+              ◀
             </button>
 
             <button
@@ -122,7 +122,7 @@ const SecofetTeam = () => {
               onClick={() => scroll('right')}
               aria-label="Next Slide"
             >
-              →
+              ▶
             </button>
           </div>
         </div>

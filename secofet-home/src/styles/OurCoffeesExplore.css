@@ -181,12 +181,12 @@
 
 @media (max-width: 640px) {
   .our-coffees-hero {
-    min-height: 86vh;
+    min-height: 90vh;
     padding: 0;
   }
 
   .hero-content-container {
-    padding: 5px 20px 110px;
+    padding: 50px 20px 55px;
   }
   .hero-dark-overlay {
     position: absolute;
@@ -238,7 +238,7 @@
   }
 
   .hero-content-container {
-    padding: 5px 40px 95px;
+    padding: 5px 40px 55px;
   }
   .hero-actions {
     flex-direction: row;

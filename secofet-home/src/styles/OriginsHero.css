@@ -232,8 +232,8 @@
   }
   .origins-hero {
     height: auto;
-    max-height: 50vh;
-    padding: 48px 0;
+    padding: 0px 0px;
+    min-height: 90vh;
   }
 
   .origins-hero-content {
