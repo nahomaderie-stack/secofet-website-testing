@@ -14,34 +14,33 @@ const AboutUs = () => {
 
         {/* Main Heading */}
         <h2 className="about-heading">
-          Connecting <span className="serif-text">Ethiopian Coffee</span> with
+          Your Reliable <span className="serif-text">Partner </span> for
           {'  '}
           <br />
-          Global Customers
+          Ethiopian Green Coffee
         </h2>
 
         {/* Paragraph Description */}
         <div className="about-description">
           <p>
             Secofet Trading PLC is an{' '}
-            <strong>Ethiopian green coffee exporter</strong> focused on
-            specialty Arabica, with commercial coffee supplied according to
-            buyer requirements.
+            <strong>Ethiopian green coffee exporter</strong> specializing in
+            premium Arabica and tailored commercial grades.
           </p>
           <p>
             Based in Addis Ababa, Secofet currently sources from established
             Ethiopian coffee origins including{' '}
             <strong>Yirgacheffe, Gedeo and Sidama</strong>, connecting
-            origin-based coffee supply with international buyers through focused
-            sourcing, quality management, and professional export services.
+            international buyers to origin through meticulous sourcing, rigorous
+            quality management, and reliable export services.
           </p>
         </div>
 
         {/* Highlight Banner with Buttons */}
         <div className="about-cta-banner">
           <p className="about-cta-text">
-            From Ethiopian origin to international market, we focus on building
-            reliable coffee supply and long-term business relationships.
+            From Ethiopian origin to global markets, we build reliable supply
+            chains and lasting business partnerships.
           </p>
           <div className="about-cta-buttons">
             <Link to="/about" className="btn-discover">
@@ -136,8 +135,7 @@ const AboutUs = () => {
               <div className="inset-footer">
                 <h3 className="inset-title">
                   Discover More about{' '}
-                  <span className="serif-text">Secofet</span> with Global
-                  Customers.
+                  <span className="serif-text">Secofet</span>.
                 </h3>
               </div>
             </div>

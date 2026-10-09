@@ -11,15 +11,16 @@ const Hero = () => {
       <div className="hero-container">
         <div className="hero-content">
           <h1 className="hero-title">
-            Ethiopian <span className="serif-text">Coffee</span> Carefully
+            The World’s Most Sought-After
             <br />
+            Ethiopian <span className="serif-text">Coffee</span> Carefully
             Sourced, <span className="serif-text">Reliably</span> Exported.
           </h1>
 
           <p className="hero-subtitle">
-            We supply Ethiopian specialty and commercial Arabica coffee to
-            international buyers, with sourcing focused on established origins
-            in Yirgacheffe, Guji and Sidama.
+            Supplying international importers and specialty roasters with
+            meticulously selected green coffee from Ethiopia’s premier growing
+            regions.
           </p>
 
           <div className="hero-cta-group">

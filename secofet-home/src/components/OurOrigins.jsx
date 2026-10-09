@@ -7,65 +7,67 @@ import yirgacheffeImg from '../assets/Images/Yirgacheffe-farm.png';
 import coffeeFarmImg from '../assets/Images/Coffee-farm-2.png';
 import coffeeDryingImg from '../assets/Images/Coffee-drying-3.png';
 
-const originsData = [
+const operationsData = [
   {
     id: '01',
-    name: 'Sidama',
+    name: 'Careful Sourcing',
     description:
-      'Prized for its vibrant citrus acidity, sweet cane sugar finish, and floral aromas, Sidama represents one of Ethiopia’s cornerstone specialty regions.',
+      'We connect international buyers with Ethiopian green coffee sourced from established growing regions, including Yirgacheffe, with a focus on origin, buyer requirements, and lot selection.',
     image: coffeeFarmImg,
   },
   {
     id: '02',
-    name: 'Yirgacheffe',
+    name: 'Quality Management',
     description:
-      "Known for its important role in Ethiopian coffee, Yirgacheffe represents one of the origins within Secofet's current Gedeo sourcing network.",
+      'Every coffee selection begins with understanding the buyer’s needs. We consider coffee grade, processing method, origin, and lot characteristics to help match each order with the right specifications.',
     image: yirgacheffeImg,
   },
   {
     id: '03',
-    name: 'Guji',
+    name: 'Reliable Export',
     description:
-      'Renowned for its complex berry-forward flavor profiles, rich body, and distinctive dark chocolate notes.',
+      'We coordinate export requirements and shipment arrangements to connect Ethiopian coffee with international markets, prioritizing clear communication, dependable service, and lasting business relationships.',
     image: coffeeDryingImg,
   },
 ];
 
-const OurOrigins = () => {
-  const [activeOrigin, setActiveOrigin] = useState('02'); // Yirgacheffe active by default
+const OurOperations = () => {
+  const [activeOperation, setActiveOperation] = useState('02');
 
-  const currentOrigin =
-    originsData.find((item) => item.id === activeOrigin) || originsData[1];
+  const currentOperation =
+    operationsData.find((item) => item.id === activeOperation) ||
+    operationsData[1];
 
   return (
     <section className="origins-section">
       <div className="origins-container">
-        {/* --- Top Text Header --- */}
+        {/* Top Text Header */}
         <div className="origins-header">
-          <span className="origins-tag">Our Origins</span>
+          <span className="origins-tag">Our Operations</span>
 
           <h2 className="origins-title">
-            From <span className="serif-text">Ethiopia's</span> Coffee
-            <br />
-            Growing Origins
+            Connecting <span className="serif-text">Ethiopian</span>
+            <br /> Coffee to the World
           </h2>
 
           <div className="origins-lead-text">
             <p className="lead-paragraph">
-              Ethiopian coffee begins with its origins. Secofet currently works
-              with coffee sourced from Yirgacheffe, planning to establish into
-              Gedeo and Sidama coffee-growing areas within Ethiopia.
+              We connect international importers and specialty roasters with Exceptional
+              Ethiopian green coffee, bringing together origin-focused sourcing,
+              carefully selected coffees, and export expertise.
             </p>
+
             <p className="sub-paragraph">
-              Our origin-focused approach allows buyers to understand where
-              their coffee comes from and explore available coffees according to
-              origin, processing, grade, and lot characteristics.
+              From selecting coffees to coordinating export orders, we focus on
+              buyer requirements, quality specifications, and reliable service
+              to help build lasting partnerships across global markets.
             </p>
           </div>
 
           <div className="origins-actions">
-            <Link to="/origins" className="btn-visit-origins">
-              <span>Visit Origins</span>
+            <Link to="/operations" className="btn-visit-origins">
+              <span>Explore Our Operations</span>
+
               <span className="pill-icon">
                 <svg
                   width="12"
@@ -77,8 +79,8 @@ const OurOrigins = () => {
                   strokeLinecap="round"
                   strokeLinejoin="round"
                 >
-                  <line x1="7" y1="17" x2="17" y2="7"></line>
-                  <polyline points="7 7 17 7 17 17"></polyline>
+                  <line x1="7" y1="17" x2="17" y2="7" />
+                  <polyline points="7 7 17 7 17 17" />
                 </svg>
               </span>
             </Link>
@@ -88,6 +90,7 @@ const OurOrigins = () => {
               className="btn-request-sample btn-secondary"
             >
               <span>Request a Sample</span>
+
               <svg
                 width="16"
                 height="16"
@@ -99,36 +102,40 @@ const OurOrigins = () => {
                 strokeLinejoin="round"
                 className="arrow-up-right"
               >
-                <line x1="7" y1="17" x2="17" y2="7"></line>
-                <polyline points="7 7 17 7 17 17"></polyline>
+                <line x1="7" y1="17" x2="17" y2="7" />
+                <polyline points="7 7 17 7 17 17" />
               </svg>
             </Link>
           </div>
         </div>
 
-        {/* --- Bottom Split Interactive Card --- */}
+        {/* Interactive Operations Card */}
         <div className="origins-card">
-          {/* Left Dark Content Column */}
+          {/* Left Content Column */}
           <div className="origins-card-left">
             <SplitTextReveal
-              key={activeOrigin}
+              key={activeOperation}
               className="origin-dynamic-desc"
-              text={currentOrigin.description}
+              text={currentOperation.description}
             />
 
-            {/* Accordion List Selector */}
+            {/* Operation Selector */}
             <div className="origin-selector-list">
-              {originsData.map((item) => {
-                const isActive = item.id === activeOrigin;
+              {operationsData.map((item) => {
+                const isActive = item.id === activeOperation;
+
                 return (
                   <button
                     key={item.id}
+                    type="button"
                     className={`origin-item-btn ${isActive ? 'active' : ''}`}
-                    onClick={() => setActiveOrigin(item.id)}
+                    onClick={() => setActiveOperation(item.id)}
+                    aria-pressed={isActive}
                   >
                     <span className="origin-item-name">
                       {item.id}. {item.name}
                     </span>
+
                     <span className="origin-item-symbol">
                       {isActive ? '✕' : '↗'}
                     </span>
@@ -138,24 +145,26 @@ const OurOrigins = () => {
             </div>
           </div>
 
-          {/* Right Image Display Column */}
+          {/* Right Image Display */}
           <div className="origins-card-right">
             <img
-              src={currentOrigin.image}
-              alt={currentOrigin.name}
+              src={currentOperation.image}
+              alt={currentOperation.name}
               className="origin-hero-img"
             />
 
-            {/* Carousel Dots Indicator */}
+            {/* Carousel Indicators */}
             <div className="origin-dots">
-              {originsData.map((item) => (
+              {operationsData.map((item) => (
                 <button
                   key={item.id}
                   type="button"
-                  className={`dot ${item.id === activeOrigin ? 'active' : ''}`}
-                  aria-label={`Show ${item.name} origin`}
-                  aria-pressed={item.id === activeOrigin}
-                  onClick={() => setActiveOrigin(item.id)}
+                  className={`dot ${
+                    item.id === activeOperation ? 'active' : ''
+                  }`}
+                  aria-label={`Show ${item.name}`}
+                  aria-pressed={item.id === activeOperation}
+                  onClick={() => setActiveOperation(item.id)}
                 />
               ))}
             </div>
@@ -166,4 +175,4 @@ const OurOrigins = () => {
   );
 };
 
-export default OurOrigins;
+export default OurOperations;

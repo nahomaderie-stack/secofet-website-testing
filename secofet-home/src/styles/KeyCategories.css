@@ -41,6 +41,15 @@
   margin: 0;
 }
 
+.categories-description {
+  max-width: 720px;
+  margin: 20px 0 0;
+  color: #4b5563;
+  font-size: 0.95rem;
+  font-weight: 400;
+  line-height: 1.65;
+}
+
 /* --- Cards Flex Layout --- */
 .categories-grid {
   display: flex;
@@ -331,6 +340,12 @@
     line-height: 1.12;
   }
 
+  .categories-description {
+    margin-top: 16px;
+    font-size: 0.8rem;
+    line-height: 1.5;
+  }
+
   .categories-grid {
     display: flex;
     flex-direction: column;
@@ -375,5 +390,17 @@
 
   .collapsed-arrow-btn {
     display: none;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .categories-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 641px) and (max-width: 768px) {
+  .categories-grid .category-card:nth-child(3) {
+    grid-column: 1 / -1;
   }
 }

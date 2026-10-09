@@ -2,42 +2,33 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/KeyCategories.css';
 
-import heroImg from '../assets/Images/Hero-image-2.png';
 import yirgacheffeImg from '../assets/Images/Yirgacheffe-farm.png';
 import coffeeFarmImg from '../assets/Images/Coffee-farm-2.png';
 import coffeeDryingImg from '../assets/Images/Coffee-drying-3.png';
 
 const categories = [
   {
-    id: 'arabica',
-    title: 'Ethiopian Arabica',
-    description:
-      'Sourced from Ethiopia’s renowned coffee-growing regions, with current sourcing focused on Yirgacheffe, Gedeo and Sidama.',
-    image: coffeeFarmImg,
-    link: '/our-coffees',
-  },
-  {
     id: 'yirgacheffe',
-    title: 'Yirgacheffe Coffee',
+    title: 'Yirgacheffe',
     description:
-      'Known worldwide for its distinct floral aroma, bright acidity, and sweet citrus flavor profile.',
+      'Renowned globally for its intense floral aromas, delicate tea-like body, and crisp citrus acidity.',
     image: yirgacheffeImg,
     link: '/our-coffees',
   },
   {
-    id: 'guji',
-    title: 'Guji Specialty',
+    id: 'sidamo',
+    title: 'Sidamo',
     description:
-      'Rich complex profiles featuring heavy berry notes, intense sweetness, and elegant body.',
-    image: coffeeDryingImg,
+      'Celebrated for its well-balanced cup profile, bright acidity, and complex lemon, berry, and herbal notes.',
+    image: coffeeFarmImg,
     link: '/our-coffees',
   },
   {
-    id: 'sidama',
-    title: 'Sidama Arabica',
+    id: 'guji',
+    title: 'Guji',
     description:
-      'Balanced acidity with vibrant lemon and cane sugar sweetness, prized by global roasters.',
-    image: heroImg,
+      'Prized for its complex, fruit-forward flavors, elegant body, and distinct notes of stone fruit, jasmine, and dark berries.',
+    image: coffeeDryingImg,
     link: '/our-coffees',
   },
 ];
@@ -57,6 +48,14 @@ const KeyCategories = () => {
             <br />
             Categories
           </h2>
+          <p className="categories-description">
+            Ethiopia’s diverse microclimates and high altitudes produce some of
+            the most sought-after flavor profiles in the world. Each growing
+            region carries its own signature cup character—from delicate florals
+            to vibrant stone fruits and bright citrus. We source directly from
+            the legendary terroirs of Yirgacheffe, Sidama, and Guji to bring you
+            green coffee of exceptional quality and origin distinction.
+          </p>
         </div>
 
         {/* Accordion Grid */}
