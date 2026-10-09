@@ -154,12 +154,13 @@
 
 @media (max-width: 1024px) {
   .hero-section {
-    min-height: 76svh;
+    min-height: 92vh;
     align-items: flex-end;
+    padding: 0;
   }
 
   .hero-container {
-    padding: 0 40px 56px;
+    padding: 5px 40px 75px;
   }
 
   .hero-content {
@@ -168,7 +169,8 @@
   }
 
   .hero-section .hero-title {
-    font-size: clamp(36px, 4.8vw, 48px);
+    font-size: clamp(34px, 4.8vw, 45px);
+    line-height: 1.1;
   }
 
   .hero-section .serif-text {
@@ -186,11 +188,12 @@
 }
 @media (max-width: 640px) {
   .hero-section {
-    min-height: calc(100svh - 68px);
+    min-height: 85vh;
+    padding: 0;
   }
 
   .hero-container {
-    padding: 0 20px 36px;
+    padding: 50px 20px 90px;
   }
 
   .hero-section .hero-title {
@@ -201,6 +204,7 @@
   .hero-section .hero-subtitle {
     font-size: 0.75rem;
     line-height: 1.5;
+    margin-bottom: 20px;
   }
 
   .hero-content {
@@ -211,7 +215,7 @@
   .hero-cta-group {
     flex-direction: column;
     align-items: stretch;
-    gap: 18px;
+    gap: 12px;
     width: 100%;
   }
 
@@ -235,5 +239,58 @@
       rgba(0, 0, 0, 0.65) 100%
     );
     z-index: 1;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 900px) {
+  .hero-section {
+    min-height: 88vh;
+    padding: 0;
+  }
+
+  .hero-container {
+    padding: 5px 40px 55px;
+  }
+
+  .hero-cta-group {
+    flex-direction: row;
+    gap: 12px;
+    width: 100%;
+  }
+
+  .hero-section .btn-primary,
+  .hero-section .btn-secondary {
+    font-size: var(--text-xs);
+  }
+
+  .hero-section .btn-secondary {
+    align-self: center;
+  }
+
+  .hero-section .hero-title {
+    font-size: clamp(1.4rem, 6.5vw, 2.1rem);
+    line-height: 1.15;
+  }
+
+  .hero-section .hero-subtitle {
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    max-width: 550px;
+  }
+}
+
+@media (max-width: 320px) {
+  .hero-section {
+    min-height: 92vh;
+    padding: 0;
+  }
+
+  .hero-container {
+    padding: 5px 20px 75px;
+  }
+
+  .hero-section .hero-title {
+    font-size: clamp(1.35rem, 6.5vw, 2.1rem);
   }
 }
